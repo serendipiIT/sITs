@@ -13,7 +13,7 @@
 </script>
 
 <template>
-  <HelloWorld msg="Hello World!" />
-  <Carousel class="my-10" />
-  <CitiesList />
+  <main>
+    <RouterView />
+  </main>
 </template>
