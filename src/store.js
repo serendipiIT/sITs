@@ -4,9 +4,14 @@ import { createStore } from "vuex"
 
 export default createStore({
   actions: {
-    async get() {
+    async get({ commit }) {
       const res = await axios("https://fakestoreapi.com/products")
-      this.productList = res.data
+      commit("get", res.data)
+    },
+  },
+  mutations: {
+    get(state, productList) {
+      state.productList = productList
     },
   },
   state: {
