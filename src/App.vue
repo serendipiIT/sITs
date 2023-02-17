@@ -4,6 +4,9 @@
   import Carousel from "./components/Carousel.vue"
 
   export default {
+    created() {
+      this.$store.dispatch("get")
+    },
     components: {
       CitiesList,
       HelloWorld,
