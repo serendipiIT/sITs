@@ -13,6 +13,6 @@
 </style>
 
 <template>
-  <img alt="" src="/assets/fox.jpeg" />
+  <img alt="" src="/assets/GAIS_logo.jpeg" />
   <p>{{ msg }}</p>
 </template>
