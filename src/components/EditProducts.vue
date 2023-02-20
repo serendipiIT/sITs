@@ -11,16 +11,14 @@
         title: null,
         price: null,
         id: null,
+        urlApi: "http://SITsApi.us-east-1.elasticbeanstalk.com/",
       }
     },
     methods: {
       getAxios() {
         axios({
           method: "get",
-          url: `http://localhost:3000/products`,
-          /*           headers: {
-            Authorization: ``
-          } */
+          url: `${this.urlApi}products`,
         })
           .then((response) => {
             console.log(response.data.data)
@@ -33,7 +31,7 @@
       async postAxios() {
         await axios({
           method: "post",
-          url: "http://localhost:3000/products",
+          url: `${this.urlApi}products`,
           data: {
             title: `"${this.title}"`,
             price: this.price,
@@ -45,7 +43,7 @@
       async delAxios() {
         await axios({
           method: "delete",
-          url: `http://localhost:3000/products/${this.id}`,
+          url: `${this.urlApi}products/${this.id}`,
         })
         console.log("delete")
         this.getAxios()
