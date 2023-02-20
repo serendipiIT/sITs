@@ -43,28 +43,28 @@
   >
     <swiper-slide>
       <img
-        src="https://via.placeholder.com/200x250"
+        src="https://via.placeholder.com/400x500"
         alt="placeholder"
         class="w-full h-full object-cover"
     /></swiper-slide>
     <swiper-slide>
       <img
-        src="https://via.placeholder.com/200x250"
+        src="https://via.placeholder.com/400x500"
         alt="placeholder"
         class="w-full h-full object-cover" /></swiper-slide
     ><swiper-slide>
       <img
-        src="https://via.placeholder.com/200x250"
+        src="https://via.placeholder.com/400x500"
         alt="placeholder"
         class="w-full h-full object-cover" /></swiper-slide
     ><swiper-slide>
       <img
-        src="https://via.placeholder.com/200x250"
+        src="https://via.placeholder.com/400x500"
         alt="placeholder"
         class="w-full h-full object-cover" /></swiper-slide
     ><swiper-slide>
       <img
-        src="https://via.placeholder.com/200x250"
+        src="https://via.placeholder.com/400x500"
         alt="placeholder"
         class="w-full h-full object-cover"
     /></swiper-slide>

@@ -16,7 +16,7 @@
 </script>
 
 <template>
-  <main>
+  <main class="scroll-smooth">
     <RouterView />
   </main>
 </template>
