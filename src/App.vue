@@ -22,7 +22,7 @@
       <li><RouterLink to="/about">About</RouterLink></li>
     </ul>
   </nav>
-  <main>
+  <main class="scroll-smooth">
     <RouterView />
   </main>
 </template>
