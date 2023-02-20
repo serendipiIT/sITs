@@ -12,9 +12,12 @@ export default createStore({
       const data = await (
         await fetch("https://fakestoreapi.com/products")
       ).json()
-      console.log("hej")
-      // commit("get", data)
+      commit("get", data)
     },
+  },
+  getters: {
+    // TODO Getter för nya produkter,
+    // kategorier (getProductCategory: (state) => (cat) => ...  )
   },
   mutations: {
     get(state, productList) {
