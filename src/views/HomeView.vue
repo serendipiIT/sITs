@@ -17,7 +17,17 @@
 <template>
   <main>
     <Navbar />
-    <Carousel class="max-w-[95vw]" :height="'h-[60vh]'" />
+    <Carousel
+      class="max-w-[95vw]"
+      :height="'h-[60vh]'"
+      :product-list="[
+        { image: 'https://via.placeholder.com/200x250' },
+        { image: 'https://via.placeholder.com/200x250' },
+        { image: 'https://via.placeholder.com/200x250' },
+        { image: 'https://via.placeholder.com/200x250' },
+        { image: 'https://via.placeholder.com/200x250' },
+      ]"
+    />
     <NewProducts />
     <Footer />
   </main>

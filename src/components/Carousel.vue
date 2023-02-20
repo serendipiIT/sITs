@@ -8,10 +8,6 @@
   import "swiper/css/scrollbar"
 
   export default {
-    components: {
-      Swiper,
-      SwiperSlide,
-    },
     setup() {
       const onSwiper = (swiper) => {
         console.log(swiper)
@@ -25,8 +21,22 @@
         modules: [Navigation, Pagination, A11y, Autoplay],
       }
     },
+    components: {
+      Swiper,
+      SwiperSlide,
+    },
+    data() {
+      return {
+        imageHeight: this.infoText ? "h-[75%]" : "h-full",
+      }
+    },
     props: {
+      infoText: {
+        type: Boolean,
+        default: false,
+      },
       height: String,
+      productList: Array,
     },
   }
 </script>
@@ -41,32 +51,25 @@
     @slideChange="onSlideChange"
     :class="height"
   >
-    <swiper-slide>
+    <swiper-slide :key="product.id" v-for="product in productList">
+      <!-- TODO RouterLink till produktsida TODO använda ProductCard? -->
       <img
-        src="https://via.placeholder.com/400x500"
-        alt="placeholder"
-        class="w-full h-full object-cover"
-    /></swiper-slide>
-    <swiper-slide>
-      <img
-        src="https://via.placeholder.com/400x500"
-        alt="placeholder"
-        class="w-full h-full object-cover" /></swiper-slide
-    ><swiper-slide>
-      <img
-        src="https://via.placeholder.com/400x500"
-        alt="placeholder"
-        class="w-full h-full object-cover" /></swiper-slide
-    ><swiper-slide>
-      <img
-        src="https://via.placeholder.com/400x500"
-        alt="placeholder"
-        class="w-full h-full object-cover" /></swiper-slide
-    ><swiper-slide>
-      <img
-        src="https://via.placeholder.com/400x500"
-        alt="placeholder"
-        class="w-full h-full object-cover"
-    /></swiper-slide>
+        :alt="product.title"
+        :class="`w-full ${imageHeight} object-cover`"
+        :src="product.image"
+      />
+      <div class="flex flex-row justify-between mt-6" v-if="infoText">
+        <div>
+          <p class="font-medium">
+            {{ product.title }}
+          </p>
+          <p class="font-medium">{{ product.price }}</p>
+        </div>
+        <div>
+          <i>Spara</i>
+          <i>Köp</i>
+        </div>
+      </div>
+    </swiper-slide>
   </swiper>
 </template>
