@@ -16,6 +16,12 @@
 </script>
 
 <template>
+  <nav class="flex col">
+    <ul>
+      <li><RouterLink to="/">Home</RouterLink></li>
+      <li><RouterLink to="/about">About</RouterLink></li>
+    </ul>
+  </nav>
   <main>
     <RouterView />
   </main>
