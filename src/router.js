@@ -4,7 +4,7 @@ import HomeView from "./views/HomeView.vue"
 import AboutView from "./views/AboutView.vue"
 import CareerView from "./views/CareerView.vue"
 import ProductPage from "./views/ProductPage.vue"
-import ApiProducts from "./views/ApiProducts.vue"
+// import ApiProducts from "./views/ApiProducts.vue"
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -33,11 +33,11 @@ export default createRouter({
       path: "/career",
       meta: { title: "Career" },
     },
-    {
-      name: "apiProducts",
-      component: apiProductsView,
-      path: "/apiProducts",
-      meta: { title: "apiProducts" },
-    },
+    // {
+    //   name: "apiProducts",
+    //   component: apiProductsView,
+    //   path: "/apiProducts",
+    //   meta: { title: "apiProducts" },
+    // },
   ],
 })
