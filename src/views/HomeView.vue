@@ -1,6 +1,5 @@
 <script>
   import Carousel from "../components/Carousel.vue"
-  import HelloWorld from "../components/HelloWorld.vue"
   import Footer from "../components/Footer.vue"
   import Navbar from "../components/Navbar.vue"
 
@@ -16,7 +15,7 @@
 <template>
   <main>
     <Navbar />
-    <Carousel />
+    <Carousel class="max-w-[95vw]" :height="'h-[60vh]'" />
     <Footer />
   </main>
 </template>

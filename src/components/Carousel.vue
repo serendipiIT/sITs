@@ -25,24 +25,48 @@
         modules: [Navigation, Pagination, A11y, Autoplay],
       }
     },
+    props: {
+      height: String,
+    },
   }
 </script>
 
 <template>
   <swiper
     :modules="modules"
-    :slides-per-view="3"
-    :space-between="50"
+    :slides-per-view="4"
+    :space-between="10"
     navigation
     @swiper="onSwiper"
     @slideChange="onSlideChange"
-    class="text-center"
+    :class="height"
   >
-    <swiper-slide>Slide 1</swiper-slide>
-    <swiper-slide>Slide 2</swiper-slide>
-    <swiper-slide>Slide 3</swiper-slide>
-    <swiper-slide>Slide 4</swiper-slide>
-    <swiper-slide>Slide 5</swiper-slide>
-    <swiper-slide>Slide 6</swiper-slide>
+    <swiper-slide>
+      <img
+        src="https://via.placeholder.com/200x250"
+        alt="placeholder"
+        class="w-full h-full object-cover"
+    /></swiper-slide>
+    <swiper-slide>
+      <img
+        src="https://via.placeholder.com/200x250"
+        alt="placeholder"
+        class="w-full h-full object-cover" /></swiper-slide
+    ><swiper-slide>
+      <img
+        src="https://via.placeholder.com/200x250"
+        alt="placeholder"
+        class="w-full h-full object-cover" /></swiper-slide
+    ><swiper-slide>
+      <img
+        src="https://via.placeholder.com/200x250"
+        alt="placeholder"
+        class="w-full h-full object-cover" /></swiper-slide
+    ><swiper-slide>
+      <img
+        src="https://via.placeholder.com/200x250"
+        alt="placeholder"
+        class="w-full h-full object-cover"
+    /></swiper-slide>
   </swiper>
 </template>
