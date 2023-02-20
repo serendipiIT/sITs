@@ -1,4 +1,5 @@
 <script>
+  import Navbar from "./components/Navbar.vue"
   export default {
     created() {
       this.$store.dispatch("get")
@@ -8,10 +9,12 @@
         document.title = to.meta.title || "sITs"
       },
     },
+    components: { Navbar },
   }
 </script>
 
 <template>
+  <Navbar />
   <main class="scroll-smooth">
     <RouterView />
   </main>
