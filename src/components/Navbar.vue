@@ -12,10 +12,11 @@
   >
     <routerLink :to="{ name: 'home' }">sITs</routerLink>
     <ul class="flex gap-4">
+      <routerLink :to="{ name: 'about' }">About</routerLink>
+      <routerLink :to="{ name: 'apiProducts' }">ApiProducts</routerLink>
+      <routerLink :to="{ name: 'home' }">Home</routerLink>
       <routerLink :to="{ name: 'products' }">Products</routerLink>
-      <routerLink to="/about">About</routerLink>
-      <li>Länk</li>
-      <li>Länk</li>
+      <routerLink :to="{ name: 'career' }">Career</routerLink>
     </ul>
   </nav>
 </template>
