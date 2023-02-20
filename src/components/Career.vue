@@ -6,6 +6,6 @@
 
 <template>
   <h1>Career</h1>
-  <p>STOR BILD PÅ MARCUS</p>
+  <p>STOR BILD PÅ PONTUS</p>
   <p>End of content</p>
 </template>
