@@ -1,6 +1,8 @@
 import { createRouter, createWebHashHistory } from "vue-router"
 
 import HomeView from "./views/HomeView.vue"
+import AboutView from "./views/AboutView.vue"
+import CareerView from "./views/CareerView.vue"
 import ProductPage from "./views/ProductPage.vue"
 
 export default createRouter({
@@ -17,6 +19,16 @@ export default createRouter({
       component: ProductPage,
       path: "/products",
       meta: { title: "Products" },
+    },
+    {
+      name: "about",
+      component: AboutView,
+      path: "/about",
+    },
+    {
+      name: "career",
+      component: CareerView,
+      path: "/career",
     },
   ],
 })
