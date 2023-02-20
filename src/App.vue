@@ -1,14 +1,13 @@
 <script>
-  export default {}
+  import Navbar from "./components/Navbar.vue"
+
+  export default {
+    components: { Navbar },
+  }
 </script>
 
 <template>
-  <nav class="flex col">
-    <ul>
-      <li><RouterLink to="/">Home</RouterLink></li>
-      <li><RouterLink to="/about">About</RouterLink></li>
-    </ul>
-  </nav>
+  <Navbar />
   <main class="scroll-smooth">
     <RouterView />
   </main>
