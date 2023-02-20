@@ -2,20 +2,21 @@
   import Carousel from "../components/Carousel.vue"
   import HelloWorld from "../components/HelloWorld.vue"
   import Footer from "../components/Footer.vue"
+  import Navbar from "../components/Navbar.vue"
 
   export default {
     components: {
       Carousel,
-      HelloWorld,
       Footer,
+      Navbar,
     },
   }
 </script>
 
 <template>
-  <main class="">
+  <main>
+    <Navbar />
     <Carousel />
-    <HelloWorld msg="Hello World!" />
     <Footer />
   </main>
 </template>

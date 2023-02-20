@@ -1,9 +1,7 @@
 <script>
   export default {
     data() {
-      return {
-        brewery: Object,
-      }
+      return {}
     },
     props: {
       msg: String,

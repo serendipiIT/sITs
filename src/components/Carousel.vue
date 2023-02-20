@@ -44,6 +44,5 @@
     <swiper-slide>Slide 4</swiper-slide>
     <swiper-slide>Slide 5</swiper-slide>
     <swiper-slide>Slide 6</swiper-slide>
-    ...
   </swiper>
 </template>
