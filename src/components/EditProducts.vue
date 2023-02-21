@@ -14,6 +14,7 @@
         description: null,
         category: null,
         image: null,
+        stock: null,
         urlApi: "http://SITsApi.us-east-1.elasticbeanstalk.com/",
       }
     },
@@ -41,6 +42,7 @@
             description: `"${this.description}"`,
             category: `"${this.category}"`,
             image: `"${this.image}"`,
+            stock: `"${this.stock}"`,
           },
         })
         console.log("post")
@@ -75,6 +77,9 @@
     <option value="men's clothing">men's clothing</option>
     <option value="women's clothing">women's clothing</option>
   </select>
+
+  <input type="number" v-model="stock" placeholder="stock" />
+
   <input type="text" v-model="image" placeholder="image url" />
   <button @click="postAxios">Add product</button>
 
@@ -85,12 +90,14 @@
 
   <h2>All products</h2>
 
-  <table style="width: 70%; text-align: center">
+  <table style="text-align: center">
     <th>id</th>
     <th>title</th>
     <th>price</th>
     <th>description</th>
     <th>category</th>
+    <th>stock</th>
+    <th>created at</th>
     <th>image</th>
 
     <tr v-for="product in products" :key="product.id">
@@ -99,6 +106,8 @@
       <td style="width: 5%">{{ product.price }}</td>
       <td style="width: 25%">{{ product.description }}</td>
       <td style="width: 15%">{{ product.category }}</td>
+      <td style="width: 15%">{{ product.stock }}</td>
+      <td style="width: 15%">{{ product.created_at }}</td>
       <td style="width: 15%">
         <img :src="product.image" style="max-width: 200px" />
       </td>
