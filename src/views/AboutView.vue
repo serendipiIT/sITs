@@ -5,6 +5,16 @@
     components: {
       About,
     },
+    data() {
+      return {
+        emailProvided: false,
+      }
+    },
+    methods: {
+      signUp() {
+        this.emailProvided = true
+      },
+    },
   }
 </script>
 
@@ -33,6 +43,23 @@
           </p>
           <p class="justify-end">Learn more >>></p>
         </div>
+        <form class="flex flex-col">
+          <label for="newsletter">Sign up to get the latest news:</label>
+          <input
+            class="w-72 mt-4"
+            type="email"
+            name="newsletter"
+            placeholder="your@email.here"
+          />
+          <input
+            class="w-24 mt-4 bg-indigo-500 hover:bg-indigo-700"
+            type="button"
+            value="Sign up"
+            @click="signUp"
+          />
+        </form>
+        <p v-if="emailProvided">Thank you!</p>
+        <p v-else>Please provide a valid e-mail</p>
       </section>
     </About>
 
