@@ -4,8 +4,4 @@
 
 <style></style>
 
-<template>
-  <h1>Career</h1>
-  <p>STOR BILD PÅ PONTUS</p>
-  <p>End of content</p>
-</template>
+<template><h1>Henlo</h1></template>
