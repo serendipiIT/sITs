@@ -13,7 +13,7 @@
 <template>
   <main>
     <div class="flex justify-around mt-24">
-      <ProductCard :maxWidth="'max-w-[100%]'" />
+      <ProductCard :max-width="'max-w-[100%]'" />
     </div>
   </main>
 </template>

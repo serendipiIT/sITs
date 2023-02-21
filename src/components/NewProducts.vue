@@ -3,7 +3,7 @@
   <Carousel
     class="max-w-[95vw]"
     :height="'h-[60vh]'"
-    :infoText="true"
+    :info-text="true"
     :product-list="productList"
   />
 </template>
