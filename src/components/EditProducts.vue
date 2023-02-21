@@ -11,6 +11,9 @@
         title: null,
         price: null,
         id: null,
+        description: null,
+        category: null,
+        image: null,
         urlApi: "http://SITsApi.us-east-1.elasticbeanstalk.com/",
       }
     },
@@ -21,7 +24,7 @@
           url: `${this.urlApi}products`,
         })
           .then((response) => {
-            console.log(response.data.data)
+            console.log("get api results", response.data.data)
             this.products = response.data.data
           })
           .catch((error) => {
@@ -35,6 +38,9 @@
           data: {
             title: `"${this.title}"`,
             price: this.price,
+            description: `"${this.description}"`,
+            category: `"${this.category}"`,
+            image: `"${this.image}"`,
           },
         })
         console.log("post")
@@ -56,9 +62,21 @@
   <h1>Products</h1>
 
   <h2>Add new product</h2>
+
   <input type="text" v-model="title" placeholder="title" />
+
   <input type="number" v-model="price" placeholder="price" />
-  <input type="submit" @click="postAxios" value="Add product" />
+
+  <input type="text" v-model="description" placeholder="description" />
+
+  <select v-model="category">
+    <option value="electronics">electronics</option>
+    <option value="jewelery">jewelery</option>
+    <option value="men's clothing">men's clothing</option>
+    <option value="women's clothing">women's clothing</option>
+  </select>
+  <input type="text" v-model="image" placeholder="image url" />
+  <button @click="postAxios">Add product</button>
 
   <h2>Remove product</h2>
 
@@ -75,7 +93,7 @@
     <th>category</th>
     <th>image</th>
 
-    <tr :key="product.id" v-for="product in products">
+    <tr v-for="product in products" :key="product.id">
       <td style="width: 5%">{{ product.id }}</td>
       <td style="width: 25%">{{ product.title }}</td>
       <td style="width: 5%">{{ product.price }}</td>
