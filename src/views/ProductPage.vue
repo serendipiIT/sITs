@@ -1,11 +1,11 @@
 <script>
   import ProductCard from "../components/ProductCard.vue"
-  import ProductMenu from "../components/ProductMenu.vue"
+  // import ProductMenu from "../components/ProductMenu.vue"
 
   export default {
     components: {
       ProductCard,
-      ProductMenu,
+      // ProductMenu,
     },
   }
 </script>

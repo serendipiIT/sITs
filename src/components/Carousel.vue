@@ -1,6 +1,6 @@
 <script>
   import { Swiper, SwiperSlide } from "swiper/vue"
-  import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper"
+  import { Navigation, Pagination, A11y, Autoplay } from "swiper"
 
   import "swiper/css"
   import "swiper/css/navigation"
@@ -31,16 +31,25 @@
     data() {
       return {
         imageHeight: this.infoText ? "h-[75%]" : "h-full",
-        productList: this.$store.state.productList,
       }
     },
     props: {
       infoText: {
-        type: Boolean,
         default: false,
+        type: Boolean,
       },
-      height: String,
-      numberOfSlides: Number,
+      height: {
+        default: "60vh",
+        type: String,
+      },
+      productList: {
+        required: true,
+        type: Array,
+      },
+      numberOfSlides: {
+        default: 4,
+        type: Number,
+      },
     },
   }
 </script>
@@ -52,13 +61,13 @@
     :space-between="10"
     navigation
     @swiper="onSwiper"
-    @slideChange="onSlideChange"
+    @slide-change="onSlideChange"
     :class="height"
   >
     <swiper-slide :key="product.id" v-for="product in productList">
       <!-- TODO RouterLink till produktsida TODO använda ProductCard? -->
       <img
-        :alt="product.title"
+        :alt="product.category"
         :class="`w-full ${imageHeight} object-contain`"
         :src="product.image"
       />

@@ -2,6 +2,7 @@
   import { mapGetters } from "vuex"
 
   import Navbar from "./components/Navbar.vue"
+  import PageFooter from "./components/PageFooter.vue"
   export default {
     created() {
       this.$store.dispatch("products/getProducts")
@@ -12,7 +13,7 @@
         document.title = to.meta.title || "sITs"
       },
     },
-    components: { Navbar },
+    components: { Navbar, PageFooter },
     computed: {
       ...mapGetters({
         categories: "products/getCategories",
@@ -26,4 +27,5 @@
   <main class="scroll-smooth">
     <RouterView />
   </main>
+  <PageFooter />
 </template>

@@ -4,7 +4,10 @@
       return {}
     },
     props: {
-      msg: String,
+      msg: {
+        default: "Hejsan!",
+        type: String,
+      },
     },
   }
 </script>
