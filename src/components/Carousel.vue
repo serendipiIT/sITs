@@ -25,9 +25,13 @@
       Swiper,
       SwiperSlide,
     },
+    created() {
+      this.$store.dispatch("get")
+    },
     data() {
       return {
         imageHeight: this.infoText ? "h-[75%]" : "h-full",
+        productList: this.$store.state.productList,
       }
     },
     props: {
@@ -36,7 +40,7 @@
         default: false,
       },
       height: String,
-      productList: Array,
+      numberOfSlides: Number,
     },
   }
 </script>
@@ -44,7 +48,7 @@
 <template>
   <swiper
     :modules="modules"
-    :slides-per-view="4"
+    :slides-per-view="numberOfSlides"
     :space-between="10"
     navigation
     @swiper="onSwiper"
@@ -55,7 +59,7 @@
       <!-- TODO RouterLink till produktsida TODO använda ProductCard? -->
       <img
         :alt="product.title"
-        :class="`w-full ${imageHeight} object-cover`"
+        :class="`w-full ${imageHeight} object-contain`"
         :src="product.image"
       />
       <div class="flex flex-row justify-between mt-6" v-if="infoText">

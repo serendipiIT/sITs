@@ -14,17 +14,7 @@
 
 <template>
   <main>
-    <Carousel
-      class="max-w-[95vw]"
-      :height="'h-[60vh]'"
-      :product-list="[
-        { image: 'https://via.placeholder.com/200x250' },
-        { image: 'https://via.placeholder.com/200x250' },
-        { image: 'https://via.placeholder.com/200x250' },
-        { image: 'https://via.placeholder.com/200x250' },
-        { image: 'https://via.placeholder.com/200x250' },
-      ]"
-    />
+    <Carousel class="max-w-[95vw]" :height="'h-[60vh]'" :number-of-slides="4" />
     <NewProducts />
     <Footer />
   </main>

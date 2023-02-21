@@ -29,6 +29,7 @@
           repellat, maxime aspernatur molestias dolore dolorem tempora ipsam
           laboriosam odio totam eveniet assumenda enim!
         </p>
+        <slot />
         <p>Learn more >>><a href="" /></p>
       </div>
     </section>

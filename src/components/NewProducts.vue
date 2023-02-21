@@ -5,6 +5,7 @@
     :height="'h-[60vh]'"
     :info-text="true"
     :product-list="productList"
+    :slides-per-view="2"
   />
 </template>
 
