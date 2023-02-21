@@ -1,8 +1,11 @@
 <script>
+  import { mapGetters } from "vuex"
+
   import Navbar from "./components/Navbar.vue"
   export default {
     created() {
-      this.$store.dispatch("get")
+      this.$store.dispatch("products/getProducts")
+      console.log("KATEGORIER: ", this.categories)
     },
     watch: {
       $route(to) {
@@ -10,6 +13,11 @@
       },
     },
     components: { Navbar },
+    computed: {
+      ...mapGetters({
+        categories: "products/getCategories",
+      }),
+    },
   }
 </script>
 

@@ -2,7 +2,14 @@
   export default {}
 </script>
 
-<style></style>
+<style>
+  section:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: 1s ease;
+  }
+</style>
 
 <template>
   <div class="flex justify-center">
@@ -22,8 +29,7 @@
           repellat, maxime aspernatur molestias dolore dolorem tempora ipsam
           laboriosam odio totam eveniet assumenda enim!
         </p>
-        <slot />
-        <p>Learn more >>><a href="" /></p>
+        <p>Learn more >>></p>
       </div>
     </section>
 

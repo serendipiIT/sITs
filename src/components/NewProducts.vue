@@ -13,12 +13,10 @@
   import Carousel from "./Carousel.vue"
   export default {
     components: { Carousel },
-    created() {
-      this.$store.dispatch("get")
-    },
+
     data() {
       return {
-        productList: this.$store.state.productList,
+        productList: this.$store.state.products.productList,
       }
     },
   }
