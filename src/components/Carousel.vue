@@ -1,6 +1,6 @@
 <script>
   import { Swiper, SwiperSlide } from "swiper/vue"
-  import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper"
+  import { Navigation, Pagination, A11y, Autoplay } from "swiper"
 
   import "swiper/css"
   import "swiper/css/navigation"
@@ -24,9 +24,6 @@
     components: {
       Swiper,
       SwiperSlide,
-    },
-    created() {
-      this.$store.dispatch("get")
     },
     data() {
       return {
