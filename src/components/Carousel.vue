@@ -25,9 +25,6 @@
       Swiper,
       SwiperSlide,
     },
-    created() {
-      this.$store.dispatch("get")
-    },
     data() {
       return {
         imageHeight: this.infoText ? "h-[75%]" : "h-full",
