@@ -28,7 +28,7 @@
     data() {
       return {
         imageHeight: this.infoText ? "h-[75%]" : "h-full",
-        productList: this.$store.state.productList,
+        productList: this.$store.state.products.productList,
       }
     },
     props: {
