@@ -61,7 +61,11 @@
     @slide-change="onSlideChange"
     :class="height"
   >
-    <swiper-slide :key="product.id" v-for="product in productList">
+    <swiper-slide
+      :key="product.id"
+      v-for="product in productList"
+      class="bg-black"
+    >
       <!-- TODO RouterLink till produktsida TODO använda ProductCard? -->
       <img
         :alt="product.category"

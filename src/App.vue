@@ -23,9 +23,11 @@
 </script>
 
 <template>
-  <Navbar />
-  <main class="scroll-smooth">
-    <RouterView />
-  </main>
-  <PageFooter />
+  <body class="bg-neutral-100">
+    <Navbar />
+    <main class="scroll-smooth container mx-auto">
+      <RouterView />
+    </main>
+    <PageFooter />
+  </body>
 </template>
