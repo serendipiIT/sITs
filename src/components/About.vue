@@ -5,5 +5,5 @@
 <style></style>
 
 <template>
-  <slot></slot>
+  <slot />
 </template>

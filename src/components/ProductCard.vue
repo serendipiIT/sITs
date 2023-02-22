@@ -9,8 +9,8 @@
     },
     props: {
       maxWidth: {
+        default: "max-w-[100%]",
         type: String,
-        default: "",
       },
     },
     data() {
