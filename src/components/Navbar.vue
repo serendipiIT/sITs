@@ -1,4 +1,5 @@
 <script>
+  import SearchBar from "./SearchBar.vue"
   import { OhVueIcon, addIcons } from "oh-vue-icons"
   import { BiBookmarkHeart, BiCart } from "oh-vue-icons/icons"
   addIcons(BiBookmarkHeart, BiCart)
@@ -6,6 +7,7 @@
   export default {
     components: {
       "v-icon": OhVueIcon,
+      SearchBar,
     },
     data() {
       return {
@@ -76,7 +78,7 @@
         class="select-none md:flex-col absolute top-16 left-0 h-screen bg-white px-10 mt-[0.29rem]"
         v-if="isOpen"
       >
-        <p class="py-2 px-3">HÄR LÄGGER VI SÖKRUTA</p>
+        <SearchBar class="mt-8" />
         <routerLink
           :to="{ name: 'home' }"
           class="block mb-2 font-semibold text-gray-800 py-2 px-3 hover:bg-gray-200 rounded cursor-pointer"
