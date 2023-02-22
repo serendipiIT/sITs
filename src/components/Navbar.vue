@@ -12,6 +12,16 @@
         isOpen: false,
       }
     },
+    watch: {
+      isOpen: function () {
+        if (this.isOpen) {
+          document.documentElement.style.overflow = "hidden"
+          return
+        } else {
+          document.documentElement.style.overflow = "auto"
+        }
+      },
+    },
   }
 </script>
 
@@ -63,7 +73,7 @@
       leave-active-class="transition duration-300"
     >
       <div
-        class="select-none md:flex-col absolute top-16 left-10"
+        class="select-none md:flex-col absolute top-16 left-0 h-screen bg-white px-10 mt-[0.29rem]"
         v-if="isOpen"
       >
         <p class="py-2 px-3">HÄR LÄGGER VI SÖKRUTA</p>
