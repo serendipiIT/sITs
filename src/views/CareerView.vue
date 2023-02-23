@@ -1,5 +1,5 @@
 <script>
-  import Career from "../components/Career.vue"
+  import Career from '../components/Career.vue'
   export default {
     components: {
       Career,

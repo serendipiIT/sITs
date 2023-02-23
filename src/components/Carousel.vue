@@ -1,11 +1,11 @@
 <script>
-  import { Swiper, SwiperSlide } from "swiper/vue"
-  import { Navigation, Pagination, A11y, Autoplay } from "swiper"
+  import { Swiper, SwiperSlide } from 'swiper/vue'
+  import { Navigation, Pagination, A11y, Autoplay } from 'swiper'
 
-  import "swiper/css"
-  import "swiper/css/navigation"
-  import "swiper/css/pagination"
-  import "swiper/css/scrollbar"
+  import 'swiper/css'
+  import 'swiper/css/navigation'
+  import 'swiper/css/pagination'
+  import 'swiper/css/scrollbar'
 
   export default {
     setup() {
@@ -13,7 +13,7 @@
         console.log(swiper)
       }
       const onSlideChange = () => {
-        console.log("slide change")
+        console.log('slide change')
       }
       return {
         onSwiper,
@@ -27,7 +27,7 @@
     },
     data() {
       return {
-        imageHeight: this.infoText ? "h-[75%]" : "h-full",
+        imageHeight: this.infoText ? 'h-[75%]' : 'h-full',
       }
     },
     props: {
@@ -36,7 +36,7 @@
         type: Boolean,
       },
       height: {
-        default: "60vh",
+        default: '60vh',
         type: String,
       },
       productList: {
@@ -66,7 +66,7 @@
       v-for="product in productList"
       class="bg-black"
     >
-      <!-- TODO RouterLink till produktsida TODO använda ProductCard? -->
+      <!-- TODO använda ProductCard? -->
       <img
         :alt="product.category"
         :class="`w-full ${imageHeight} object-contain`"

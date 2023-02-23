@@ -1,43 +1,50 @@
-import { createRouter, createWebHashHistory } from "vue-router"
+import { createRouter, createWebHashHistory } from 'vue-router'
 
-import HomeView from "./views/HomeView.vue"
-import AboutView from "./views/AboutView.vue"
-import CareerView from "./views/CareerView.vue"
-import ProductPage from "./views/ProductPage.vue"
-import ApiProducts from "./views/ApiProducts.vue"
+import AboutView from './views/AboutView.vue'
+import ApiProducts from './views/ApiProducts.vue'
+import CareerView from './views/CareerView.vue'
+import CartView from './views/CartView.vue'
+import HomeView from './views/HomeView.vue'
+import ProductPage from './views/ProductPage.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
   routes: [
     {
-      name: "home",
-      component: HomeView,
-      path: "/",
-      meta: { title: "Home" },
-    },
-    {
-      name: "products",
-      component: ProductPage,
-      path: "/products",
-      meta: { title: "Products" },
-    },
-    {
-      name: "about",
+      name: 'about',
       component: AboutView,
-      path: "/about",
-      meta: { title: "About" },
+      path: '/about',
+      meta: { title: 'About' },
     },
     {
-      name: "career",
-      component: CareerView,
-      path: "/career",
-      meta: { title: "Career" },
-    },
-    {
-      name: "apiProducts",
+      name: 'apiProducts',
       component: ApiProducts,
-      path: "/apiProducts",
-      meta: { title: "apiProducts" },
+      path: '/apiProducts',
+      meta: { title: 'apiProducts' },
+    },
+    {
+      name: 'career',
+      component: CareerView,
+      path: '/career',
+      meta: { title: 'Career' },
+    },
+    {
+      name: 'cart',
+      component: CartView,
+      path: '/cart',
+      meta: { title: 'Cart' },
+    },
+    {
+      name: 'home',
+      component: HomeView,
+      path: '/',
+      meta: { title: 'Home' },
+    },
+    {
+      name: 'products',
+      component: ProductPage,
+      path: '/products',
+      meta: { title: 'Products' },
     },
   ],
 })

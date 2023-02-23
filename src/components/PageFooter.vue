@@ -5,7 +5,7 @@
     },
     props: {
       msg: {
-        default: "Hejsan!",
+        default: 'Hejsan!',
         type: String,
       },
     },
