@@ -1,5 +1,5 @@
 <template>
-  <h2 class="text-3xl">New products</h2>
+  <h2 class="text-3xl text-center mt-16 mb-12">New products</h2>
   <Carousel
     class="max-w-[95vw]"
     :height="'h-[60vh]'"
