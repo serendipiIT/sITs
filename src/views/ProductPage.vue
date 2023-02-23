@@ -7,13 +7,28 @@
       ProductCard,
       // ProductMenu,
     },
+    data() {
+      return {
+        products: this.$store.state.products.productList,
+      }
+    },
+    created() {
+      console.log(this.products)
+    },
   }
 </script>
 
 <template>
   <main>
-    <div class="flex justify-around mt-24">
-      <ProductCard :max-width="'max-w-[16rem]'" />
+    <div class="flex justify-around">
+      <div class="sm:flex flex-row flex-wrap gap-10 justify-center">
+        <ProductCard
+          v-for="product in products"
+          :key="product.id"
+          :max-width="'max-w-[16rem]'"
+          :product-list="product"
+        />
+      </div>
     </div>
   </main>
 </template>
