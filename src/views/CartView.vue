@@ -8,7 +8,7 @@
           <img
             :alt="item.title"
             class="h-[120px] mr-4 object-contain"
-            src="../../assets/product-img/example.jpg"
+            :src="item.image"
           />
           <div class="flex flex-col">
             <h2>
