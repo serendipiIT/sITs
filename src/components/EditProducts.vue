@@ -33,6 +33,11 @@
           })
       },
       async postAxios() {
+        let changeImg = this.image
+        if (this.image === null) {
+          changeImg = "/assets/product-img/example.jpg"
+        }
+
         await axios({
           method: "post",
           url: `${this.urlApi}products`,
@@ -41,7 +46,7 @@
             price: this.price,
             description: `"${this.description}"`,
             category: `"${this.category}"`,
-            image: `"${this.image}"`,
+            image: `"${changeImg}"`,
             stock: `"${this.stock}"`,
           },
         })
