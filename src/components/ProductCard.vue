@@ -1,17 +1,17 @@
 <script>
-  import { OhVueIcon, addIcons } from "oh-vue-icons"
-  import { BiBookmark, BiBookmarkFill } from "oh-vue-icons/icons"
+  import { OhVueIcon, addIcons } from 'oh-vue-icons'
+  import { BiBookmark, BiBookmarkFill } from 'oh-vue-icons/icons'
   addIcons(BiBookmark, BiBookmarkFill)
 
   export default {
     components: {
-      "v-icon": OhVueIcon,
+      'v-icon': OhVueIcon,
     },
     data() {
       return {
         // ÄNDRA ALLA "0" TILL KORTETS :KEY
         filledBookmark:
-          this.$store.state.bookmarks.bookmarked[0]?.filled || "bi-bookmark",
+          this.$store.state.bookmarks.bookmarked[0]?.filled || 'bi-bookmark',
       }
     },
     props: {
@@ -20,26 +20,32 @@
         default: null,
       },
       maxWidth: {
-        default: "max-w-[100%]",
+        default: 'max-w-[100%]',
         type: String,
       },
     },
     methods: {
       bookmark() {
-        if (this.filledBookmark === "bi-bookmark") {
-          this.filledBookmark = "bi-bookmark-fill"
-          this.$store.commit("bookmarks/bookmarkedProducts", {
+        if (this.filledBookmark === 'bi-bookmark') {
+          this.filledBookmark = 'bi-bookmark-fill'
+          this.$store.commit('bookmarks/bookmarkedProducts', {
             id: this.productList.id,
-            filled: "bi-bookmark-fill",
+            filled: 'bi-bookmark-fill',
           })
-          console.log("lägger till", this.filledBookmark)
+          console.log('lägger till', this.filledBookmark)
         } else {
-          this.filledBookmark = "bi-bookmark"
-          this.$store.commit("bookmarks/remove", {
+          this.filledBookmark = 'bi-bookmark'
+          this.$store.commit('bookmarks/remove', {
             id: this.productList.id,
           })
-          console.log("tar bort", this.filledBookmark)
+          console.log('tar bort', this.filledBookmark)
         }
+      },
+      buy() {
+        console.log('KÖPER')
+        this.$store
+          .dispatch('cart/addItem', this.productList)
+          .then((res) => console.log(res))
       },
     },
   }
@@ -65,7 +71,7 @@
     </div>
     <div class="flex justify-between">
       <h3>Price</h3>
-      <p>Buy</p>
+      <p @click="buy">Buy</p>
     </div>
   </div>
 </template>
