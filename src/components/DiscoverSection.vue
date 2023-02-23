@@ -1,8 +1,8 @@
 <template>
   <Hero
     mobile-image="../../assets/fox.jpeg"
-    desktop-image="../../assets/find-us.jpg"
-    fallback-color="cyan"
+    desktop-image="../../assets/career-options.png"
+    fallback-color="black"
     height="50vh"
   >
     <template #title>

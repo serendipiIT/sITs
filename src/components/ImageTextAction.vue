@@ -1,5 +1,8 @@
 <template>
-  <div class="h-screen flex justify-center items-center" :style="myStyles">
+  <div
+    class="h-screen flex justify-center items-center mt-16"
+    :style="myStyles"
+  >
     <div
       class="w-full self-center h-[50%] flex flex-col items-center justify-center"
     >
