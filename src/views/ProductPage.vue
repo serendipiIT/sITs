@@ -1,6 +1,4 @@
 <script>
-  import { mapState } from 'vuex'
-
   import ProductCard from '../components/ProductCard.vue'
   // import ProductMenu from "../components/ProductMenu.vue"
 
@@ -10,27 +8,22 @@
       // ProductMenu,
     },
     computed: {
-      ...mapState({
-        products: (state) => state.products.productList,
-      }),
-    },
-    created() {
-      console.log(this.products)
+      products() {
+        return this.$store.state.products.productList
+      },
     },
   }
 </script>
 
 <template>
   <main>
-    <div class="flex justify-around">
-      <div class="sm:flex flex-row flex-wrap gap-10 justify-center">
-        <ProductCard
-          v-for="product in products"
-          :key="product.id"
-          :max-width="'max-w-[16rem]'"
-          :product-list="product"
-        />
-      </div>
+    <div class="flex flex-row flex-wrap gap-x-3 gap-y-5 justify-center mb-8">
+      <ProductCard
+        v-for="product in products"
+        :product="product"
+        :key="product.id"
+        :max-width="'sm:max-w-[45%] max-w-[85%]'"
+      />
     </div>
   </main>
 </template>

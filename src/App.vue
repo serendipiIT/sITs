@@ -6,7 +6,8 @@
   export default {
     created() {
       this.$store.dispatch('products/getProducts')
-      console.log('KATEGORIER: ', this.categories)
+      // console.log("KATEGORIER: ", this.categories)
+      console.log(this.products)
     },
     watch: {
       $route(to) {
@@ -23,7 +24,7 @@
 </script>
 
 <template>
-  <body class="bg-neutral-100">
+  <body class="">
     <Navbar />
     <main class="scroll-smooth container mx-auto">
       <RouterView />

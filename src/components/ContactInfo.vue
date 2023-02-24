@@ -17,11 +17,6 @@
         type: String,
         default: 'Image description',
       },
-      reverse: {
-        type: String,
-        default:
-          'flex flex-row-reverse border border-gray-300 bg-gray-100 p-4 mt-4 hover:bg-white',
-      },
     },
   }
 </script>
@@ -29,15 +24,11 @@
 <style></style>
 
 <template>
-  <section :class="reverse">
-    <div class="w-1/2 order-first">
-      <h2 class="text-2xl font-bold ml-4">{{ title }}</h2>
-      <p class="mt-4 ml-4">
-        <slot />
-      </p>
-    </div>
-    <div class="w-1/2">
-      <img class="object-cover h-full" :src="source" :alt="description" />
-    </div>
+  <section class="border border-gray-300 bg-gray-100 p-4 mt-4 hover:bg-white">
+    <h2 class="text-2xl font-bold ml-4">{{ title }}</h2>
+    <p class="my-6">
+      <slot />
+    </p>
+    <img :src="source" :alt="description" />
   </section>
 </template>
