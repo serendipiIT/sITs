@@ -10,13 +10,13 @@
 </template>
 
 <script>
-  import { mapGetters } from "vuex"
-  import Carousel from "./Carousel.vue"
+  import { mapGetters } from 'vuex'
+  import Carousel from './Carousel.vue'
   export default {
     components: { Carousel },
     computed: {
       ...mapGetters({
-        productList: "products/tenNewestProducts",
+        productList: 'products/tenNewestProducts',
       }),
     },
   }

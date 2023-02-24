@@ -1,12 +1,12 @@
 <script>
-  import SearchBar from "./SearchBar.vue"
-  import { OhVueIcon, addIcons } from "oh-vue-icons"
-  import { BiBookmarkHeart, BiCart } from "oh-vue-icons/icons"
+  import SearchBar from './SearchBar.vue'
+  import { OhVueIcon, addIcons } from 'oh-vue-icons'
+  import { BiBookmarkHeart, BiCart } from 'oh-vue-icons/icons'
   addIcons(BiBookmarkHeart, BiCart)
 
   export default {
     components: {
-      "v-icon": OhVueIcon,
+      'v-icon': OhVueIcon,
       SearchBar,
     },
     data() {
@@ -17,10 +17,10 @@
     watch: {
       isOpen: function () {
         if (this.isOpen) {
-          document.documentElement.style.overflow = "hidden"
+          document.documentElement.style.overflow = 'hidden'
           return
         } else {
-          document.documentElement.style.overflow = "auto"
+          document.documentElement.style.overflow = 'auto'
         }
       },
     },
@@ -64,7 +64,7 @@
     <!-- Icons -->
     <div class="flex gap-4">
       <v-icon name="bi-bookmark-heart" scale="1.5" />
-      <v-icon name="bi-cart" scale="1.4" />
+      <v-icon @click="$router.push('/cart')" name="bi-cart" scale="1.4" />
     </div>
 
     <!-- Hamburger Links -->

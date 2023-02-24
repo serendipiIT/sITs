@@ -1,5 +1,5 @@
 <script>
-  import EditProducts from "../components/EditProducts.vue"
+  import EditProducts from '../components/EditProducts.vue'
 
   export default {
     components: {

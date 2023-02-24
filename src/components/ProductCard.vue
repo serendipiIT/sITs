@@ -46,6 +46,12 @@
           })
         }
       },
+      buy() {
+        console.log("KÖPER")
+        this.$store
+          .dispatch("cart/addItem", this.productList)
+          .then((res) => console.log(res))
+      },
     },
   }
 </script>
@@ -84,6 +90,7 @@
       </h3>
       <p
         class="border grow text-center ml-4 py-2 rounded-md text-white bg-neutral-800 hover:bg-neutral-100 hover:text-black transition-all"
+        @click="buy"
       >
         Buy
       </p>
