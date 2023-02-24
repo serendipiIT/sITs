@@ -1,9 +1,13 @@
 <script>
   import About from '../components/About.vue'
+  import NewsLetter from '../components/NewsLetter.vue'
+  import ContactInfo from '../components/ContactInfo.vue'
 
   export default {
     components: {
       About,
+      NewsLetter,
+      ContactInfo,
     },
     data() {
       return {
@@ -29,140 +33,108 @@
 
 <template>
   <main class="flex flex-col items-center my-12 max-w-6xl mx-auto">
-    <About>
-      <section
-        class="border border-gray-300 bg-gray-100 p-4 mt-4 hover:bg-white"
-      >
-        <div class="">
-          <h2 class="text-2xl font-bold">About us</h2>
-          <p class="mt-4">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt
-            perferendis harum voluptatum consequatur nesciunt eligendi nobis
-            repellat, maxime aspernatur molestias dolore dolorem tempora ipsam
-            laboriosam odio totam eveniet assumenda enim!
-          </p>
-          <p class="justify-end">Learn more >>></p>
-        </div>
-        <form class="flex flex-col">
-          <label for="newsletter">Sign up to get the latest news:</label>
-          <input
-            class="w-72 mt-4"
-            type="email"
-            name="newsletter"
-            placeholder="your@email.here"
-          />
-          <input
-            class="w-24 mt-4 bg-indigo-500 hover:bg-indigo-700"
-            type="button"
-            value="Sign up"
-            @click="signUp"
-          />
-        </form>
-        <p v-if="emailProvided">Thank you!</p>
-        <p v-else>Please provide a valid e-mail</p>
-      </section>
+    <NewsLetter :title="'About Us'">
+      <p>
+        Find us Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Provident necessitatibus omnis deserunt, vero nostrum velit sapiente
+        quod repellat! Commodi tempore eius ea sint! Quibusdam at sapiente
+        maxime assumenda. Quia, sint.
+      </p>
+    </NewsLetter>
+
+    <About
+      :title="'Find Us'"
+      :source="'../../assets/about-img/find-us.jpg'"
+      :description="'Find Us'"
+      :reverse="'flex border border-gray-300 bg-gray-100 p-4 mt-4 hover:bg-white'"
+    >
+      <p>
+        Find us Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Provident necessitatibus omnis deserunt, vero nostrum velit sapiente
+        quod repellat! Commodi tempore eius ea sint! Quibusdam at sapiente
+        maxime assumenda. Quia, sint.
+      </p>
     </About>
 
-    <About>
-      <section
-        class="flex flex-row-reverse border border-gray-300 bg-gray-100 p-4 mt-4 hover:bg-white"
-      >
-        <div class="w-1/2 order-first">
-          <h2 class="text-2xl font-bold ml-4">Find us</h2>
-          <p class="mt-4 ml-4">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis
-            praesentium exercitationem quam eaque quae ullam neque earum
-            asperiores labore illum dicta voluptatem temporibus sunt nemo hic
-            ab, distinctio nihil cumque.
-          </p>
-        </div>
-        <div class="w-1/2">
-          <img
-            class="object-cover h-full"
-            src="../../assets/find-us.jpg"
-            alt="Our History"
-          />
-        </div>
-      </section>
+    <About
+      :title="'Our History'"
+      :source="'../../assets/about-img/history.jpg'"
+      :description="'Our History'"
+    >
+      <p>
+        History - Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Provident necessitatibus omnis deserunt, vero nostrum velit sapiente
+        quod repellat! Commodi tempore eius ea sint! Quibusdam at sapiente
+        maxime assumenda. Quia, sint.
+      </p>
     </About>
 
-    <About>
-      <section
-        class="flex flex-row border border-gray-300 bg-gray-100 p-4 mt-4 hover:bg-white"
-      >
-        <div class="w-1/2 order-first">
-          <h2 class="text-2xl font-bold">Our History</h2>
-          <p class="mt-4">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis
-            praesentium exercitationem quam eaque quae ullam neque earum
-            asperiores labore illum dicta voluptatem temporibus sunt nemo hic
-            ab, distinctio nihil cumque.
-          </p>
-        </div>
-        <div class="w-1/2">
-          <img
-            class="object-cover h-full"
-            src="../../assets/history.jpg"
-            alt="Our History"
-          />
-        </div>
-      </section>
+    <About
+      :title="'Career'"
+      :source="'../../assets/about-img/career-options.png'"
+      :description="'Work with us'"
+      :reverse="'flex border border-gray-300 bg-gray-100 p-4 mt-4 hover:bg-white'"
+    >
+      <p>
+        Career - Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Provident necessitatibus omnis deserunt, vero nostrum velit sapiente
+        quod repellat! Commodi tempore eius ea sint! Quibusdam at sapiente
+        maxime assumenda. Quia, sint.
+      </p>
     </About>
 
-    <About>
-      <section
-        class="flex flex-row border border-gray-300 bg-gray-100 p-4 mt-4 hover:bg-white"
-      >
-        <div class="w-1/2 order-first">
-          <h2 class="text-2xl font-bold ml-4">Career</h2>
-          <p class="mt-4">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod, et
-            quas quasi eaque ducimus labore adipisci optio perferendis
-            reiciendis at omnis a!
-          </p>
-          <p class="mt-8">
-            <RouterLink class="text-2xl font-bold mt-4" to="/career"
-              >Meet the crew >>></RouterLink
-            >
-          </p>
-        </div>
-        <div class="w-1/2">
-          <img src="../../assets/career-options.png" alt="Working at company" />
-        </div>
-      </section>
+    <About
+      :title="'Sustainability'"
+      :source="'../../assets/about-img/sustainability-resources.jpg'"
+      :description="'A Sustainable workplace'"
+    >
+      <p class="mt-4">
+        As a sustainable web shop, our company strives to reduce our
+        environmental impact while also providing high-quality products and
+        services to our customers. We believe that sustainability is not just an
+        important goal, but also an essential part of our business strategy.
+      </p>
+      <p class="mt-4">
+        To achieve our sustainability goals, we focus on several key areas.
+        First, we source our products from suppliers who meet strict
+        environmental and social responsibility criteria. This means that our
+        products are made using sustainable materials, and that the workers who
+        produce them are treated fairly and paid a living wage.
+      </p>
+      <p class="mt-4">
+        Second, we use eco-friendly packaging materials wherever possible. This
+        includes biodegradable or compostable packaging, as well as recycled
+        materials. By minimizing waste and using sustainable packaging, we aim
+        to reduce our impact on the environment.
+      </p>
+      <p class="mt-4">
+        Third, we prioritize energy efficiency in our operations. We use
+        renewable energy sources whenever possible, and we work to reduce our
+        overall energy consumption through measures like energy-efficient
+        lighting and equipment.
+      </p>
+      <p class="mt-4">
+        Finally, we strive to educate our customers about sustainability and
+        encourage them to make environmentally conscious choices. This includes
+        providing information about our products and their environmental impact,
+        as well as offering tips and resources for living a more sustainable
+        lifestyle.
+      </p>
+      <p class="mt-4">
+        Overall, our sustainability work is a key part of our commitment to
+        creating a better future for ourselves, our customers, and the planet.
+        We believe that by prioritizing sustainability in our operations, we can
+        make a meaningful contribution to a more sustainable and equitable
+        world.
+      </p>
+      <!-- TO-DO - Skapa funktion för att dölja/Visa mer -->
     </About>
-    <About>
-      <section
-        class="flex flex-row-reverse border border-gray-300 bg-gray-100 p-4 mt-4 hover:bg-white"
-      >
-        <div class="w-1/2 order-first">
-          <h2 class="text-2xl font-bold ml-4">Sustainability</h2>
-          <p class="mt-4 ml-4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-            numquam, quidem eos alias fugit rem placeat eius officiis error
-            debitis repellendus blanditiis architecto, repudiandae labore
-            perspiciatis. Fugiat distinctio aliquam harum.
-          </p>
-        </div>
-        <div class="w-1/2">
-          <img
-            class="object-cover h-full"
-            src="../../assets/sustainability-resources.jpg"
-            alt="Sustainability"
-          />
-        </div>
-      </section>
-    </About>
-    <About>
-      <section
-        class="border border-gray-300 bg-gray-100 p-4 mt-4 hover:bg-white"
-      >
-        <h2 class="text-2xl font-bold ml-4">Contact</h2>
-        <p class="my-6">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-        </p>
-        <img src="../../assets/contact-us.jpg" alt="Contact" />
-      </section>
-    </About>
+    <ContactInfo
+      :title="'Contact'"
+      :source="'../../assets/about-img/contact-us.jpg'"
+      :description="'Contact Us here'"
+    >
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+    </ContactInfo>
   </main>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <Hero
     mobile-image="../../assets/fox.jpeg"
-    desktop-image="../../assets/career-options.png"
+    desktop-image="../../assets/about-img/career-options.png"
     fallback-color="black"
     height="50vh"
   >
