@@ -4,7 +4,6 @@ export default {
       const products = await (
         await fetch('http://sitsapi.us-east-1.elasticbeanstalk.com/products')
       ).json()
-      console.log('hämtar produkter')
       commit('saveProducts', products.data)
     },
   },

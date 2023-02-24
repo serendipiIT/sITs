@@ -7,10 +7,15 @@
       ProductCard,
       // ProductMenu,
     },
-    data() {
-      return {
-        products: this.$store.state.products.productList,
-      }
+    // data() {
+    //   return {
+    //     products: this.$store.state.products.productList,
+    //   }
+    // },
+    computed: {
+      products() {
+        return this.$store.state.products.productList
+      },
     },
   }
 </script>

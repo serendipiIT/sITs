@@ -7,6 +7,7 @@
     created() {
       this.$store.dispatch('products/getProducts')
       // console.log("KATEGORIER: ", this.categories)
+      console.log(this.products)
     },
     watch: {
       $route(to) {

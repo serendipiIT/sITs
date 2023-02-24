@@ -1,11 +1,11 @@
 <script>
-  import { OhVueIcon, addIcons } from "oh-vue-icons"
-  import { BiBookmark, BiBookmarkFill } from "oh-vue-icons/icons"
+  import { OhVueIcon, addIcons } from 'oh-vue-icons'
+  import { BiBookmark, BiBookmarkFill } from 'oh-vue-icons/icons'
   addIcons(BiBookmark, BiBookmarkFill)
 
   export default {
     components: {
-      "v-icon": OhVueIcon,
+      'v-icon': OhVueIcon,
     },
     data() {
       return {
@@ -24,32 +24,31 @@
     },
     props: {
       maxWidth: {
-        default: "max-w-[100%]",
+        default: 'max-w-[100%]',
         type: String,
       },
       product: {
         type: Object,
         default: null,
-        //KOLLA UPP HUR DETTA SKA SKRIVAS PÅ RÄTT SÄTT
       },
     },
     methods: {
       bookmark() {
         this.isBookmarked = !this.isBookmarked
         if (this.isBookmarked) {
-          this.$store.commit("bookmarks/bookmarkedProducts", {
+          this.$store.commit('bookmarks/bookmarkedProducts', {
             product: this.product.id,
           })
         } else {
-          this.$store.commit("bookmarks/remove", {
+          this.$store.commit('bookmarks/remove', {
             product: this.product.id,
           })
         }
       },
       buy() {
-        console.log("KÖPER")
+        console.log('KÖPER')
         this.$store
-          .dispatch("cart/addItem", this.productList)
+          .dispatch('cart/addItem', this.product)
           .then((res) => console.log(res))
       },
     },
@@ -68,17 +67,24 @@
       />
       <div class="p-6">
         <div class="flex justify-between">
-          <h3>{{ product.title.slice(0, 15) + "..." }}</h3>
+          <h3>{{ product.title.slice(0, 15) + '...' }}</h3>
           <v-icon
             v-if="isBookmarked"
             name="bi-bookmark-fill"
             scale="1.2"
             @click="bookmark"
+            class="cursor-pointer"
           />
-          <v-icon v-else name="bi-bookmark" scale="1.2" @click="bookmark" />
+          <v-icon
+            v-else
+            name="bi-bookmark"
+            scale="1.2"
+            @click="bookmark"
+            class="cursor-pointer"
+          />
         </div>
         <div class="pt-4 text-gray-500 text-sm">
-          {{ product.description.slice(0, 100) + "..." }}
+          {{ product.description.slice(0, 100) + '...' }}
         </div>
       </div>
     </div>
@@ -88,12 +94,19 @@
       >
         ${{ product.price }}
       </h3>
-      <p
-        class="border grow text-center ml-4 py-2 rounded-md text-white bg-neutral-800 hover:bg-neutral-100 hover:text-black transition-all"
-        @click="buy"
-      >
-        Buy
-      </p>
+      <div class="flex sm:basis-1/2 lg:grow-0 grow items-center">
+        <button
+          class="flex-1 border text-center ml-4 py-2 rounded-md text-white bg-neutral-800 hover:bg-neutral-100 hover:text-black transition-all cursor-pointer hover:shadow"
+        >
+          More Info
+        </button>
+        <p
+          class="flex-1 border text-center ml-4 py-2 rounded-md text-white bg-neutral-800 hover:bg-neutral-100 hover:text-black transition-all cursor-pointer hover:shadow"
+          @click="buy"
+        >
+          Buy
+        </p>
+      </div>
     </div>
   </div>
 </template>
