@@ -18,7 +18,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   section:hover {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
