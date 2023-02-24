@@ -36,7 +36,7 @@
         type: Boolean,
       },
       height: {
-        default: "60vh",
+        default: "40vh",
         type: String,
       },
       productList: {
@@ -61,11 +61,7 @@
     @slide-change="onSlideChange"
     :class="height"
   >
-    <swiper-slide
-      :key="product.id"
-      v-for="product in productList"
-      class="bg-black"
-    >
+    <swiper-slide :key="product.id" v-for="product in productList">
       <!-- TODO RouterLink till produktsida TODO använda ProductCard? -->
       <img
         :alt="product.category"

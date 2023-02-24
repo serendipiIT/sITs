@@ -32,6 +32,7 @@
       :number-of-slides="1"
       :product-list="categories"
       :breakpoints="{ 1024: { slidesPerView: 4 }, 768: { slidesPerView: 2 } }"
+      :message="'Hejsan nu testar vi!'"
     />
     <DiscoverSection />
     <NewProducts />

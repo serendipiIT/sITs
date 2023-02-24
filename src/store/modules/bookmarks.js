@@ -3,10 +3,13 @@ export default {
     bookmarkedProducts(state, bookmarked) {
       state.bookmarked.push(bookmarked)
     },
-    remove(state, id) {
-      state.bookmarked = state.bookmarked.filter((asd) => asd.id !== id.id)
+    remove(state, payload) {
+      state.bookmarked = state.bookmarked.filter(
+        (o) => o.product !== payload.product,
+      )
     },
   },
+
   state: {
     bookmarked: [],
   },

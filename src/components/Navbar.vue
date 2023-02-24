@@ -58,7 +58,7 @@
     </div>
 
     <h1 class="text-xl">
-      serendipi<span class="text-3xl font-medium">IT</span> Solutions
+      serendip<span class="text-2xl font-medium">IT</span> Solutions
     </h1>
 
     <!-- Icons -->
@@ -75,7 +75,7 @@
       leave-active-class="transition duration-300"
     >
       <div
-        class="select-none md:flex-col absolute top-16 left-0 h-screen bg-white px-10 mt-[0.29rem]"
+        class="select-none md:flex-col absolute top-16 left-0 h-screen bg-neutral-50 px-10 mt-[0.1rem]"
         v-if="isOpen"
       >
         <SearchBar class="mt-8" />
