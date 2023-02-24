@@ -19,9 +19,9 @@
       myStyles() {
         return {
           background: `center / cover no-repeat ${this.fallbackColor} url(${this.image})`,
-          color: "red",
+          color: 'red',
           height: this.height,
-          minHeight: "fit-content",
+          minHeight: 'fit-content',
         }
       },
       image() {
@@ -40,7 +40,7 @@
     },
     mounted() {
       window.addEventListener(
-        "resize",
+        'resize',
         () => (this.screenSize = window.innerWidth),
       )
     },
@@ -50,7 +50,7 @@
         type: String,
       },
       fallbackColor: {
-        default: "black",
+        default: 'black',
         type: String,
       },
       mobileImage: {
@@ -58,7 +58,7 @@
         type: String,
       },
       height: {
-        default: "100vh",
+        default: '100vh',
         type: String,
       },
     },

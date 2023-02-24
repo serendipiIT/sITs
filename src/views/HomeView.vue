@@ -1,9 +1,9 @@
 <script>
-  import { mapGetters } from "vuex"
-  import Carousel from "../components/Carousel.vue"
-  import DiscoverSection from "../components/DiscoverSection.vue"
-  import NewProducts from "../components/NewProducts.vue"
-  import Hero from "../components/HeroSection.vue"
+  import { mapGetters } from 'vuex'
+  import Carousel from '../components/Carousel.vue'
+  import DiscoverSection from '../components/DiscoverSection.vue'
+  import NewProducts from '../components/NewProducts.vue'
+  import Hero from '../components/HeroSection.vue'
 
   export default {
     components: {
@@ -14,7 +14,7 @@
     },
     computed: {
       ...mapGetters({
-        categories: "products/getCategories",
+        categories: 'products/getCategories',
       }),
     },
     created() {
@@ -32,6 +32,7 @@
       :number-of-slides="1"
       :product-list="categories"
       :breakpoints="{ 1024: { slidesPerView: 4 }, 768: { slidesPerView: 2 } }"
+      :message="'Hejsan nu testar vi!'"
     />
     <DiscoverSection />
     <NewProducts />

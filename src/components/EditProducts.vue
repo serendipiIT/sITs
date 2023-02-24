@@ -1,5 +1,5 @@
 <script>
-  import axios from "axios"
+  import axios from 'axios'
 
   export default {
     created() {
@@ -15,17 +15,17 @@
         category: null,
         image: null,
         stock: null,
-        urlApi: "http://SITsApi.us-east-1.elasticbeanstalk.com/",
+        urlApi: 'http://SITsApi.us-east-1.elasticbeanstalk.com/',
       }
     },
     methods: {
       getAxios() {
         axios({
-          method: "get",
+          method: 'get',
           url: `${this.urlApi}products`,
         })
           .then((response) => {
-            console.log("get api results", response.data.data)
+            console.log('get api results', response.data.data)
             this.products = response.data.data
           })
           .catch((error) => {
@@ -35,11 +35,11 @@
       async postAxios() {
         let changeImg = this.image
         if (this.image === null) {
-          changeImg = "/assets/product-img/example.jpg"
+          changeImg = '/assets/product-img/example.jpg'
         }
 
         await axios({
-          method: "post",
+          method: 'post',
           url: `${this.urlApi}products`,
           data: {
             title: `"${this.title}"`,
@@ -50,15 +50,15 @@
             stock: `"${this.stock}"`,
           },
         })
-        console.log("post")
+        console.log('post')
         this.getAxios()
       },
       async delAxios() {
         await axios({
-          method: "delete",
+          method: 'delete',
           url: `${this.urlApi}products/${this.id}`,
         })
-        console.log("delete")
+        console.log('delete')
         this.getAxios()
       },
     },

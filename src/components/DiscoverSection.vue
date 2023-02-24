@@ -24,7 +24,7 @@
 </template>
 
 <script>
-  import Hero from "./ImageTextAction.vue"
+  import Hero from './ImageTextAction.vue'
   export default {
     components: {
       Hero,

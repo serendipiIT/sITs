@@ -1,12 +1,12 @@
 <script>
-  import SearchBar from "./SearchBar.vue"
-  import { OhVueIcon, addIcons } from "oh-vue-icons"
-  import { BiBookmarkHeart, BiCart } from "oh-vue-icons/icons"
+  import SearchBar from './SearchBar.vue'
+  import { OhVueIcon, addIcons } from 'oh-vue-icons'
+  import { BiBookmarkHeart, BiCart } from 'oh-vue-icons/icons'
   addIcons(BiBookmarkHeart, BiCart)
 
   export default {
     components: {
-      "v-icon": OhVueIcon,
+      'v-icon': OhVueIcon,
       SearchBar,
     },
     data() {
@@ -17,10 +17,10 @@
     watch: {
       isOpen: function () {
         if (this.isOpen) {
-          document.documentElement.style.overflow = "hidden"
+          document.documentElement.style.overflow = 'hidden'
           return
         } else {
-          document.documentElement.style.overflow = "auto"
+          document.documentElement.style.overflow = 'auto'
         }
       },
     },
@@ -58,13 +58,13 @@
     </div>
 
     <h1 class="text-xl">
-      serendipi<span class="text-3xl font-medium">IT</span> Solutions
+      serendip<span class="text-2xl font-medium">IT</span> Solutions
     </h1>
 
     <!-- Icons -->
-    <div class="flex gap-4">
+    <div class="hidden sm:flex gap-4">
       <v-icon name="bi-bookmark-heart" scale="1.5" />
-      <v-icon name="bi-cart" scale="1.4" />
+      <v-icon @click="$router.push('/cart')" name="bi-cart" scale="1.4" />
     </div>
 
     <!-- Hamburger Links -->
@@ -75,7 +75,7 @@
       leave-active-class="transition duration-300"
     >
       <div
-        class="select-none md:flex-col absolute top-16 left-0 h-screen bg-white px-10 mt-[0.29rem]"
+        class="select-none md:flex-col absolute top-16 left-0 h-screen bg-neutral-50 px-10"
         v-if="isOpen"
       >
         <SearchBar class="mt-8" />
@@ -105,6 +105,10 @@
           class="block mb-2 font-semibold text-gray-800 py-2 px-3 hover:bg-gray-200 rounded cursor-pointer"
           >About</routerLink
         >
+        <div class="lg:hidden flex gap-4">
+          <v-icon name="bi-bookmark-heart" scale="1.5" />
+          <v-icon @click="$router.push('/cart')" name="bi-cart" scale="1.4" />
+        </div>
       </div>
     </transition>
   </nav>

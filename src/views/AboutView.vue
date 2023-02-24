@@ -1,7 +1,7 @@
 <script>
-  import About from "../components/About.vue"
-  import NewsLetter from "../components/NewsLetter.vue"
-  import ContactInfo from "../components/ContactInfo.vue"
+  import About from '../components/About.vue'
+  import NewsLetter from '../components/NewsLetter.vue'
+  import ContactInfo from '../components/ContactInfo.vue'
 
   export default {
     components: {
