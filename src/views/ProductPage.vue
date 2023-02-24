@@ -1,4 +1,6 @@
 <script>
+  import { mapState } from 'vuex'
+
   import ProductCard from '../components/ProductCard.vue'
   // import ProductMenu from "../components/ProductMenu.vue"
 
@@ -7,10 +9,10 @@
       ProductCard,
       // ProductMenu,
     },
-    data() {
-      return {
-        products: this.$store.state.products.productList,
-      }
+    computed: {
+      ...mapState({
+        products: (state) => state.products.productList,
+      }),
     },
     created() {
       console.log(this.products)
