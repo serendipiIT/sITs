@@ -4,7 +4,7 @@
   import Navbar from './components/Navbar.vue'
   import PageFooter from './components/PageFooter.vue'
   export default {
-    mounted() {
+    created() {
       this.$store.dispatch('products/getProducts')
       console.log('KATEGORIER: ', this.categories)
     },
@@ -17,16 +17,12 @@
     computed: {
       ...mapGetters({
         categories: 'products/getCategories',
-        filteredProducts: 'products/getProductsByCategory',
-        getProductsBySearch: 'products/getProductsBySearch',
       }),
     },
   }
 </script>
 
 <template>
-  <input type="text" v-model="cat" />
-  <pre>{{ getProductsBySearch('Hard Drive') }}</pre>
   <body class="bg-neutral-100">
     <Navbar />
     <main class="scroll-smooth container mx-auto">
