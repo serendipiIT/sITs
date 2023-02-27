@@ -37,11 +37,11 @@
         this.isBookmarked = !this.isBookmarked
         if (this.isBookmarked) {
           this.$store.commit('bookmarks/bookmarkedProducts', {
-            product: this.product.id,
+            product: this.product,
           })
         } else {
           this.$store.commit('bookmarks/remove', {
-            product: this.product.id,
+            product: this.product,
           })
         }
       },
