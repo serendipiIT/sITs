@@ -7,6 +7,7 @@ import CartView from './views/CartView.vue'
 import HomeView from './views/HomeView.vue'
 import ProductPage from './views/ProductPage.vue'
 import FavouritesPage from './views/FavouritesPage.vue'
+import ProductInfo from './views/ProductInfo.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -52,6 +53,12 @@ export default createRouter({
       component: FavouritesPage,
       path: '/favorutites',
       meta: { title: 'Saved Products' },
+    },
+    {
+      name: 'productInfo',
+      component: ProductInfo,
+      path: '/product/:id',
+      meta: { title: 'asdasdasd' },
     },
   ],
 })

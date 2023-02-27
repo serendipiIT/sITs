@@ -98,7 +98,11 @@
         <button
           class="flex-1 border text-center ml-4 py-2 rounded-md text-white bg-neutral-800 hover:bg-neutral-100 hover:text-black transition-all cursor-pointer hover:shadow"
         >
-          More Info
+          <router-link
+            :to="{ name: 'productInfo', params: { id: this.product.id } }"
+          >
+            More Info
+          </router-link>
         </button>
         <p
           class="flex-1 border text-center ml-4 py-2 rounded-md text-white bg-neutral-800 hover:bg-neutral-100 hover:text-black transition-all cursor-pointer hover:shadow"

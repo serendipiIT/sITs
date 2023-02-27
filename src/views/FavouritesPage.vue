@@ -17,11 +17,14 @@
 </script>
 
 <template>
-  <ul>
+  <ul v-if="bookmarks.length >= 1">
     <FavouriteCard
       v-for="bookmark in bookmarks"
       :key="bookmark.product.id"
       :product="bookmark.product"
     />
   </ul>
+  <p v-else class="text-center mb-8 text-xl italic">
+    You haven't saved any products!
+  </p>
 </template>
