@@ -1,5 +1,17 @@
 <script>
   export default {
+    data() {
+      return {
+        showInfo: false,
+      }
+    },
+
+    methods: {
+      moreInfo() {
+        this.showInfo = !this.showInfo
+      },
+    },
+
     props: {
       title: {
         type: String,
@@ -33,8 +45,23 @@
     <div class="w-1/2 order-first">
       <h2 class="text-2xl font-bold ml-4">{{ title }}</h2>
       <p class="mt-4 ml-4">
-        <slot />
+        <slot name="content" />
+        <slot name="allContent" v-if="showInfo" />
       </p>
+      <button
+        class="w-24 mt-4 ml-8 bg-sky-500 hover:bg-indigo-700"
+        @click="moreInfo"
+        v-if="showInfo"
+      >
+        Read Less
+      </button>
+      <button
+        class="w-24 mt-4 ml-8 bg-indigo-500 hover:bg-indigo-700"
+        @click="moreInfo"
+        v-else
+      >
+        Read More
+      </button>
     </div>
     <div class="w-1/2">
       <img class="object-cover h-full" :src="source" :alt="description" />
