@@ -1,8 +1,8 @@
 <template>
-  <article class="flex flex-row mb-8 h-min w-full md:w-1/2 lg:w-1/3">
+  <article class="flex flex-row border">
     <img
       :alt="item.title"
-      class="h-[120px] mr-4 object-contain"
+      class="h-[150px] mr-4 object-contain max-w-[40%]"
       :src="item.image"
     />
     <div class="flex flex-col flex-1">
@@ -11,6 +11,7 @@
           {{ item.title }}
         </h2>
         <vIcon
+          @click="removeItem(item.id)"
           class="cursor-pointer"
           name="io-close-outline"
           scale="1.4"
@@ -19,7 +20,7 @@
       </div>
       <p class="flex-1">Delivery: 1 to 7 day(s)</p>
       <p>Quantity: {{ item.amount }}</p>
-      <p class="inline">$ {{ calculatedPrice(item.price, item.amount) }}</p>
+      <p class="inline">$ {{ item.price }}</p>
     </div>
   </article>
 </template>
@@ -34,8 +35,8 @@
       vIcon: OhVueIcon,
     },
     methods: {
-      calculatedPrice(price, amount) {
-        return Math.ceil(price * amount)
+      removeItem(id) {
+        this.$store.commit('cart/removeItem', { id })
       },
     },
     props: {

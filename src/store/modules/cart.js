@@ -24,6 +24,16 @@ export default {
       }
     },
   },
+  getters: {
+    total(state) {
+      return state.items
+        .reduce(
+          (totalCost, product) => (totalCost += product.amount * product.price),
+          0,
+        )
+        .toFixed(2)
+    },
+  },
   mutations: {
     addItem(state, payload) {
       const savedItem = state.items.find((item) => item.id === payload.id)
@@ -38,7 +48,7 @@ export default {
       state.items = []
     },
     removeItem(state, payload) {
-      state.items.filter((item) => item !== payload)
+      state.items = state.items.filter((item) => item.id !== payload.id)
     },
   },
   namespaced: true,
