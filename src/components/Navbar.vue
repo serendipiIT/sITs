@@ -23,6 +23,17 @@
           document.documentElement.style.overflow = 'auto'
         }
       },
+      toggle: function () {
+        if (this.isOpen) {
+          this.isOpen = false
+        }
+      },
+    },
+    props: {
+      toggle: {
+        type: Boolean,
+        default: false,
+      },
     },
   }
 </script>
@@ -63,8 +74,18 @@
 
     <!-- Icons -->
     <div class="hidden sm:flex gap-4">
-      <v-icon name="bi-bookmark-heart" scale="1.5" />
-      <v-icon @click="$router.push('/cart')" name="bi-cart" scale="1.4" />
+      <v-icon
+        @click="$router.push('/favorutites')"
+        name="bi-bookmark-heart"
+        scale="1.5"
+        class="cursor-pointer"
+      />
+      <v-icon
+        @click="$router.push('/cart')"
+        name="bi-cart"
+        scale="1.4"
+        class="cursor-pointer"
+      />
     </div>
 
     <!-- Hamburger Links -->
@@ -105,7 +126,7 @@
           class="block mb-2 font-semibold text-gray-800 py-2 px-3 hover:bg-gray-200 rounded cursor-pointer"
           >About</routerLink
         >
-        <div class="lg:hidden flex gap-4">
+        <div class="sm:hidden flex gap-4">
           <v-icon name="bi-bookmark-heart" scale="1.5" />
           <v-icon @click="$router.push('/cart')" name="bi-cart" scale="1.4" />
         </div>

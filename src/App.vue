@@ -4,10 +4,14 @@
   import Navbar from './components/Navbar.vue'
   import PageFooter from './components/PageFooter.vue'
   export default {
+    data() {
+      return {
+        closeMenu: Boolean,
+      }
+    },
     created() {
       this.$store.dispatch('products/getProducts')
       // console.log("KATEGORIER: ", this.categories)
-      console.log(this.products)
     },
     watch: {
       $route(to) {
@@ -20,13 +24,18 @@
         categories: 'products/getCategories',
       }),
     },
+    methods: {
+      toggleMenu() {
+        this.closeMenu = !this.closeMenu
+      },
+    },
   }
 </script>
 
 <template>
   <body class="">
-    <Navbar />
-    <main class="scroll-smooth container mx-auto">
+    <Navbar :toggle="this.closeMenu" />
+    <main class="scroll-smooth container mx-auto" @click="toggleMenu">
       <RouterView />
     </main>
     <PageFooter />
