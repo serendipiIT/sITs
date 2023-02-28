@@ -51,7 +51,7 @@ export default createRouter({
       name: 'productInfo',
       component: ProductInfo,
       path: '/product/:id',
-      meta: { title: 'asdasdasd' },
+      meta: { title: 'Product Information' },
     },
   ],
 })
