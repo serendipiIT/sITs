@@ -3,6 +3,7 @@
 
   import Navbar from './components/Navbar.vue'
   import PageFooter from './components/PageFooter.vue'
+  import GetJournal from './components/GetJournal.vue'
   export default {
     data() {
       return {
@@ -18,7 +19,7 @@
         document.title = to.meta.title || 'sITs'
       },
     },
-    components: { Navbar, PageFooter },
+    components: { Navbar, PageFooter, GetJournal },
     computed: {
       ...mapGetters({
         categories: 'products/getCategories',
@@ -39,5 +40,6 @@
       <RouterView />
     </main>
     <PageFooter />
+    <GetJournal />
   </body>
 </template>
