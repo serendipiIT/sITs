@@ -67,7 +67,7 @@
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
+            />
             <table class="my-8">
               <tr class="text-center font-bold">
                 Weekdays:
@@ -94,7 +94,7 @@
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
+            />
             <table class="my-8">
               <tr class="text-center font-bold">
                 Weekdays:
@@ -121,7 +121,7 @@
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
+            />
             <table class="my-8">
               <tr class="text-center font-bold">
                 Weekdays:

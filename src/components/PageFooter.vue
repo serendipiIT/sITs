@@ -25,30 +25,24 @@
     <ul class="text-cente">
       <li class="hover:text-sky-700 cursor-pointer mb-2">
         <a href="https://instagram.com/" target="_blank">
-        <v-icon
-        name="bi-instagram"
-        scale="1.4"   
-        /></a></li>
+          <v-icon name="bi-instagram" scale="1.4"
+        /></a>
+      </li>
       <li class="hover:text-sky-700 cursor-pointer mb-2">
         <a href="https://github.com/serendipiIT" target="_blank" rel="noopener">
-        <v-icon 
-        name="bi-github"
-        scale="1.4" 
-        />
-      </a></li>
+          <v-icon name="bi-github" scale="1.4" />
+        </a>
+      </li>
       <li class="hover:text-sky-700 cursor-pointer mb-2">
         <a href="mailto:example@example.com" target="_blank">
-        <v-icon 
-        name="hi-mail"
-        scale="1.4" 
-        /></a></li>
+          <v-icon name="hi-mail" scale="1.4"
+        /></a>
+      </li>
       <li class="hover:text-sky-700 cursor-pointer mb-2">
         <a href="https://linkedin.com/" target="_blank" rel="noopener">
-        <v-icon 
-        name="bi-linkedin" 
-        scale="1.4" 
-        />
-      </a></li>
+          <v-icon name="bi-linkedin" scale="1.4" />
+        </a>
+      </li>
     </ul>
     <ul class="text-center">
       <li class="hover:text-sky-700 cursor-pointer mb-2">About Us</li>
@@ -56,7 +50,8 @@
       <li class="hover:text-sky-700 cursor-pointer mb-2">Our History</li>
       <li class="hover:text-sky-700 cursor-pointer mb-2">Sustainability</li>
     </ul>
-    <p class="font-light flex items-end">&copy; 2023 serendipIT, Inc. All rights reserved</p>
+    <p class="font-light flex items-end">
+      &copy; 2023 serendipIT, Inc. All rights reserved
+    </p>
   </footer>
 </template>
-

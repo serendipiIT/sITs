@@ -45,8 +45,8 @@
     <div class="w-1/2 order-first">
       <h2 class="text-2xl font-bold ml-4">{{ title }}</h2>
       <p class="mt-4 ml-4">
-        <slot name="content" />
-        <slot name="allContent" v-if="showInfo" />
+        <slot name="content"></slot>
+        <slot name="allContent" v-if="showInfo"></slot>
       </p>
       <button
         class="w-24 mt-4 ml-8 bg-sky-500 hover:bg-indigo-700"
