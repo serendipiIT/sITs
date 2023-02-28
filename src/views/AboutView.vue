@@ -2,12 +2,14 @@
   import About from '../components/About.vue'
   import NewsLetter from '../components/NewsLetter.vue'
   import ContactInfo from '../components/ContactInfo.vue'
+  import FindUs from '../components/FindUs.vue'
 
   export default {
     components: {
       About,
       NewsLetter,
       ContactInfo,
+      FindUs,
     },
     data() {
       return {
@@ -43,27 +45,101 @@
       </p>
     </NewsLetter>
 
-    <About
+    <FindUs
       :title="'Find Us'"
       :source="'../../assets/about-img/find-us.jpg'"
-      :description="'Find Us'"
+      :description="'Find our locations'"
       :reverse="'flex border border-gray-300 bg-gray-100 p-4 mt-4 hover:bg-white'"
     >
       <template #content>
-        <p>See our locations and opening hours.</p>
+        <p class="ml-4">See our locations and opening hours.</p>
       </template>
       <template #allContent>
-        <p class="mt-4">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea
-          voluptatum aut possimus cupiditate, ipsa aperiam sapiente
-          necessitatibus nostrum totam alias! Laborum, porro illo aliquam
-          aperiam enim minus. Veritatis, consectetur tempore? Lorem ipsum dolor,
-          sit amet consectetur adipisicing elit. Enim mollitia earum quidem
-          ratione voluptates tempora eveniet quod! Nisi aspernatur dolores ut
-          dolore similique vero est, at inventore asperiores officia eius?
-        </p>
+        <div class="flex">
+          <div class="flex-grow m-4">
+            <h2 class="m-2 text-center font-bold">Location1</h2>
+            <iframe
+              id="mapStore"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d533.3042943332875!2d12.001477534393084!3d57.678788208131394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464ff369d0835015%3A0xba46082e9c214f49!2sIT-H%C3%B6gskolan!5e0!3m2!1sen!2sse!4v1663318464568!5m2!1sen!2sse"
+              width="250"
+              height="250"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+            <table class="my-8">
+              <tr class="text-center font-bold">
+                Weekdays:
+                <td>08:00</td>
+                <td class="">-</td>
+                <td>20:00</td>
+              </tr>
+              <tr class="text-center font-bold">
+                Weekends:
+                <td>08:00</td>
+                <td>-</td>
+                <td>20:00</td>
+              </tr>
+            </table>
+          </div>
+          <div class="flex-grow m-4">
+            <h2 class="m-2 text-center font-bold">Location2</h2>
+            <iframe
+              id="mapStore"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d533.3042943332875!2d12.001477534393084!3d57.678788208131394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464ff369d0835015%3A0xba46082e9c214f49!2sIT-H%C3%B6gskolan!5e0!3m2!1sen!2sse!4v1663318464568!5m2!1sen!2sse"
+              width="250"
+              height="250"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+            <table class="my-8">
+              <tr class="text-center font-bold">
+                Weekdays:
+                <td>08:00</td>
+                <td class="">-</td>
+                <td>20:00</td>
+              </tr>
+              <tr class="text-center font-bold">
+                Weekends:
+                <td>08:00</td>
+                <td>-</td>
+                <td>20:00</td>
+              </tr>
+            </table>
+          </div>
+          <div class="flex-grow m-4">
+            <h2 class="m-2 text-center font-bold">Location3</h2>
+            <iframe
+              id="mapStore"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d533.3042943332875!2d12.001477534393084!3d57.678788208131394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464ff369d0835015%3A0xba46082e9c214f49!2sIT-H%C3%B6gskolan!5e0!3m2!1sen!2sse!4v1663318464568!5m2!1sen!2sse"
+              width="250"
+              height="250"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+            <table class="my-8">
+              <tr class="text-center font-bold">
+                Weekdays:
+                <td>08:00</td>
+                <td class="">-</td>
+                <td>20:00</td>
+              </tr>
+              <tr class="text-center font-bold">
+                Weekends:
+                <td>08:00</td>
+                <td>-</td>
+                <td>20:00</td>
+              </tr>
+            </table>
+          </div>
+        </div>
       </template>
-    </About>
+    </FindUs>
 
     <About
       :title="'Our History'"
