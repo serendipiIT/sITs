@@ -8,11 +8,11 @@
     data() {
       return {
         closeMenu: Boolean,
+        searchTerm: '',
       }
     },
     created() {
       this.$store.dispatch('products/getProducts')
-      // console.log("KATEGORIER: ", this.categories)
     },
     watch: {
       $route(to) {
@@ -23,6 +23,7 @@
     computed: {
       ...mapGetters({
         categories: 'products/getCategories',
+        search: 'products/getProductsBySearch',
       }),
     },
     methods: {
