@@ -16,7 +16,7 @@
     },
     created() {
       let bookmarkedProducts = this.storedBookmarks.find(
-        (o) => o.product === this.product.id,
+        (o) => o.product.id === this.product.id,
       )
       if (bookmarkedProducts !== undefined) {
         this.isBookmarked = true
@@ -55,15 +55,12 @@
   }
 </script>
 <template>
-  <div
-    class="flex flex-col justify-between shadow hover:shadow-lg transition-all"
-    :class="maxWidth"
-  >
+  <div class="flex flex-col justify-between" :class="maxWidth">
     <div>
       <img
         :src="product.image"
         alt="placeholder"
-        class="h-[20rem] w-[100%] object-contain bg-neutral-100 py-8 sm:min-h-[55vh]"
+        class="h-[20rem] w-[100%] object-contain bg-neutral-100 py-8 sm:min-h-[70vh]"
       />
       <div class="p-6">
         <div class="flex justify-between">
@@ -89,14 +86,16 @@
       </div>
     </div>
     <div class="flex justify-between px-6 pb-4 items-center">
-      <h3
-        class="border text-center p-2 rounded-md bg-neutral-100 transition-all"
-      >
-        ${{ product.price }}
-      </h3>
+      <h3 class="text-center">${{ product.price }}</h3>
       <div class="flex sm:basis-1/2 lg:grow-0 grow items-center">
+        <p
+          class="flex-1 border border-neutral-800 text-center ml-4 py-2 hover:text-white hover:bg-neutral-800 transition-all cursor-pointer"
+          @click="buy"
+        >
+          Buy
+        </p>
         <button
-          class="flex-1 border text-center ml-4 py-2 rounded-md text-white bg-neutral-800 hover:bg-neutral-100 hover:text-black transition-all cursor-pointer hover:shadow"
+          class="flex-1 border text-center ml-4 py-2 text-white bg-neutral-800 hover:bg-neutral-100 hover:text-black transition-all cursor-pointer"
         >
           <router-link
             :to="{ name: 'productInfo', params: { id: this.product.id } }"
@@ -104,12 +103,6 @@
             More Info
           </router-link>
         </button>
-        <p
-          class="flex-1 border text-center ml-4 py-2 rounded-md text-white bg-neutral-800 hover:bg-neutral-100 hover:text-black transition-all cursor-pointer hover:shadow"
-          @click="buy"
-        >
-          Buy
-        </p>
       </div>
     </div>
   </div>

@@ -63,7 +63,7 @@ export const list = {
       description:
         'Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentines Day...',
       category: 'jewelery',
-      image: '/assets/product-img/jewelerys4.png',
+      image: '/assets/product-img/jewelery4.png',
       stock: 3,
       created_at: '2023-02-21T10:50:24.000Z',
     },
@@ -188,7 +188,7 @@ export const list = {
       description:
         '95% RAYON 5% SPANDEX, Made in USA or Imported, Do Not Bleach, Lightweight fabric with great stretch for comfort, Ribbed on sleeves and neckline / Double stitching on bottom hem',
       category: 'womens clothing',
-      image: '/assets/product-img/clothes7.png',
+      image: '/assets/product-img/clothes7.jpg',
       stock: 12,
       created_at: '2023-02-21T10:50:24.000Z',
     },

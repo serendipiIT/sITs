@@ -3,8 +3,8 @@
 </script>
 
 <template>
-  <div class="h-screen flex justify-center items-center">
-    <div class="text-center -mt-[10rem]">
+  <div class="h-screen flex justify-center items-center bg-indigo-800">
+    <div class="text-center">
       <h1 class="text-2xl mb-8 max-w-3xl px-8 mx-auto">
         Här kan vi ha någon text som ser ut
         <span class="text-indigo-600">ungefär</span> såhär. Vi kulle också kunna
@@ -24,7 +24,7 @@
       <div class="mb-6 mt-12">
         <a
           href="#"
-          class="py-2 px-4 md:py-4 md:px-6 mr-2 border select-none hover:bg-indigo-400 bg-indigo-500 rounded shadow-lg text-white"
+          class="py-2 px-4 md:py-4 md:px-6 mr-2 border select-none hover:bg-neutral-400 bg-neutral-800 rounded shadow-lg text-white"
           >CALL TO ACTION</a
         >
       </div>
