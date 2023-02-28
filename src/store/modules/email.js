@@ -4,7 +4,7 @@ export default {
   },
   mutations: {
     setEmail(state, email) {
-      state, (email = email)
+      state, email
     },
   },
   actions: {
