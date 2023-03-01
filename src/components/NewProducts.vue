@@ -1,11 +1,11 @@
 <template>
-  <h2 class="text-3xl text-center mb-12">New products</h2>
+  <h2 class="text-center my-8 text-4xl font-medium">New products</h2>
   <Carousel
     class="max-w-[95vw]"
-    :height="'h-[60vh]'"
     :info-text="true"
     :product-list="productList"
-    :slides-per-view="2"
+    :slides-per-view="1"
+    :breakpoints="{ 1280: { slidesPerView: 3 }, 768: { slidesPerView: 2 } }"
   />
 </template>
 

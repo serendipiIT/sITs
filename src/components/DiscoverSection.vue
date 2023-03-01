@@ -3,7 +3,7 @@
     mobile-image="../../assets/fox.jpeg"
     desktop-image="../../assets/about-img/career-options.png"
     fallback-color="black"
-    height="50vh"
+    height="70vh"
   >
     <template #title>
       <h2 class="mb-2 text-center text-3xl text-white">

@@ -1,5 +1,6 @@
 import { list } from '../../fallback'
-import { levenshtein } from '../../levenshtein'
+import { search } from '../../searchProduct'
+
 export default {
   actions: {
     async getProducts({ commit }) {
@@ -20,59 +21,9 @@ export default {
     getProductsByCategory: (state) => (cat) => {
       return state.productList.filter((product) => product.category === cat)
     },
-    getProductsBySearch: (state) => (searchTerm) => {
-      // Sorry för kodkaos. /Marcus
-      searchTerm.toLowerCase()
-      function sortCategoriesByDistance(productA, productB) {
-        const distanceA = levenshtein(
-          searchTerm,
-          productA.category.toLowerCase(),
-        )
-        const distanceB = levenshtein(
-          searchTerm,
-          productB.category.toLowerCase(),
-        )
-        productA.distance = distanceA
-        productB.distance = distanceB
-        if (distanceA > distanceB) return 1
-        if (distanceA < distanceB) return -1
-        return 0
-        // return sortByWord(productA.category, productB.category)
-      }
-      function sortByDistance(a, b) {
-        if (a.distance > b.distance) return 1
-        if (a.distance < b.distance) return -1
-        return 0
-      }
-      function sortByWord(a, b) {
-        const levenshteinA = levenshtein(searchTerm, a)
-        const levenshteinB = levenshtein(searchTerm, b)
-        if (levenshteinA > levenshteinB) return 1
-        if (levenshteinA < levenshteinB) return -1
-        return 0
-      }
-      // https://dev.to/samanthaming/how-to-deep-clone-an-array-in-javascript-3cig
-      const newArr = JSON.parse(JSON.stringify(state.productList))
-      newArr.sort(sortCategoriesByDistance)
-
-      const sortedByDistance = newArr
-        .map((product) => {
-          const titleArr = product.title.toLowerCase().split(' ')
-          titleArr.sort(sortByWord)
-          if (levenshtein(searchTerm, titleArr[0]) < product.distance) {
-            product.distance = levenshtein(searchTerm, titleArr[0])
-          }
-          return product
-        })
-        .sort(sortByDistance)
-        .map((product) => {
-          const productWithoutDistance = product
-          delete productWithoutDistance.distance
-          return productWithoutDistance
-        })
-
-      return sortedByDistance
-    },
+    // getProductsBySearch: (state) => (searchTerm) => {
+    //   return search(state.productList, searchTerm)
+    // },
     getCategories() {
       // Tillfälligt bara
       return [
@@ -120,9 +71,17 @@ export default {
     saveProducts(state, productList) {
       state.productList = productList
     },
+    search(state, searchTerm) {
+      const { suggestions, itemList } = search(state.productList, searchTerm)
+      console.log(suggestions, itemList)
+      state.suggestions = suggestions
+      state.searchResults = itemList
+    },
   },
   namespaced: true,
   state: {
     productList: [],
+    searchSuggestions: [],
+    searchResults: [],
   },
 }

@@ -8,11 +8,11 @@
     data() {
       return {
         closeMenu: Boolean,
+        searchTerm: '',
       }
     },
     created() {
       this.$store.dispatch('products/getProducts')
-      // console.log("KATEGORIER: ", this.categories)
     },
     watch: {
       $route(to) {
@@ -34,13 +34,11 @@
 </script>
 
 <template>
-  <body class="flex flex-col">
-    <Navbar :toggle="this.closeMenu" class="z-50" />
-    <RouterView name="hero" />
-    <main class="scroll-smooth container mx-auto" @click="toggleMenu">
-      <RouterView />
-    </main>
-    <PageFooter class="justify-self-end" />
-    <GetJournal />
-  </body>
+  <Navbar :toggle="this.closeMenu" class="z-50" />
+  <RouterView name="hero" />
+  <main class="scroll-smooth container mx-auto" @click="toggleMenu">
+    <RouterView />
+  </main>
+  <PageFooter class="justify-self-end" />
+  <GetJournal />
 </template>

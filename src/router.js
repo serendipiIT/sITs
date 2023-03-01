@@ -32,7 +32,8 @@ export default createRouter({
     },
     {
       name: 'home',
-      component: {
+
+      components: {
         default: HomeView,
         hero: HeroSection,
       },

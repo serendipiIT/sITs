@@ -7,6 +7,8 @@
   import 'swiper/css/pagination'
   import 'swiper/css/scrollbar'
 
+  import ProductCard from './ProductCard.vue'
+
   export default {
     setup() {
       const onSwiper = (swiper) => {
@@ -22,6 +24,7 @@
       }
     },
     components: {
+      ProductCard,
       Swiper,
       SwiperSlide,
     },
@@ -66,11 +69,13 @@
       <!-- TODO RouterLink till produktsida TODO använda ProductCard? -->
 
       <img
+        v-if="!infoText"
         :alt="product.category"
         :class="`w-full ${imageHeight} object-contain`"
         :src="product.image"
       />
-      <div class="flex flex-row justify-between mt-6" v-if="infoText">
+      <ProductCard v-if="infoText" :product="product" />
+      <!-- <div class="flex flex-row justify-between mt-6" v-if="infoText">
         <div>
           <p class="font-medium">
             {{ product.title }}
@@ -81,7 +86,7 @@
           <i>Spara</i>
           <i>Köp</i>
         </div>
-      </div>
+      </div> -->
     </swiper-slide>
   </swiper>
 </template>

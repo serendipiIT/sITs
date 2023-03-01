@@ -44,6 +44,12 @@
         }
       },
     },
+    watch: {
+      $route() {
+        this.productID = parseInt(this.$route.params.id)
+        this.showProduct = this.productList.find((o) => o.id === this.productID)
+      },
+    },
   }
 </script>
 

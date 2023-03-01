@@ -2,6 +2,7 @@
   import SearchBar from './SearchBar.vue'
   import { OhVueIcon, addIcons } from 'oh-vue-icons'
   import { BiBookmarkHeart, BiCart } from 'oh-vue-icons/icons'
+  import { mapGetters } from 'vuex'
   addIcons(BiBookmarkHeart, BiCart)
 
   export default {
@@ -9,10 +10,21 @@
       'v-icon': OhVueIcon,
       SearchBar,
     },
+    computed: {
+      ...mapGetters({
+        ItemCount: 'cart/totalItems',
+      }),
+    },
     data() {
       return {
         isOpen: false,
       }
+    },
+    props: {
+      toggle: {
+        type: Boolean,
+        default: false,
+      },
     },
     watch: {
       isOpen() {
@@ -27,12 +39,6 @@
         if (this.isOpen) {
           this.isOpen = false
         }
-      },
-    },
-    props: {
-      toggle: {
-        type: Boolean,
-        default: false,
       },
     },
   }
@@ -53,7 +59,6 @@
             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
           </svg>
         </div>
-
         <div @click="isOpen = !isOpen" v-show="isOpen">
           <svg
             class="fill-current w-6 cursor-pointer"
@@ -65,6 +70,7 @@
             />
           </svg>
         </div>
+        <slot />
       </div>
     </div>
 
@@ -77,15 +83,22 @@
       <v-icon
         @click="$router.push('/favorutites')"
         name="bi-bookmark-heart"
-        scale="1.5"
-        class="cursor-pointer"
-      />
-      <v-icon
-        @click="$router.push('/cart')"
-        name="bi-cart"
         scale="1.4"
         class="cursor-pointer"
       />
+      <div @click="$router.push('/cart')" class="w-min h-min relative">
+        <v-icon name="bi-cart" scale="1.4" class="cursor-pointer" />
+        <div
+          v-if="ItemCount"
+          :class="`${
+            ItemCount >= 10 ? 'px-1' : 'px-2'
+          } bg-yellow-300 rounded-full h-fit absolute right-[-10px] top-[-10px] cursor-pointer`"
+        >
+          <p :class="ItemCount >= 10 ? 'text-xs' : 'text-s'">
+            {{ ItemCount }}
+          </p>
+        </div>
+      </div>
     </div>
 
     <!-- Hamburger Links -->
