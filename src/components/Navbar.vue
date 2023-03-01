@@ -15,7 +15,7 @@
       }
     },
     watch: {
-      isOpen: function () {
+      isOpen() {
         if (this.isOpen) {
           document.documentElement.style.overflow = 'hidden'
           return
@@ -23,7 +23,7 @@
           document.documentElement.style.overflow = 'auto'
         }
       },
-      toggle: function () {
+      toggle() {
         if (this.isOpen) {
           this.isOpen = false
         }

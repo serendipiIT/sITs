@@ -42,7 +42,7 @@
     >
       <RouterView />
     </main>
-    <PageFooter class="justify-self-end mt-8" />
+    <PageFooter class="justify-self-end" />
     <GetJournal />
   </body>
 </template>
