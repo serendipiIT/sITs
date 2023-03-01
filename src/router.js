@@ -3,6 +3,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import AboutView from './views/AboutView.vue'
 import ApiProducts from './views/ApiProducts.vue'
 import CartView from './views/CartView.vue'
+import HeroSection from './components/HeroSection.vue'
 import HomeView from './views/HomeView.vue'
 import ProductPage from './views/ProductPage.vue'
 import FavouritesPage from './views/FavouritesPage.vue'
@@ -31,7 +32,10 @@ export default createRouter({
     },
     {
       name: 'home',
-      component: HomeView,
+      components: {
+        default: HomeView,
+        hero: HeroSection,
+      },
       path: '/',
       meta: { title: 'Home' },
     },

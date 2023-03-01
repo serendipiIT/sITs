@@ -1,4 +1,4 @@
-<template />
+<!-- <template>HEJ</template> -->
 
 <script>
   import axios from 'axios'
