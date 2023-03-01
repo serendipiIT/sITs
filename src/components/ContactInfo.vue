@@ -40,7 +40,7 @@
     @click="moreContact"
   >
     <h2 class="text-2xl font-bold ml-4">{{ title }}</h2>
-    <p class="my-6">
+    <p class="m-4 font-bold">
       <slot name="content" />
     </p>
     <img :src="source" :alt="description" />

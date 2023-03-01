@@ -50,7 +50,7 @@
           class="border text-center py-1 px-2 rounded-md text-white bg-neutral-800 hover:bg-neutral-100 hover:text-black transition-all cursor-pointer hover:shadow -mr-[2.5rem]"
           @click="buy"
         >
-          Buy
+          Add to Cart
         </p>
       </div>
     </div>
