@@ -1,8 +1,11 @@
 <script>
   export default {
     computed: {
-      filteredItems() {
-        return this.$store.state.items
+      suggestions() {
+        return this.$store.state.products.suggestions
+      },
+      searchResults() {
+        return this.$store.state.products.searchResults
       },
     },
     data() {
@@ -46,21 +49,58 @@
         return matrix[b.length][a.length]
       },
     },
+    watch: {
+      searchTerm(term) {
+        this.$store.commit('products/search', term)
+      },
+    },
   }
 </script>
 <template>
   <div class="mb-4 px-2 w-full">
     <input
       id="input1"
-      class="w-full border px-4 py-2 rounded focus:border-blue-500 focus:shadow-outline outline-none"
+      class="w-full border mb-2 px-4 py-2 rounded focus:border-blue-500 focus:shadow-outline outline-none"
       type="text"
       autofocus
       placeholder="Search"
+      v-model="searchTerm"
     />
-    <ul v-if="searchTerm">
-      <li v-for="(item, index) in filteredItems" :key="index">
-        {{ item }}: {{ getEditDistance(searchTerm, item) }}
-      </li>
-    </ul>
+    <div v-if="searchTerm">
+      <ul v-if="suggestions.length > 0">
+        <h2>Did you mean:</h2>
+        <li
+          v-for="(category, index) in suggestions"
+          :key="`category: ${category}-${index}`"
+        >
+          <p class="cursor-pointer" @click="searchTerm = category">
+            {{ category }}
+          </p>
+        </li>
+      </ul>
+      <ul>
+        <h2>Products</h2>
+        <li
+          class="search-results max-w-[300px] p-2"
+          v-for="item in searchResults.slice(0, 5)"
+          :key="item.id"
+        >
+          <router-link :to="`/product/${item.id}`">
+            <img class="h-10 w-10 inline" :src="item.image" alt="" />
+            {{
+              item.title.length >= 20
+                ? item.title.slice(0, 20) + '...'
+                : item.title
+            }}
+          </router-link>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
+
+<style scoped>
+  li:nth-of-type(2n) {
+    background-color: lightgrey;
+  }
+</style>

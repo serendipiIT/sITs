@@ -70,7 +70,7 @@
             />
           </svg>
         </div>
-        <slot> </slot>
+        <slot />
       </div>
     </div>
 
