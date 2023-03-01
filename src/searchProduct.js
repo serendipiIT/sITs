@@ -86,6 +86,7 @@ function filterCategorySuggestions(arr) {
     ...new Set(
       arr
         .filter((item) => isDistanceBelowFour(item))
+        .filter((item) => !isMatch(item))
         .map((item) => item.category),
     ),
   ]
