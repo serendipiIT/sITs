@@ -16,7 +16,7 @@
     },
     created() {
       let bookmarkedProducts = this.storedBookmarks.find(
-        (o) => o.product.id === this.product.id,
+        (o) => o.product === this.product.id,
       )
       if (bookmarkedProducts !== undefined) {
         this.isBookmarked = true
