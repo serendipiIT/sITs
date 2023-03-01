@@ -23,7 +23,6 @@
     computed: {
       ...mapGetters({
         categories: 'products/getCategories',
-        search: 'products/getProductsBySearch',
       }),
     },
     methods: {
