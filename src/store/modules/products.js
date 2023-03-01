@@ -1,5 +1,4 @@
 import { list } from '../../fallback'
-import { levenshtein } from '../../levenshtein'
 import { search } from '../../searchProduct'
 
 export default {
@@ -22,9 +21,9 @@ export default {
     getProductsByCategory: (state) => (cat) => {
       return state.productList.filter((product) => product.category === cat)
     },
-    getProductsBySearch: (state) => (searchTerm) => {
-      return search(state.productList, searchTerm)
-    },
+    // getProductsBySearch: (state) => (searchTerm) => {
+    //   return search(state.productList, searchTerm)
+    // },
     getCategories() {
       // Tillfälligt bara
       return [
@@ -72,9 +71,17 @@ export default {
     saveProducts(state, productList) {
       state.productList = productList
     },
+    search(state, searchTerm) {
+      const { suggestions, itemList } = search(state.productList, searchTerm)
+      console.log(suggestions, itemList)
+      state.suggestions = suggestions
+      state.searchResults = itemList
+    },
   },
   namespaced: true,
   state: {
     productList: [],
+    searchSuggestions: [],
+    searchResults: [],
   },
 }
