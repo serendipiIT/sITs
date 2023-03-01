@@ -49,16 +49,11 @@
 
 <template>
   <!-- Ta bort parent, sätt på view -->
-  <div class="justify-around h-[80vh] mt-12">
-    <ProductCarousel />
+  <div class="flex lg:flex-row flex-col lg:justify-around justify-center mt-12">
     <!-- Carousel är en komponent -->
-    <!-- <img :src="showProduct.image" class="w-[90%] object-scale-down" />
-      <img
-        src="https://picsum.photos/801/1200"
-        class="w-[80%] object-scale-down"
-      /> -->
+    <ProductCarousel class="basis-2/5 h-auto lg:h-[70vh]" />
     <!-- Info är en annan -->
-    <div class="basis-2/5 flex flex-col [&>*]:my-4 h-screen">
+    <div class="basis-2/5 flex flex-col [&>*]:my-4 px-12 sm:px-0">
       <h3 class="text-3xl">{{ showProduct.title }}</h3>
       <p class="text-neutral-500 text-lg">{{ showProduct.created_at }}</p>
       <div class="text-2xl">${{ showProduct.price }}</div>

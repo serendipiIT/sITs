@@ -34,11 +34,8 @@
 
 <template>
   <body class="flex flex-col">
-    <Navbar :toggle="this.closeMenu" />
-    <main
-      class="scroll-smooth container mx-auto min-h-[100vh]"
-      @click="toggleMenu"
-    >
+    <Navbar :toggle="this.closeMenu" class="z-50" />
+    <main class="scroll-smooth container mx-auto" @click="toggleMenu">
       <RouterView />
     </main>
     <PageFooter class="justify-self-end" />
