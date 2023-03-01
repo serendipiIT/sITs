@@ -95,8 +95,3 @@ function filterCategorySuggestions(arr) {
 function filterRelevant(arr) {
   return arr.filter((item) => isDistanceBelowFour(item))
 }
-
-function filterIfMatch(arr) {
-  console.log('WAAS A MATCH')
-  return arr.filter((item) => isMatch(item))
-}
