@@ -5,7 +5,7 @@
     :info-text="true"
     :product-list="productList"
     :slides-per-view="1"
-    :breakpoints="{ 1024: { slidesPerView: 3 }, 768: { slidesPerView: 2 } }"
+    :breakpoints="{ 1280: { slidesPerView: 3 }, 768: { slidesPerView: 2 } }"
   />
 </template>
 
