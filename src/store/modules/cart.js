@@ -25,6 +25,9 @@ export default {
     },
   },
   getters: {
+    totalItems(state) {
+      return state.items.reduce((total, item) => total + item.amount, 0)
+    },
     total(state) {
       return state.items
         .reduce(
