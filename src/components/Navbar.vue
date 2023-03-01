@@ -40,7 +40,7 @@
 
 <template>
   <nav
-    class="py-4 px-12 flex justify-between items-center select-none border-b bg-white"
+    class="py-4 px-6 sm:px-12 flex justify-between items-center select-none border-b bg-white"
   >
     <div class="text-2xl font-semibold flex justify-between items-center">
       <div>

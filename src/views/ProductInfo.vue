@@ -53,7 +53,7 @@
     <!-- Carousel är en komponent -->
     <ProductCarousel class="basis-2/5 h-auto lg:h-[70vh]" />
     <!-- Info är en annan -->
-    <div class="basis-2/5 flex flex-col [&>*]:my-4 px-12 sm:px-0">
+    <div class="basis-2/5 flex flex-col [&>*]:my-4 px-8 sm:px-0">
       <h3 class="text-3xl">{{ showProduct.title }}</h3>
       <p class="text-neutral-500 text-lg">{{ showProduct.created_at }}</p>
       <div class="text-2xl">${{ showProduct.price }}</div>

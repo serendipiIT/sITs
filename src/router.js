@@ -7,6 +7,7 @@ import HomeView from './views/HomeView.vue'
 import ProductPage from './views/ProductPage.vue'
 import FavouritesPage from './views/FavouritesPage.vue'
 import ProductInfo from './views/ProductInfo.vue'
+import HeroSection from './components/HeroSection.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -31,7 +32,10 @@ export default createRouter({
     },
     {
       name: 'home',
-      component: HomeView,
+      component: {
+        default: HomeView,
+        hero: HeroSection,
+      },
       path: '/',
       meta: { title: 'Home' },
     },

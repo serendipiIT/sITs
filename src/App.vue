@@ -36,6 +36,7 @@
 <template>
   <body class="flex flex-col">
     <Navbar :toggle="this.closeMenu" class="z-50" />
+    <RouterView name="hero" />
     <main class="scroll-smooth container mx-auto" @click="toggleMenu">
       <RouterView />
     </main>

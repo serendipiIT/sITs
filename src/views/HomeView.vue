@@ -3,7 +3,6 @@
   // import Carousel from '../components/Carousel.vue'
   import DiscoverSection from '../components/DiscoverSection.vue'
   import NewProducts from '../components/NewProducts.vue'
-  import Hero from '../components/HeroSection.vue'
   import Articles from '../components/TheJournal.vue'
 
   export default {
@@ -11,7 +10,6 @@
       // Carousel,
       DiscoverSection,
       NewProducts,
-      Hero,
       Articles,
     },
     computed: {
@@ -27,7 +25,6 @@
 
 <template>
   <main>
-    <Hero />
     <NewProducts />
 
     <!-- <Carousel
