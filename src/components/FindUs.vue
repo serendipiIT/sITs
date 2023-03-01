@@ -47,18 +47,18 @@
       <slot name="content" />
       <slot name="allContent" v-if="showInfo" />
       <button
-        class="w-24 mt-4 ml-8 bg-sky-500 hover:bg-indigo-700"
+        class="my-4 mx-4 bg-transparent hover:bg-zinc-100 text-zinc-800 font-semibold hover:text-black py-2 px-4 border border-zinc-500 hover:border-transparent rounded"
         @click="moreInfo"
         v-if="showInfo"
       >
-        Read Less
+        Close
       </button>
       <button
-        class="w-24 mt-4 ml-8 bg-indigo-500 hover:bg-indigo-700"
+        class="my-4 mx-4 bg-transparent hover:bg-zinc-100 text-zinc-800 font-semibold hover:text-black py-2 px-4 border border-zinc-500 hover:border-transparent rounded"
         @click="moreInfo"
         v-else
       >
-        Read More
+        Find store
       </button>
     </div>
     <div class="w-1/2">
@@ -67,6 +67,7 @@
         :src="source"
         :alt="description"
         v-if="!showInfo"
+        @click="moreInfo"
       />
     </div>
   </section>

@@ -45,18 +45,18 @@
     <div class="w-1/2 order-first">
       <h2 class="text-2xl font-bold ml-4">{{ title }}</h2>
       <p class="mt-4 ml-4">
-        <slot name="content"></slot>
-        <slot name="allContent" v-if="showInfo"></slot>
+        <slot name="content" />
+        <slot name="allContent" v-if="showInfo" />
       </p>
       <button
-        class="w-24 mt-4 ml-8 bg-sky-500 hover:bg-indigo-700"
+        class="my-4 mx-4 bg-transparent hover:bg-zinc-100 text-zinc-800 font-semibold hover:text-black py-2 px-4 border border-zinc-500 hover:border-transparent rounded"
         @click="moreInfo"
         v-if="showInfo"
       >
         Read Less
       </button>
       <button
-        class="w-24 mt-4 ml-8 bg-indigo-500 hover:bg-indigo-700"
+        class="my-4 mx-4 bg-transparent hover:bg-zinc-100 text-zinc-800 font-semibold hover:text-black py-2 px-4 border border-zinc-500 hover:border-transparent rounded"
         @click="moreInfo"
         v-else
       >
@@ -64,7 +64,12 @@
       </button>
     </div>
     <div class="w-1/2">
-      <img class="object-cover h-full" :src="source" :alt="description" />
+      <img
+        class="object-cover h-full"
+        :src="source"
+        :alt="description"
+        @click="moreInfo"
+      />
     </div>
   </section>
 </template>

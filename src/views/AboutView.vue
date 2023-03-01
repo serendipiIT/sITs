@@ -26,9 +26,9 @@
 
 <style scoped>
   section:hover {
-    -webkit-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    transform: scale(1.1);
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
     transition: 1s ease;
   }
 </style>
@@ -39,9 +39,10 @@
       <p>
         Our newly created web shop was founded in 2023 with a mission to provide
         high-quality products and services to customers around the world. Our
-        founders SerendipIT Solutions recognized a need for a more sustainable
-        and socially responsible approach to e-commerce, and they set out to
-        create a company that would embody those values.
+        founders<span class="font-bold"> SerendipIT Solutions </span>recognized
+        a need for a more sustainable and socially responsible approach to
+        e-commerce, and they set out to create a company that would embody those
+        values.
       </p>
     </NewsLetter>
 
@@ -274,7 +275,6 @@
           world.
         </p>
       </template>
-      <!-- TO-DO - Skapa funktion för att dölja/Visa mer -->
     </About>
     <ContactInfo
       :title="'Contact'"
@@ -285,15 +285,24 @@
         <p>How to reach us</p>
       </template>
       <template #contactDetails>
-        <div class="flex items-center space-x-24">
-          <p class="m-12">
-            <a href="mailto: abc@example.com">Send Email</a>
+        <div class="my-8 flex items-center space-x-24">
+          <p
+            class="flex-1 border border-neutral-800 text-center ml-4 py-2 hover:text-white hover:bg-neutral-800 transition-all cursor-pointer"
+          >
+            <a href="mailto: abc@example.com" target="_blank">Send Email</a>
           </p>
-          <p class="m-12">
-            Phone: 0771-365 365 <a href="tel: 0771365365">Call Us</a>
+          <p
+            class="flex-1 border border-neutral-800 text-center ml-4 py-2 hover:text-white hover:bg-neutral-800 transition-all cursor-pointer"
+          >
+            Phone: 0771-365 365
+            <a href="tel: 0771365365" target="_blank">Call Us</a>
           </p>
-          <p class="m-12">
-            <a href="https://github.com/serendipiIT"> Social Media</a>
+          <p
+            class="flex-1 border border-neutral-800 text-center ml-4 py-2 hover:text-white hover:bg-neutral-800 transition-all cursor-pointer"
+          >
+            <a href="https://github.com/serendipiIT" target="_blank">
+              Social Media</a
+            >
           </p>
         </div>
       </template>
