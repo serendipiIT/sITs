@@ -2,7 +2,7 @@
   <div class="flex flex-row flex-wrap bg-neutral-100 justify-around">
     <h1 class="text-4xl text-center my-8 w-full">Cart</h1>
     <section class="mx-4 sm:mx-0 w-full sm:w-[40%]">
-      <ul v-if="itemList.length > 0" class="flex flex-col">
+      <ul class="flex flex-col" v-if="itemList.length > 0">
         <li class="mb-8 h-min w-full" :key="item.id" v-for="item in itemList">
           <CartItemCard :item="item" />
         </li>
