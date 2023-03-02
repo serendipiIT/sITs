@@ -23,7 +23,7 @@
     props: {
       toggle: {
         type: Boolean,
-        default: false,
+        default: true,
       },
     },
     watch: {

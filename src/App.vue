@@ -34,11 +34,15 @@
 </script>
 
 <template>
-  <Navbar :toggle="this.closeMenu" class="z-50" />
-  <RouterView name="hero" />
-  <main class="scroll-smooth container mx-auto" @click="toggleMenu">
-    <RouterView />
-  </main>
-  <PageFooter class="justify-self-end" />
+  <body class="flex flex-col">
+    <Navbar :toggle="this.closeMenu" class="z-50" />
+    <div @click="toggleMenu">
+      <RouterView name="hero" />
+    </div>
+    <main class="scroll-smooth container mx-auto" @click="toggleMenu">
+      <RouterView />
+    </main>
+    <PageFooter class="justify-self-end" />
+  </body>
   <GetJournal />
 </template>

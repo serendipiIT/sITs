@@ -5,7 +5,7 @@ export default {
     },
     remove(state, payload) {
       state.bookmarked = state.bookmarked.filter(
-        (o) => o.product !== payload.product,
+        (o) => o.product.id !== payload.product.id,
       )
     },
   },

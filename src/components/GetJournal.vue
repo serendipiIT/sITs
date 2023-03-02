@@ -32,4 +32,8 @@
   }
 </script>
 
+<template>
+  <div class="hidden">...</div>
+</template>
+
 <style lang="scss" scoped></style>

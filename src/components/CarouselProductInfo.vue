@@ -1,9 +1,5 @@
 <script>
   import { register } from 'swiper/element/bundle'
-  // import 'swiper/css'
-  // import 'swiper/css/free-mode'
-  // import 'swiper/css/navigation'
-  // import 'swiper/css/thumbs'
   register()
 
   export default {
@@ -11,82 +7,91 @@
     data() {
       return {}
     },
+    props: {
+      product: {
+        type: Object,
+        default: null,
+      },
+    },
+    created() {
+      console.log(this.product)
+    },
   }
 </script>
 
 <template>
   <div>
     <swiper-container
-      style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
-      class="mySwiper lg:w-[40vw] w-[90vw]"
+      style="--swiper-navigation-color: #eee; --swiper-pagination-color: #eee"
+      class="mySwiper md:w-[40vw] w-[90vw]"
       thumbs-swiper=".mySwiper2"
       space-between="10"
       navigation="true"
     >
       <swiper-slide>
         <img
-          src="https://swiperjs.com/demos/images/nature-1.jpg"
-          class="lg:w-[40vw] w-[90vw]"
+          :src="this.product.image"
+          class="md:w-[40vw] w-[90vw] object-contain"
         />
       </swiper-slide>
       <swiper-slide>
         <img
-          src="https://swiperjs.com/demos/images/nature-2.jpg"
-          class="lg:w-[40vw] w-[90vw]"
+          :src="this.product.image"
+          class="md:w-[40vw] w-[90vw] object-contain"
         />
       </swiper-slide>
       <swiper-slide>
         <img
-          src="https://swiperjs.com/demos/images/nature-3.jpg"
-          class="lg:w-[40vw] w-[90vw]"
+          :src="this.product.image"
+          class="md:w-[40vw] w-[90vw] object-contain"
         />
       </swiper-slide>
       <swiper-slide>
         <img
-          src="https://swiperjs.com/demos/images/nature-4.jpg"
-          class="lg:w-[40vw] w-[90vw]"
+          :src="this.product.image"
+          class="md:w-[40vw] w-[90vw] object-contain"
         />
       </swiper-slide>
       <swiper-slide>
         <img
-          src="https://swiperjs.com/demos/images/nature-5.jpg"
-          class="lg:w-[40vw] w-[90vw]"
+          :src="this.product.image"
+          class="md:w-[40vw] w-[90vw] object-contain"
         />
       </swiper-slide>
       <swiper-slide>
         <img
-          src="https://swiperjs.com/demos/images/nature-6.jpg"
-          class="lg:w-[40vw] w-[90vw]"
+          :src="this.product.image"
+          class="md:w-[40vw] w-[90vw] object-contain"
         />
       </swiper-slide>
       <swiper-slide>
         <img
-          src="https://swiperjs.com/demos/images/nature-7.jpg"
-          class="lg:w-[40vw] w-[90vw]"
+          :src="this.product.image"
+          class="md:w-[40vw] w-[90vw] object-contain"
         />
       </swiper-slide>
       <swiper-slide>
         <img
-          src="https://swiperjs.com/demos/images/nature-8.jpg"
-          class="lg:w-[40vw] w-[90vw]"
+          :src="this.product.image"
+          class="md:w-[40vw] w-[90vw] object-contain"
         />
       </swiper-slide>
       <swiper-slide>
         <img
-          src="https://swiperjs.com/demos/images/nature-9.jpg"
-          class="lg:w-[40vw] w-[90vw]"
+          :src="this.product.image"
+          class="md:w-[40vw] w-[90vw] object-contain"
         />
       </swiper-slide>
       <swiper-slide>
         <img
-          src="https://swiperjs.com/demos/images/nature-10.jpg"
-          class="lg:w-[40vw] w-[90vw]"
+          :src="this.product.image"
+          class="md:w-[40vw] w-[90vw] object-contain"
         />
       </swiper-slide>
     </swiper-container>
 
     <swiper-container
-      class="mySwiper2 lg:w-[40vw] w-[90vw]"
+      class="mySwiper2 md:w-[40vw] w-[90vw]"
       space-between="10"
       slides-per-view="4"
       free-mode="true"
@@ -94,62 +99,62 @@
     >
       <swiper-slide>
         <img
-          src="https://swiperjs.com/demos/images/nature-1.jpg"
-          class="lg:w-[40vw] w-[90vw]"
+          :src="this.product.image"
+          class="md:w-[40vw] w-[90vw] object-contain"
         />
       </swiper-slide>
       <swiper-slide>
         <img
-          src="https://swiperjs.com/demos/images/nature-2.jpg"
-          class="lg:w-[40vw] w-[90vw]"
+          :src="this.product.image"
+          class="md:w-[40vw] w-[90vw] object-contain"
         />
       </swiper-slide>
       <swiper-slide>
         <img
-          src="https://swiperjs.com/demos/images/nature-3.jpg"
-          class="lg:w-[40vw] w-[90vw]"
+          :src="this.product.image"
+          class="md:w-[40vw] w-[90vw] object-contain"
         />
       </swiper-slide>
       <swiper-slide>
         <img
-          src="https://swiperjs.com/demos/images/nature-4.jpg"
-          class="lg:w-[40vw] w-[90vw]"
+          :src="this.product.image"
+          class="md:w-[40vw] w-[90vw] object-contain"
         />
       </swiper-slide>
       <swiper-slide>
         <img
-          src="https://swiperjs.com/demos/images/nature-5.jpg"
-          class="lg:w-[40vw] w-[90vw]"
+          :src="this.product.image"
+          class="md:w-[40vw] w-[90vw] object-contain"
         />
       </swiper-slide>
       <swiper-slide>
         <img
-          src="https://swiperjs.com/demos/images/nature-6.jpg"
-          class="lg:w-[40vw] w-[90vw]"
+          :src="this.product.image"
+          class="md:w-[40vw] w-[90vw] object-contain"
         />
       </swiper-slide>
       <swiper-slide>
         <img
-          src="https://swiperjs.com/demos/images/nature-7.jpg"
-          class="lg:w-[40vw] w-[90vw]"
+          :src="this.product.image"
+          class="md:w-[40vw] w-[90vw] object-contain"
         />
       </swiper-slide>
       <swiper-slide>
         <img
-          src="https://swiperjs.com/demos/images/nature-8.jpg"
-          class="lg:w-[40vw] w-[90vw]"
+          :src="this.product.image"
+          class="md:w-[40vw] w-[90vw] object-contain"
         />
       </swiper-slide>
       <swiper-slide>
         <img
-          src="https://swiperjs.com/demos/images/nature-9.jpg"
-          class="lg:w-[40vw] w-[90vw]"
+          :src="this.product.image"
+          class="md:w-[40vw] w-[90vw] object-contain"
         />
       </swiper-slide>
       <swiper-slide>
         <img
-          src="https://swiperjs.com/demos/images/nature-10.jpg"
-          class="lg:w-[40vw] w-[90vw]"
+          :src="this.product.image"
+          class="md:w-[40vw] w-[90vw] object-contain"
         />
       </swiper-slide>
     </swiper-container>

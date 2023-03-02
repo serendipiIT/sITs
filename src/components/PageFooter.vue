@@ -21,8 +21,10 @@
 <style></style>
 
 <template>
-  <footer class="flex justify-around bg-slate-300 pt-4 pb-4 font-semibold">
-    <ul class="text-cente">
+  <footer
+    class="flex justify-around bg-[#262626] pt-4 pb-4 font-semibold text-neutral-300"
+  >
+    <ul class="text-center">
       <li class="hover:text-sky-700 cursor-pointer mb-2">
         <a href="https://instagram.com/" target="_blank">
           <v-icon name="bi-instagram" scale="1.4"

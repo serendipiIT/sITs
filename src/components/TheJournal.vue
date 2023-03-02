@@ -1,16 +1,26 @@
 <script>
-  export default {}
+  export default {
+    data() {
+      return {
+        journals: this.$store.state.journal.journal,
+      }
+    },
+  }
 </script>
 <template>
   <h2 class="text-center my-8 text-4xl font-medium">The Journal</h2>
   <ul>
     <li
+      v-for="journal in journals"
+      :key="journal.id"
       class="p-8 border-y border-neutral-400 flex flex-col-reverse sm:flex-row justify-between items-center"
     >
       <div class="sm:self-start sm:mt-8">
-        <sub class="hidden sm:inline-flex text-neutral-500">Subtitle</sub>
+        <sub class="hidden sm:inline-flex text-neutral-500">{{
+          journal.subtitle
+        }}</sub>
         <h2 class="sm:mt-12 mt-8 text-3xl sm:w-[45vw] sm:text-left text-center">
-          Title goes here when we have one. asdasdasdads asdasd asdas
+          {{ journal.title }}
         </h2>
       </div>
       <img

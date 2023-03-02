@@ -20,6 +20,9 @@
           .then((res) => console.log(res))
       },
     },
+    created() {
+      console.log(this.product)
+    },
 
     props: {
       product: {
