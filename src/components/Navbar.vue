@@ -40,6 +40,9 @@
           this.isOpen = false
         }
       },
+      $route() {
+        this.isOpen = false
+      },
     },
   }
 </script>

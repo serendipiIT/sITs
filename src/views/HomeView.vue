@@ -7,7 +7,6 @@
 
   export default {
     components: {
-      // Carousel,
       DiscoverSection,
       NewProducts,
       Articles,
@@ -26,15 +25,6 @@
 <template>
   <main>
     <NewProducts />
-
-    <!-- <Carousel
-      class="max-w-[95vw]"
-      :height="'h-[60vh]'"
-      :number-of-slides="1"
-      :product-list="categories"
-      :breakpoints="{ 1024: { slidesPerView: 3 }, 768: { slidesPerView: 2 } }"
-      :message="'Hejsan nu testar vi!'"
-    /> -->
     <DiscoverSection />
     <Articles />
   </main>

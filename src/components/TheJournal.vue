@@ -8,8 +8,8 @@
   }
 </script>
 <template>
-  <h2 class="text-center my-8 text-4xl font-medium">The Journal</h2>
-  <ul>
+  <h2 class="text-center mt-16 mb-8 text-4xl font-medium">The Journal</h2>
+  <ul class="mb-16">
     <li
       v-for="journal in journals"
       :key="journal.id"
@@ -19,13 +19,18 @@
         <sub class="hidden sm:inline-flex text-neutral-500">{{
           journal.subtitle
         }}</sub>
-        <h2 class="sm:mt-12 mt-8 text-3xl sm:w-[45vw] sm:text-left text-center">
+        <h2
+          class="sm:mt-12 mt-8 mb-4 text-3xl sm:w-[45vw] sm:text-left text-center"
+        >
           {{ journal.title }}
         </h2>
+        <p class="text-lg sm:w-[45vw] sm:text-left text-center">
+          {{ journal.content }}
+        </p>
       </div>
       <img
-        src="https://picsum.photos/200/300"
-        class="object-cover w-[80%] h-[20rem] sm:max-w-[15rem]"
+        :src="journal.image"
+        class="object-cover w-[80%] h-[20rem] sm:max-w-[20rem]"
       />
     </li>
   </ul>

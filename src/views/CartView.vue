@@ -1,12 +1,21 @@
 <template>
   <div class="flex flex-row flex-wrap bg-neutral-100 justify-around">
-    <h1 class="text-3xl text-center my-8 w-full">Cart</h1>
+    <h1 class="text-4xl text-center my-8 w-full">Cart</h1>
     <section class="mx-4 sm:mx-0 w-full sm:w-[40%]">
-      <ul class="flex flex-col">
+      <ul v-if="itemList.length > 0" class="flex flex-col">
         <li class="mb-8 h-min w-full" :key="item.id" v-for="item in itemList">
           <CartItemCard :item="item" />
         </li>
       </ul>
+      <div v-else class="flex flex-col height-full justify-center">
+        <p class="text-xl text-center">
+          <span class="text-4xl block mb-4"> Oops, </span>
+          It looks like your shopping cart is feeling a little empty. Don't
+          worry, we've got plenty of goodies waiting for you to fill it up with!
+          Browse our amazing selection of products and treat yourself to
+          something special. Happy shopping!
+        </p>
+      </div>
     </section>
 
     <section

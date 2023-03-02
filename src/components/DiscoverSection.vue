@@ -1,21 +1,21 @@
 <template>
   <Hero
-    mobile-image="../../assets/fox.jpeg"
-    desktop-image="../../assets/about-img/career-options.png"
+    mobile-image="https://cdn.pixabay.com/photo/2021/05/20/10/22/jeans-6268300_960_720.jpg"
+    desktop-image="https://cdn.pixabay.com/photo/2021/05/20/10/22/jeans-6268300_960_720.jpg"
     fallback-color="black"
     height="70vh"
   >
     <template #title>
-      <h2 class="mb-2 text-center text-3xl text-white">
+      <h2 class="mb-4 text-center text-5xl text-white">
         Georgia Finest Fabric Weavers
       </h2>
     </template>
     <template #sub-title>
-      <p class="mb-8 text-center text-lg text-white">Build Our Fabrics</p>
+      <p class="mb-12 text-center text-2xl text-white">Build Our Fabrics</p>
     </template>
     <template #action>
       <button
-        class="border-2 duration-300 hover:bg-white hover:text-black px-4 py-2 rounded text-white inline"
+        class="border-2 text-xl duration-300 hover:bg-white hover:text-black px-6 py-2 text-white inline"
       >
         Discover
       </button>
