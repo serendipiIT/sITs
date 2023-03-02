@@ -60,7 +60,7 @@
       <img
         :src="product.image"
         alt="placeholder"
-        class="h-[20rem] w-[100%] object-contain bg-neutral-100 py-8 sm:min-h-[70vh]"
+        class="h-[20rem] w-[100%] object-contain bg-neutral-100 py-8 sm:min-h-[55vh]"
       />
       <div class="p-6">
         <div class="flex justify-between">

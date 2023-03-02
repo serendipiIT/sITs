@@ -17,12 +17,12 @@
 
 <template>
   <main>
-    <div class="flex flex-row flex-wrap gap-x-3 gap-y-5 justify-center mb-8">
+    <div class="flex flex-row flex-wrap gap-x-16 gap-y-5 justify-center my-8">
       <ProductCard
         v-for="product in products"
         :product="product"
         :key="product.id"
-        :max-width="'sm:max-w-[45%] max-w-[85%]'"
+        :max-width="'sm:max-w-[30%] max-w-[90%]'"
       />
     </div>
   </main>

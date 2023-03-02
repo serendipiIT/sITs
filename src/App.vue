@@ -34,12 +34,12 @@
 </script>
 
 <template>
-  <body class="flex flex-col">
+  <body class="flex flex-col justify-between h-screen">
     <Navbar :toggle="this.closeMenu" class="z-50" />
     <div @click="toggleMenu">
       <RouterView name="hero" />
     </div>
-    <main class="scroll-smooth container mx-auto" @click="toggleMenu">
+    <main class="scroll-smooth container mx-auto mb-auto" @click="toggleMenu">
       <RouterView />
     </main>
     <PageFooter class="justify-self-end" />
