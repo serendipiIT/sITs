@@ -77,6 +77,10 @@ function isDistanceBelowFour(obj) {
   return obj.distance < 4
 }
 
+function isDistanceBelowTwo(obj) {
+  return obj.distance < 2
+}
+
 function isMatch(obj) {
   return obj?.distance === 0
 }
@@ -93,5 +97,5 @@ function filterCategorySuggestions(arr) {
 }
 
 function filterRelevant(arr) {
-  return arr.filter((item) => isDistanceBelowFour(item))
+  return arr.filter((item) => isDistanceBelowTwo(item))
 }
