@@ -66,8 +66,6 @@
     :class="height"
   >
     <swiper-slide :key="product.id" v-for="product in productList">
-      <!-- TODO RouterLink till produktsida TODO använda ProductCard? -->
-
       <img
         v-if="!infoText"
         :alt="product.category"
@@ -75,18 +73,6 @@
         :src="product.image"
       />
       <ProductCard v-if="infoText" :product="product" />
-      <!-- <div class="flex flex-row justify-between mt-6" v-if="infoText">
-        <div>
-          <p class="font-medium">
-            {{ product.title }}
-          </p>
-          <p class="font-medium">{{ product.price }}</p>
-        </div>
-        <div>
-          <i>Spara</i>
-          <i>Köp</i>
-        </div>
-      </div> -->
     </swiper-slide>
   </swiper>
 </template>
