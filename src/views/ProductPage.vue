@@ -22,7 +22,7 @@
         v-for="product in products"
         :product="product"
         :key="product.id"
-        :max-width="'sm:max-w-[30%] max-w-[90%]'"
+        :max-width="'max-w-[30%] max-w-[90%]'"
       />
     </div>
   </main>
