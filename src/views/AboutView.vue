@@ -3,6 +3,7 @@
   import NewsLetter from '../components/NewsLetter.vue'
   import ContactInfo from '../components/ContactInfo.vue'
   import FindUs from '../components/FindUs.vue'
+  import GetAbout from '../components/GetAbout.vue'
 
   export default {
     components: {
@@ -10,16 +11,41 @@
       NewsLetter,
       ContactInfo,
       FindUs,
+      GetAbout,
     },
     data() {
       return {
         emailProvided: false,
+        urlApi: 'http://SITsApi.us-east-1.elasticbeanstalk.com/',
+        history: null,
+        find: null,
+        carrer: null,
+        sustainability: null,
       }
     },
     methods: {
       signUp() {
         this.emailProvided = true
       },
+      async getAboutContent() {
+        const response = await fetch(`${this.urlApi}pages`)
+        const data = await response.json()
+        const result = data.data
+        console.log('data', data.data)
+        this.history = result[0]
+        this.find = result[1]
+        this.carrer = result[2]
+        this.sustainability = result[3]
+        console.log(
+          this.history.h1,
+          this.find,
+          this.carrer,
+          this.sustainability,
+        )
+      },
+    },
+    created() {
+      this.getAboutContent()
     },
   }
 </script>
@@ -34,6 +60,7 @@
 </style>
 
 <template>
+  <GetAbout />
   <main class="flex flex-col items-center my-12 max-w-6xl mx-auto">
     <NewsLetter :title="'About Us'">
       <p>
@@ -143,11 +170,13 @@
     </FindUs>
 
     <About
-      :title="'Our History'"
+      :title="history.section"
       :source="'../../assets/about-img/history.jpg'"
       :description="'Our History'"
     >
       <template #content>
+        <span v-html="history.content" />
+        <!--
         <p>
           Our newly created web shop was founded in 2023 with a mission to
           provide high-quality products and services to customers around the
@@ -175,17 +204,23 @@
           and social responsibility. We remain committed to our founding mission
           and values, and we look forward to continuing to grow and serve our
           customers for many years to come.
-        </p>
+        </p>-->
       </template>
     </About>
 
     <About
-      :title="'Career'"
+      :title="carrer.section"
       :source="'../../assets/about-img/career-options.png'"
       :description="'Work with us'"
       :reverse="'flex border border-gray-300 bg-gray-100 p-4 mt-4 hover:bg-white'"
     >
       <template #content>
+        <span v-html="carrer.content" />
+        <span v-html="carrer.content_full" />
+      </template>
+
+      <!--
+        <template>
         <p class="mt-4">
           Our web shop is committed to providing a positive and supportive work
           environment for all employees. We believe that our employees are our
@@ -223,6 +258,7 @@
           of providing high-quality products and services to our customers.
         </p>
       </template>
+      -->
     </About>
 
     <About
