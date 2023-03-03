@@ -82,13 +82,15 @@
     </h1>
 
     <!-- Icons -->
-    <div class="hidden sm:flex gap-4">
-      <v-icon
-        @click="$router.push('/favorutites')"
-        name="bi-bookmark-heart"
-        scale="1.4"
-        class="cursor-pointer"
-      />
+    <div class="flex gap-4">
+      <div class="hidden sm:block">
+        <v-icon
+          @click="$router.push('/favorutites')"
+          name="bi-bookmark-heart"
+          scale="1.4"
+          class="cursor-pointer"
+        />
+      </div>
       <div @click="$router.push('/cart')" class="w-min h-min relative">
         <v-icon name="bi-cart" scale="1.4" class="cursor-pointer" />
         <div
@@ -139,7 +141,6 @@
         >
         <div class="sm:hidden flex gap-4">
           <v-icon name="bi-bookmark-heart" scale="1.5" />
-          <v-icon @click="$router.push('/cart')" name="bi-cart" scale="1.4" />
         </div>
       </div>
     </transition>
