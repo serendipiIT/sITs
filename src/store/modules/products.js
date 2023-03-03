@@ -5,13 +5,10 @@ export default {
   actions: {
     async getProducts({ commit }) {
       try {
-        throw new Error('henlo')
-        // const products = await (
-        //   await fetch(
-        //     'http://sitsapi.us-east-1.elasticbeanstalk.com/products',
-        //   )
-        // ).json()
-        // commit('saveProducts', products.data)
+        const products = await (
+          await fetch('http://sitsapi.us-east-1.elasticbeanstalk.com/products')
+        ).json()
+        commit('saveProducts', products.data)
       } catch (error) {
         commit('saveProducts', list.data)
       }
