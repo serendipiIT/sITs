@@ -18,9 +18,9 @@
         storedBookmarks: this.$store.state.bookmarks.bookmarked,
 
         menu: [
-          { title: 'Material', text: '', readMore: false },
-          { title: 'Size Guide', text: '', readMore: false },
-          { title: 'Stock', text: '', readMore: false },
+          { title: 'Material', text: 'No info', readMore: false },
+          { title: 'Size Guide', text: 'No info', readMore: false },
+          { title: 'Stock', text: 'No info', readMore: false },
         ],
       }
     },
@@ -49,21 +49,29 @@
           this.isBookmarked = false
         }
       },
+      buy() {
+        console.log('KÖPER')
+        this.$store
+          .dispatch('cart/addItem', this.product)
+          .then((res) => console.log(res))
+
+        this.$store
+          .dispatch('cart/showModal', true)
+          .then((res) => console.log(res))
+          .then(
+            setTimeout(
+              () => this.$store.dispatch('cart/showModal', false),
+              5000,
+            ),
+          )
+      },
     },
     created() {
       this.checkIfBookmarked()
 
-      // Object.keys(this.product).forEach((key) => {
-      //   this.product[key] === 'material'
-      // })
-      // console.log(this.product)
-
-      // const map = this.product.map((infoKey) => infoKey)
-      // console.log(map)
-
-      // for (let i = 0; i < this.menu.length; i++) {
-      //   this.menu[i].text = this.product.stock
-      // }
+      this.menu[0].text = this.product.material
+      this.menu[1].text = this.product.size_guide
+      this.menu[2].text = this.product.stock
     },
     watch: {
       product() {
@@ -83,16 +91,7 @@
     <div class="flex justify-between my-2">
       <h3 class="text-3xl">{{ product.title }}</h3>
       <v-icon
-        v-if="isBookmarked"
-        name="bi-bookmark-fill"
-        fill="#262626"
-        scale="1.7"
-        @click="bookmark"
-        class="cursor-pointer"
-      />
-      <v-icon
-        v-else
-        name="bi-bookmark"
+        :name="isBookmarked ? 'bi-bookmark-fill' : 'bi-bookmark'"
         fill="#262626"
         scale="1.7"
         @click="bookmark"
@@ -107,7 +106,9 @@
       {{ product.description }}
     </div>
 
-    <div class="btn transition-all text-lg w-[100%] mb-4">Add to Cart</div>
+    <button class="btn transition-all text-lg w-[100%] mb-4" @click="buy">
+      Add to Cart
+    </button>
     <div class="mb-4">
       <ul>
         <li

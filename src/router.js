@@ -1,7 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 import AboutView from './views/AboutView.vue'
-import ApiProducts from './views/ApiProducts.vue'
 import CartView from './views/CartView.vue'
 import HomeView from './views/HomeView.vue'
 import ProductPage from './views/ProductPage.vue'
@@ -17,12 +16,6 @@ export default createRouter({
       component: AboutView,
       path: '/about',
       meta: { title: 'About' },
-    },
-    {
-      name: 'apiProducts',
-      component: ApiProducts,
-      path: '/apiProducts',
-      meta: { title: 'apiProducts' },
     },
     {
       name: 'cart',

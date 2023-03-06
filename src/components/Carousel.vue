@@ -25,8 +25,8 @@
     },
     components: {
       ProductCard,
-      Swiper,
-      SwiperSlide,
+      Swiper2: Swiper,
+      Swiper2Slide: SwiperSlide,
     },
     data() {
       return {
@@ -56,7 +56,7 @@
 </script>
 
 <template>
-  <swiper
+  <swiper2
     :modules="modules"
     :slides-per-view="numberOfSlides"
     :space-between="10"
@@ -65,7 +65,7 @@
     @slide-change="onSlideChange"
     :class="height"
   >
-    <swiper-slide :key="product.id" v-for="product in productList">
+    <swiper2-slide :key="product.id" v-for="product in productList">
       <img
         v-if="!infoText"
         :alt="product.category"
@@ -73,6 +73,6 @@
         :src="product.image"
       />
       <ProductCard v-if="infoText" :product="product" />
-    </swiper-slide>
-  </swiper>
+    </swiper2-slide>
+  </swiper2>
 </template>

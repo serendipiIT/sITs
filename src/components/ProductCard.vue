@@ -65,22 +65,15 @@
       />
       <div class="mt-6">
         <div class="flex justify-between">
-          <!-- <h3>{{ product.title.slice(0, 15) + '...' }}</h3> -->
           <h3>{{ product.title }}</h3>
-          <v-icon
-            v-if="isBookmarked"
-            name="bi-bookmark-fill"
-            scale="1.2"
-            @click="bookmark"
-            class="cursor-pointer"
-          />
-          <v-icon
-            v-else
-            name="bi-bookmark"
-            scale="1.2"
-            @click="bookmark"
-            class="cursor-pointer"
-          />
+          <div class="w-[30px]">
+            <v-icon
+              :name="isBookmarked ? 'bi-bookmark-fill' : 'bi-bookmark'"
+              scale="1.2"
+              @click="bookmark"
+              class="cursor-pointer"
+            />
+          </div>
         </div>
         <div
           class="py-1 pr-2 text-gray-500 text-sm cursor-pointer"

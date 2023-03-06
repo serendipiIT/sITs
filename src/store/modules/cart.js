@@ -23,6 +23,12 @@ export default {
         items: state.items,
       }
     },
+    showModal({ commit, state }, payload) {
+      commit('modal', payload)
+      return {
+        bool: state.modal,
+      }
+    },
   },
   getters: {
     totalItems(state) {
@@ -53,9 +59,13 @@ export default {
     removeItem(state, payload) {
       state.items = state.items.filter((item) => item.id !== payload.id)
     },
+    modal(state, payload) {
+      state.modal = payload
+    },
   },
   namespaced: true,
   state: {
     items: [],
+    modal: false,
   },
 }
