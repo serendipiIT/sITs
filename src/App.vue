@@ -1,45 +1,38 @@
 <script>
-    import { mapGetters } from 'vuex'
+  import { mapGetters } from 'vuex'
 
-    import Navbar from './components/Navbar.vue'
-    import PageFooter from './components/PageFooter.vue'
-    import GetJournal from './components/GetJournal.vue'
-  <<<<<<< HEAD
-    import Modal from './components/AddedToCartModal.vue'
+  import Navbar from './components/Navbar.vue'
+  import PageFooter from './components/PageFooter.vue'
+  import GetJournal from './components/GetJournal.vue'
+  import Modal from './components/AddedToCartModal.vue'
 
-    export default {
-      setup() {
-        const cartModal = useCartModal()
-  =======
-  >>>>>>> 0ff19da (fix cart preview modal remove item and hover exit close)
-
-    export default {
-      data() {
-        return {
-          closeMenu: Boolean,
-          searchTerm: '',
-        }
+  export default {
+    data() {
+      return {
+        closeMenu: Boolean,
+        searchTerm: '',
+      }
+    },
+    created() {
+      this.$store.dispatch('products/getProducts')
+    },
+    watch: {
+      $route(to) {
+        document.title = to.meta.title || 'sITs'
       },
-      created() {
-        this.$store.dispatch('products/getProducts')
+    },
+    components: { Navbar, PageFooter, GetJournal, Modal },
+    computed: {
+      ...mapGetters({
+        categories: 'products/getCategories',
+      }),
+    },
+    methods: {
+      toggleMenu() {
+        this.closeMenu = !this.closeMenu
       },
-      watch: {
-        $route(to) {
-          document.title = to.meta.title || 'sITs'
-        },
-      },
-      components: { Navbar, PageFooter, GetJournal, Modal },
-      computed: {
-        ...mapGetters({
-          categories: 'products/getCategories',
-        }),
-      },
-      methods: {
-        toggleMenu() {
-          this.closeMenu = !this.closeMenu
-        },
-      },
-    }
+    },
+  }
 </script>
 
 <template>
