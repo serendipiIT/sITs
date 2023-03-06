@@ -21,11 +21,6 @@
         return this.productList.find((o) => o.id === this.productID)
       },
     },
-
-    created() {
-      this.showProduct = this.productList.find((o) => o.id === this.productID)
-    },
-
     watch: {
       $route() {
         this.productID = parseInt(this.$route.params.id)
@@ -40,10 +35,10 @@
   <div
     class="flex md:flex-row flex-col md:justify-around gap-x-24 justify-center items-center mt-12 lg:max-w-[80%] mx-auto"
   >
-    <ProductCarousel class="sm:mb-12" :product="this.showProduct" />
+    <ProductCarousel class="sm:mb-12" :product="showProduct" />
     <ProductInfoText
       class="flex flex-col px-8 sm:px-0"
-      :product="this.showProduct"
+      :product="showProduct"
     />
   </div>
 </template>
