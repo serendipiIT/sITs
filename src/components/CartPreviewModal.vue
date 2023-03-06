@@ -1,6 +1,7 @@
 <template>
   <div
     class="absolute top-16 right-0 bg-neutral-100 p-6 w-[17rem] border"
+    @mouseenter="openCartModal"
     @mouseleave="closeCartModal"
   >
     <ul class="" v-if="itemList.length > 0">
@@ -77,6 +78,7 @@
       const cartModal = useCartModal()
       return {
         closeCartModal: cartModal.closeModal,
+        openCartModal: cartModal.openModal,
       }
     },
     components: {
@@ -89,6 +91,11 @@
       ...mapGetters({
         total: 'cart/total',
       }),
+    },
+    methods: {
+      removeItem(id) {
+        this.$store.commit('cart/removeItem', { id })
+      },
     },
   }
 </script>

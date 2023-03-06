@@ -14,6 +14,7 @@
       return {
         showCartModal: cartModal.isOpen,
         openCartModal: cartModal.openModal,
+        // closeCartModal: cartModal.closeModal,
       }
     },
     components: {

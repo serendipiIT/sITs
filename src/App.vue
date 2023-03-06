@@ -1,46 +1,45 @@
 <script>
-  import { mapGetters } from 'vuex'
+    import { mapGetters } from 'vuex'
 
-  import useCartModal from './cartModal'
-  import Navbar from './components/Navbar.vue'
-  import PageFooter from './components/PageFooter.vue'
-  import GetJournal from './components/GetJournal.vue'
-  import Modal from './components/AddedToCartModal.vue'
+    import Navbar from './components/Navbar.vue'
+    import PageFooter from './components/PageFooter.vue'
+    import GetJournal from './components/GetJournal.vue'
+  <<<<<<< HEAD
+    import Modal from './components/AddedToCartModal.vue'
 
-  export default {
-    setup() {
-      const cartModal = useCartModal()
+    export default {
+      setup() {
+        const cartModal = useCartModal()
+  =======
+  >>>>>>> 0ff19da (fix cart preview modal remove item and hover exit close)
 
-      return {
-        closeCartModal: cartModal.closeModal,
-      }
-    },
-    data() {
-      return {
-        closeMenu: Boolean,
-        searchTerm: '',
-      }
-    },
-    created() {
-      this.$store.dispatch('products/getProducts')
-    },
-    watch: {
-      $route(to) {
-        document.title = to.meta.title || 'sITs'
+    export default {
+      data() {
+        return {
+          closeMenu: Boolean,
+          searchTerm: '',
+        }
       },
-    },
-    components: { Navbar, PageFooter, GetJournal, Modal },
-    computed: {
-      ...mapGetters({
-        categories: 'products/getCategories',
-      }),
-    },
-    methods: {
-      toggleMenu() {
-        this.closeMenu = !this.closeMenu
+      created() {
+        this.$store.dispatch('products/getProducts')
       },
-    },
-  }
+      watch: {
+        $route(to) {
+          document.title = to.meta.title || 'sITs'
+        },
+      },
+      components: { Navbar, PageFooter, GetJournal, Modal },
+      computed: {
+        ...mapGetters({
+          categories: 'products/getCategories',
+        }),
+      },
+      methods: {
+        toggleMenu() {
+          this.closeMenu = !this.closeMenu
+        },
+      },
+    }
 </script>
 
 <template>
