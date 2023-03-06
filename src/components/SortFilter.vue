@@ -21,11 +21,7 @@
         class="block mb-2 font-semibold text-gray-800 py-2 px-3 hover:bg-gray-200 rounded cursor-pointer"
         >Home</routerLink
       >
-      <routerLink
-        :to="{ name: 'apiProducts' }"
-        class="block mb-2 font-semibold text-gray-800 py-2 px-3 hover:bg-gray-200 rounded cursor-pointer"
-        >ApiProducts</routerLink
-      >
+
       <routerLink
         :to="{ name: 'products' }"
         class="block mb-2 font-semibold text-gray-800 py-2 px-3 hover:bg-gray-200 rounded cursor-pointer"

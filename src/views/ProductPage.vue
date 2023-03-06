@@ -30,10 +30,10 @@
 <template>
   <main>
     <SortFilter :toggle="this.closeMenu" />
-    <div @click="toggleMenu">
-      <RouterView name="hero" />
-    </div>
-    <div class="flex flex-row flex-wrap gap-x-16 gap-y-5 justify-center my-8">
+    <div
+      class="flex flex-row flex-wrap gap-x-16 gap-y-5 justify-center my-8"
+      @click="toggleMenu"
+    >
       <ProductCard
         v-for="product in products"
         :product="product"

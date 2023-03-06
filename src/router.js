@@ -25,7 +25,6 @@ export default createRouter({
     },
     {
       name: 'home',
-
       components: {
         default: HomeView,
         hero: HeroSection,
