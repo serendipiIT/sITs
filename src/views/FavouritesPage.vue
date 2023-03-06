@@ -17,6 +17,7 @@
 </script>
 
 <template>
+  <h1 class="text-center mb-8 text-3xl mt-12">Favorites</h1>
   <ul v-if="bookmarks.length >= 1">
     <FavouriteCard
       v-for="bookmark in bookmarks"
@@ -24,7 +25,15 @@
       :product="bookmark.product"
     />
   </ul>
-  <p v-else class="text-center mb-8 text-xl italic">
-    You haven't saved any products!
-  </p>
+  <div v-else class="text-center mb-8 text-xl italic">
+    <p>
+      You have no items bookmarked. In your Favorites, you can add products you
+      would like or plan to buy in the future.
+    </p>
+    <p>
+      <span class="font-bold">How to add a product:</span> To add a product to
+      your Favorites, use the bookmark that appears to the right of the product
+      title of the product.
+    </p>
+  </div>
 </template>

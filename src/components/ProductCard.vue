@@ -55,20 +55,18 @@
   }
 </script>
 <template>
-  <div
-    class="flex flex-col justify-between"
-    :class="maxWidth"
-    @click="$router.push(`/product/${this.product.id}`)"
-  >
+  <div class="flex flex-col justify-between" :class="maxWidth">
     <div>
       <img
         :src="product.image"
         alt="placeholder"
-        class="h-auto w-[100%] object-contain bg-neutral-100"
+        class="h-auto w-[100%] object-contain bg-neutral-100 cursor-pointer"
+        @click="$router.push(`/product/${this.product.id}`)"
       />
-      <div class="p-6">
+      <div class="mt-6">
         <div class="flex justify-between">
-          <h3>{{ product.title.slice(0, 15) + '...' }}</h3>
+          <!-- <h3>{{ product.title.slice(0, 15) + '...' }}</h3> -->
+          <h3>{{ product.title }}</h3>
           <v-icon
             v-if="isBookmarked"
             name="bi-bookmark-fill"
@@ -84,14 +82,17 @@
             class="cursor-pointer"
           />
         </div>
-        <div class="pt-4 text-gray-500 text-sm">
+        <div
+          class="py-1 pr-2 text-gray-500 text-sm cursor-pointer"
+          @click="$router.push(`/product/${this.product.id}`)"
+        >
           {{ product.description.slice(0, 100) + '...' }}
         </div>
       </div>
     </div>
     <div class="flex pb-4 items-center justify-between">
       <h3 class="text-center">${{ product.price }}</h3>
-      <div class="flex items-center">
+      <!-- <div class="flex items-center">
         <p
           class="border border-neutral-800 text-center py-2 px-4 hover:text-white hover:bg-neutral-800 transition-all cursor-pointer"
           @click="buy"
@@ -103,11 +104,12 @@
         >
           <button
             class="border text-center py-[calc(0.5rem+1px)] px-4 ml-2 text-white bg-neutral-800 hover:bg-neutral-100 hover:text-black transition-all cursor-pointer"
+            @click="$router.push(`/product/${this.product.id}`)"
           >
             More Info
           </button>
         </router-link>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>

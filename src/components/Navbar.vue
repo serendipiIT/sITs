@@ -77,7 +77,7 @@
       </div>
     </div>
 
-    <h1 class="text-xl">
+    <h1 class="text-xl cursor-pointer" @click="$router.push(`/`)">
       serendip<span class="text-2xl font-medium">IT</span> Solutions
     </h1>
 

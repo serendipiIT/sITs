@@ -4,6 +4,8 @@
   import Navbar from './components/Navbar.vue'
   import PageFooter from './components/PageFooter.vue'
   import GetJournal from './components/GetJournal.vue'
+  import Modal from './components/AddedToCartModal.vue'
+
   export default {
     data() {
       return {
@@ -19,7 +21,7 @@
         document.title = to.meta.title || 'sITs'
       },
     },
-    components: { Navbar, PageFooter, GetJournal },
+    components: { Navbar, PageFooter, GetJournal, Modal },
     computed: {
       ...mapGetters({
         categories: 'products/getCategories',
@@ -35,7 +37,8 @@
 
 <template>
   <body class="flex flex-col justify-between h-screen">
-    <Navbar :toggle="this.closeMenu" class="z-50" />
+    <Modal />
+    <Navbar :toggle="this.closeMenu" class="z-40" />
     <div @click="toggleMenu">
       <RouterView name="hero" />
     </div>

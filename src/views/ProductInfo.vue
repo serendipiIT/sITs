@@ -37,7 +37,7 @@
   >
     <ProductCarousel class="sm:mb-12" :product="this.showProduct" />
     <ProductInfoText
-      class="flex flex-col [&>*]:my-4 px-8 sm:px-0"
+      class="flex flex-col px-8 sm:px-0"
       :product="this.showProduct"
     />
   </div>

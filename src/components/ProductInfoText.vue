@@ -18,9 +18,9 @@
         storedBookmarks: this.$store.state.bookmarks.bookmarked,
 
         menu: [
-          { title: 'title1', text: 'jhgjhgjhgjhjg', readMore: false },
-          { title: 'title2', text: 'jhgjhgjhgjhjg', readMore: false },
-          { title: 'title3', text: 'jhgjhgjhgjhjg', readMore: false },
+          { title: 'Material', text: '', readMore: false },
+          { title: 'Size Guide', text: '', readMore: false },
+          { title: 'Stock', text: '', readMore: false },
         ],
       }
     },
@@ -53,10 +53,17 @@
     created() {
       this.checkIfBookmarked()
 
-      for (let i = 0; i < this.menu.length; i++) {
-        this.menu[i].title = `Title ${i}`
-        // this.menu[i].text = `${this.product.description}`
-      }
+      // Object.keys(this.product).forEach((key) => {
+      //   this.product[key] === 'material'
+      // })
+      // console.log(this.product)
+
+      // const map = this.product.map((infoKey) => infoKey)
+      // console.log(map)
+
+      // for (let i = 0; i < this.menu.length; i++) {
+      //   this.menu[i].text = this.product.stock
+      // }
     },
     watch: {
       product() {
@@ -73,18 +80,13 @@
 </script>
 <template>
   <div>
-    <h3 class="text-3xl">{{ product.title }}</h3>
-    <p class="text-neutral-500 text-lg">{{ product.category }}</p>
-    <div class="text-2xl">${{ product.price }}</div>
-    <div class="text-neutral-500 text-lg">
-      {{ product.description }}
-    </div>
-    <div class="flex">
+    <div class="flex justify-between my-2">
+      <h3 class="text-3xl">{{ product.title }}</h3>
       <v-icon
         v-if="isBookmarked"
         name="bi-bookmark-fill"
         fill="#262626"
-        scale="2.5"
+        scale="1.7"
         @click="bookmark"
         class="cursor-pointer"
       />
@@ -92,13 +94,21 @@
         v-else
         name="bi-bookmark"
         fill="#262626"
-        scale="2.5"
+        scale="1.7"
         @click="bookmark"
         class="cursor-pointer"
       />
-      <div class="btn transition-all text-lg w-[100%]">Add to Cart</div>
     </div>
-    <div>
+
+    <div class="text-2xl mb-2">${{ product.price }}</div>
+    <p class="text-neutral-500 text-lg mb-2">{{ product.category }}</p>
+
+    <div class="text-neutral-500 text-lg mb-4">
+      {{ product.description }}
+    </div>
+
+    <div class="btn transition-all text-lg w-[100%] mb-4">Add to Cart</div>
+    <div class="mb-4">
       <ul>
         <li
           v-for="menuItem in menu"
