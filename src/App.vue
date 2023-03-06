@@ -1,12 +1,20 @@
 <script>
   import { mapGetters } from 'vuex'
 
+  import useCartModal from './cartModal'
   import Navbar from './components/Navbar.vue'
   import PageFooter from './components/PageFooter.vue'
   import GetJournal from './components/GetJournal.vue'
   import Modal from './components/AddedToCartModal.vue'
 
   export default {
+    setup() {
+      const cartModal = useCartModal()
+
+      return {
+        closeCartModal: cartModal.closeModal,
+      }
+    },
     data() {
       return {
         closeMenu: Boolean,
