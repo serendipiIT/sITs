@@ -69,9 +69,9 @@
     created() {
       this.checkIfBookmarked()
 
-      this.menu[0].text = this.product.material
-      this.menu[1].text = this.product.size_guide
-      this.menu[2].text = this.product.stock
+      this.menu[0].text = this.product?.material
+      this.menu[1].text = this.product?.size_guide
+      this.menu[2].text = this.product?.stock
     },
     watch: {
       product() {
@@ -89,7 +89,7 @@
 <template>
   <div>
     <div class="flex justify-between my-2">
-      <h3 class="text-3xl">{{ product.title }}</h3>
+      <h3 class="text-3xl">{{ product?.title }}</h3>
       <v-icon
         :name="isBookmarked ? 'bi-bookmark-fill' : 'bi-bookmark'"
         fill="#262626"
@@ -99,11 +99,11 @@
       />
     </div>
 
-    <div class="text-2xl mb-2">${{ product.price }}</div>
-    <p class="text-neutral-500 text-lg mb-2">{{ product.category }}</p>
+    <div class="text-2xl mb-2">${{ product?.price }}</div>
+    <p class="text-neutral-500 text-lg mb-2">{{ product?.category }}</p>
 
     <div class="text-neutral-500 text-lg mb-4">
-      {{ product.description }}
+      {{ product?.description }}
     </div>
 
     <button class="btn transition-all text-lg w-[100%] mb-4" @click="buy">

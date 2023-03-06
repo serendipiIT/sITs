@@ -3,18 +3,14 @@
   register()
 
   export default {
-    components: {},
     data() {
       return {}
     },
     props: {
       product: {
+        required: true,
         type: Object,
-        default: null,
       },
-    },
-    created() {
-      console.log(this.product)
     },
   }
 </script>
@@ -29,19 +25,19 @@
       navigation="true"
     >
       <swiper-slide>
-        <img :src="this.product.image" />
+        <img :src="this.product?.image" />
       </swiper-slide>
       <swiper-slide>
-        <img :src="this.product.image" />
+        <img :src="this.product?.image" />
       </swiper-slide>
       <swiper-slide>
-        <img :src="this.product.image" />
+        <img :src="this.product?.image" />
       </swiper-slide>
       <swiper-slide>
-        <img :src="this.product.image" />
+        <img :src="this.product?.image" />
       </swiper-slide>
       <swiper-slide>
-        <img :src="this.product.image" />
+        <img :src="this.product?.image" />
       </swiper-slide>
     </swiper-container>
 
@@ -53,19 +49,19 @@
       watch-slides-progress="true"
     >
       <swiper-slide>
-        <img :src="this.product.image" />
+        <img :src="this.product?.image" />
       </swiper-slide>
       <swiper-slide>
-        <img :src="this.product.image" />
+        <img :src="this.product?.image" />
       </swiper-slide>
       <swiper-slide>
-        <img :src="this.product.image" />
+        <img :src="this.product?.image" />
       </swiper-slide>
       <swiper-slide>
-        <img :src="this.product.image" />
+        <img :src="this.product?.image" />
       </swiper-slide>
       <swiper-slide>
-        <img :src="this.product.image" />
+        <img :src="this.product?.image" />
       </swiper-slide>
     </swiper-container>
   </div>

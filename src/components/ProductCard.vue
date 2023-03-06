@@ -60,7 +60,7 @@
       <img
         :src="product.image"
         alt="placeholder"
-        class="h-auto w-[100%] object-contain bg-neutral-100 cursor-pointer"
+        class="h-auto w-[100%] object-contain bg-neutral-100 cursor-pointer hover:scale-105 transition-all duration-500"
         @click="$router.push(`/product/${this.product.id}`)"
       />
       <div class="mt-6">

@@ -13,15 +13,17 @@
     methods: {
       async getJournal() {
         console.log('kör get Journal')
-        if (JSON.parse(localStorage.getItem('vuex')).journal.journal === null) {
+        if (
+          JSON.parse(localStorage.getItem('vuex'))?.journal?.journal === null
+        ) {
           await axios({
             method: 'get',
             url: `${this.urlApi}journal`,
           })
             .then((response) => {
-              this.journals = response.data.data
               this.$store.commit('journal/updateJournal', response.data.data)
-              console.log(this.$store.state.journal.journal)
+              this.journals = response.data.data
+              console.log(this.$store.state.journal.journal, 'Aasdasdasdasd')
             })
             .catch((error) => {
               console.log(error)

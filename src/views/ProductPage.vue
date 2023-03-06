@@ -1,13 +1,11 @@
 <script>
   import ProductCard from '../components/ProductCard.vue'
-  // import ProductMenu from "../components/ProductMenu.vue"
   import SortFilter from '../components/SortFilter.vue'
 
   export default {
     components: {
       ProductCard,
       SortFilter,
-      // ProductMenu,
     },
     computed: {
       products() {
@@ -31,7 +29,7 @@
   <main>
     <SortFilter :toggle="this.closeMenu" />
     <div
-      class="flex flex-row flex-wrap gap-x-16 gap-y-5 justify-center my-8"
+      class="flex flex-row flex-wrap gap-x-16 gap-y-8 justify-center my-8"
       @click="toggleMenu"
     >
       <ProductCard

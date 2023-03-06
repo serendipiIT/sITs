@@ -11,10 +11,15 @@
     data() {
       return {
         productID: parseInt(this.$route.params.id),
-        productList: this.$store.state.products.productList,
-
-        showProduct: null,
       }
+    },
+    computed: {
+      productList() {
+        return this.$store.state.products.productList
+      },
+      showProduct() {
+        return this.productList.find((o) => o.id === this.productID)
+      },
     },
 
     created() {

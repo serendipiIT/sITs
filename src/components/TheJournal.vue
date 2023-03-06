@@ -1,10 +1,14 @@
 <script>
   export default {
     data() {
-      return {
-        journals: this.$store.state.journal.journal,
-      }
+      return {}
     },
+    computed: {
+      journals() {
+        return this.$store.state.journal.journal
+      },
+    },
+    watch: {},
   }
 </script>
 <template>
