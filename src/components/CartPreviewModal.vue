@@ -1,6 +1,6 @@
 <template>
   <div
-    class="absolute top-16 right-0 bg-neutral-100 p-6 w-[17rem] border"
+    class="absolute top-16 right-0 bg-neutral-100 p-6 w-[18rem] border"
     @mouseenter="openCartModal"
     @mouseleave="closeCartModal"
   >
