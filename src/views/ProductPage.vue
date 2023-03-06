@@ -1,10 +1,12 @@
 <script>
   import ProductCard from '../components/ProductCard.vue'
   // import ProductMenu from "../components/ProductMenu.vue"
+  import SortFilter from '../components/SortFilter.vue'
 
   export default {
     components: {
       ProductCard,
+      SortFilter,
       // ProductMenu,
     },
     computed: {
@@ -12,11 +14,25 @@
         return this.$store.state.products.productList
       },
     },
+    data() {
+      return {
+        closeMenu: true,
+      }
+    },
+    methods: {
+      toggleMenu() {
+        this.closeMenu = !this.closeMenu
+      },
+    },
   }
 </script>
 
 <template>
   <main>
+    <SortFilter :toggle="this.closeMenu" />
+    <div @click="toggleMenu">
+      <RouterView name="hero" />
+    </div>
     <div class="flex flex-row flex-wrap gap-x-16 gap-y-5 justify-center my-8">
       <ProductCard
         v-for="product in products"
