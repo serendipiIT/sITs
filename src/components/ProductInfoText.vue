@@ -72,7 +72,6 @@
   }
 </script>
 <template>
-  <!-- Info är en annan -->
   <div>
     <h3 class="text-3xl">{{ product.title }}</h3>
     <p class="text-neutral-500 text-lg">{{ product.category }}</p>
@@ -125,7 +124,6 @@
         </li>
       </ul>
     </div>
-    <div class="btn transition-all text-lg">Checkout</div>
   </div>
 </template>
 <style>

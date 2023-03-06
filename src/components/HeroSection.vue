@@ -4,7 +4,7 @@
 
 <template>
   <div
-    class="h-[94vh] flex items-center bg-[url('../../assets/img/force-majeure-Hfjc53jRO-Y-unsplash.jpg')] bg-cover bg-left"
+    class="h-[94vh] flex items-center bg-[url('../../assets/img/landscape/force-majeure-Hfjc53jRO-Y-unsplash.jpg')] bg-cover bg-left"
   >
     <div class="text-center">
       <h1 class="text-2xl mb-8 sm:max-w-[40%] px-8 mx-auto">

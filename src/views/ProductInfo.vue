@@ -32,13 +32,12 @@
 
 <template>
   <!-- parent på view -->
-  <div class="flex lg:flex-row flex-col lg:justify-around justify-center mt-12">
-    <ProductCarousel
-      class="basis-2/5 h-auto sm:h-[70vh]"
-      :product="this.showProduct"
-    />
+  <div
+    class="flex md:flex-row flex-col md:justify-around gap-x-24 justify-center items-center mt-12 lg:max-w-[80%] mx-auto"
+  >
+    <ProductCarousel class="sm:mb-12" :product="this.showProduct" />
     <ProductInfoText
-      class="basis-2/5 flex flex-col [&>*]:my-4 px-8 sm:px-0"
+      class="flex flex-col [&>*]:my-4 px-8 sm:px-0"
       :product="this.showProduct"
     />
   </div>
