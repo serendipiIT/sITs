@@ -3,12 +3,16 @@
     data() {
       return {
         showInfo: false,
+        showImage: true,
       }
     },
 
     methods: {
       moreInfo() {
         this.showInfo = !this.showInfo
+      },
+      toggleImage() {
+        this.showImage = !this.showImage
       },
     },
 
@@ -44,31 +48,46 @@
   <section :class="reverse">
     <div class="w-1/2 order-first">
       <h2 class="text-2xl font-bold ml-4">{{ title }}</h2>
-      <p class="mt-4 ml-4">
+      <article class="my-4 mx-4">
         <slot name="content" />
         <slot name="allContent" v-if="showInfo" />
-      </p>
+      </article>
       <button
         class="my-4 mx-4 bg-transparent hover:bg-zinc-100 text-zinc-800 font-semibold hover:text-black py-2 px-4 border border-zinc-500 hover:border-transparent rounded"
-        @click="moreInfo"
+        @click="
+          () => {
+            moreInfo()
+            toggleImage()
+          }
+        "
         v-if="showInfo"
       >
         Read Less
       </button>
       <button
         class="my-4 mx-4 bg-transparent hover:bg-zinc-100 text-zinc-800 font-semibold hover:text-black py-2 px-4 border border-zinc-500 hover:border-transparent rounded"
-        @click="moreInfo"
+        @click="
+          () => {
+            moreInfo()
+            toggleImage()
+          }
+        "
         v-else
       >
         Read More
       </button>
     </div>
-    <div class="w-1/2">
+    <div class="w-1/2" v-show="showImage">
       <img
-        class="object-cover h-full"
+        class="hidden md:block object-cover h-full"
         :src="source"
         :alt="description"
-        @click="moreInfo"
+        @click="
+          () => {
+            moreInfo()
+            toggleImage()
+          }
+        "
       />
     </div>
   </section>
