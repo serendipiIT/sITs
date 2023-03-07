@@ -6,6 +6,6 @@ export default {
   },
   namespaced: true,
   state: {
-    journal: null,
+    journal: [],
   },
 }

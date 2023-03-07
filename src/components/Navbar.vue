@@ -1,14 +1,26 @@
 <script>
-  import SearchBar from './SearchBar.vue'
+  import { mapGetters } from 'vuex'
   import { OhVueIcon, addIcons } from 'oh-vue-icons'
   import { BiBookmarkHeart, BiCart } from 'oh-vue-icons/icons'
-  import { mapGetters } from 'vuex'
+
+  import useCartModal from '../cartModal'
+  import SearchBar from './SearchBar.vue'
+  import CartPreviewModal from './CartPreviewModal.vue'
   addIcons(BiBookmarkHeart, BiCart)
 
   export default {
+    setup() {
+      const cartModal = useCartModal()
+      return {
+        showCartModal: cartModal.isOpen,
+        openCartModal: cartModal.openModal,
+        // closeCartModal: cartModal.closeModal,
+      }
+    },
     components: {
       'v-icon': OhVueIcon,
       SearchBar,
+      CartPreviewModal,
     },
     computed: {
       ...mapGetters({
@@ -91,7 +103,11 @@
           class="cursor-pointer"
         />
       </div>
-      <div @click="$router.push('/cart')" class="w-min h-min relative">
+      <div
+        @mouseenter="openCartModal"
+        @click="$router.push('/cart')"
+        class="w-min h-min relative"
+      >
         <v-icon name="bi-cart" scale="1.4" class="cursor-pointer" />
         <div
           v-if="ItemCount"
@@ -138,6 +154,15 @@
           <v-icon name="bi-bookmark-heart" scale="1.5" />
         </div>
       </div>
+    </transition>
+
+    <transition
+      enter-from-class="translate-x-[100%] opacity-0"
+      leave-to-class="translate-x-[100%] opacity-0"
+      enter-active-class="transition duration-400"
+      leave-active-class="transition duration-500"
+    >
+      <CartPreviewModal v-show="showCartModal" />
     </transition>
   </nav>
 </template>

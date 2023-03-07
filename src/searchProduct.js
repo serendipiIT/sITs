@@ -23,7 +23,6 @@ export function search(itemList, str) {
       titleArr.sort(sortByWord)
       const distanceToWord = levenshtein(searchTerm, titleArr[0])
       if (distanceToWord < product.distance) {
-        // if (distanceToWord < 3) suggestedSearchTerms.push(product.title)
         product.distance = distanceToWord
       }
       return product
@@ -31,18 +30,6 @@ export function search(itemList, str) {
     .sort(sortByDistance)
 
   let relevant = filterRelevant(relevantsortedByDistance)
-  // Kollar om det finns en 100% korrekt
-  // console.log('HEJSAN: ', isMatch(relevant[0]))
-  // if (isMatch(relevant[0])) {
-  //   relevant = filterIfMatch(relevant)
-  // }
-  // .map((product) => {
-  //   const productWithoutDistance = product
-  //   delete productWithoutDistance.distance
-  //   return productWithoutDistance
-  // })
-
-  // console.log(suggestedSearchTerms)
   return {
     itemList: relevant,
     suggestions: suggestedSearchTerms,
@@ -86,14 +73,17 @@ function isMatch(obj) {
 }
 
 function filterCategorySuggestions(arr) {
-  return [
-    ...new Set(
-      arr
-        .filter((item) => isDistanceBelowFour(item))
-        .filter((item) => !isMatch(item))
-        .map((item) => item.category),
-    ),
-  ]
+  const categoryStartsWithMatch = arr.find((product) =>
+    product.category.startsWith(searchTerm),
+  )
+
+  const filteredArray = arr
+    .filter((item) => isDistanceBelowFour(item))
+    .filter((item) => !isMatch(item))
+
+  categoryStartsWithMatch && filteredArray.push(categoryStartsWithMatch)
+
+  return [...new Set(filteredArray.map((item) => item.category))]
 }
 
 function filterRelevant(arr) {
