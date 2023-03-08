@@ -55,11 +55,7 @@
         >
           <router-link :to="`/product/${item.id}`">
             <img class="h-8 w-8 inline mr-2" :src="item.image" alt="" />
-            {{
-              item.title.length >= 20
-                ? item.title.slice(0, 20) + '...'
-                : item.title
-            }}
+            <p v-shortText="{ text: item.title, chars: 20 }" />
           </router-link>
         </li>
       </ul>

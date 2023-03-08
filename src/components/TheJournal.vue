@@ -13,12 +13,13 @@
     <li
       v-for="journal in journals"
       :key="journal.id"
-      class="p-8 border-y border-neutral-400 flex flex-col-reverse sm:flex-row justify-between items-center"
+      class="p-8 border-y border-neutral-400 flex flex-col-reverse sm:flex-row justify-between items-center cursor-pointer"
+      @click="$router.push(`/article/${journal.id}`)"
     >
       <div class="sm:self-start sm:mt-8">
-        <sub class="hidden sm:inline-flex text-neutral-500">{{
-          journal.subtitle
-        }}</sub>
+        <h3 class="hidden sm:inline-flex text-neutral-500 text-sm">
+          {{ journal.subtitle }}
+        </h3>
         <h2
           class="sm:mt-12 mt-8 mb-4 text-3xl sm:w-[45vw] sm:text-left text-center"
         >

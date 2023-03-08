@@ -7,8 +7,13 @@ import ProductPage from './views/ProductPage.vue'
 import FavouritesPage from './views/FavouritesPage.vue'
 import ProductInfo from './views/ProductInfo.vue'
 import HeroSection from './components/HeroSection.vue'
+import Article from './views/ArticlesPage.vue'
 
 export default createRouter({
+  scrollBehavior() {
+    // always scroll to top
+    return { top: 0 }
+  },
   history: createWebHashHistory(),
   routes: [
     {
@@ -49,6 +54,12 @@ export default createRouter({
       component: ProductInfo,
       path: '/product/:id',
       meta: { title: 'Product Information' },
+    },
+    {
+      name: 'article',
+      component: Article,
+      path: '/article/:id',
+      meta: { title: 'Article' },
     },
   ],
 })
