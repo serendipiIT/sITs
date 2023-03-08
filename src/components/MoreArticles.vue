@@ -29,7 +29,7 @@
         <h2 class="text-lg font-semibold sm:text-left text-center">
           {{ journal.title }}
         </h2>
-        <p class="sm:text-left text-center">
+        <p class="sm:text-left text-center text-sm">
           {{ journal.content.slice(0, 300) }}
         </p>
         <p

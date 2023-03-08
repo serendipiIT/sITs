@@ -1,9 +1,5 @@
 <script>
-  import MoreArticles from './MoreArticles.vue'
   export default {
-    components: {
-      MoreArticles,
-    },
     data() {
       return {
         allPosts: this.$store.state.journal.journal,
@@ -37,7 +33,7 @@
   }
 </script>
 <template>
-  <div class="text-center border-b">
+  <div class="text-center border-b py-6">
     <h1 class="text-3xl font-bold mt-6">{{ post.title }}</h1>
     <h3 class="text-sm text-neutral-500">{{ post.subtitle }}</h3>
     <div class="text-left mt-6 [&>p]:mb-6 [&>h2]:font-bold">
@@ -47,7 +43,7 @@
     </div>
   </div>
   <div
-    class="flex justify-between p-6 border-b mb-6 text-gray-500 [&>button]:italic"
+    class="flex justify-between p-6 border-b mb-12 text-gray-500 [&>button]:italic"
   >
     <button
       v-if="showPrevButton"
@@ -64,5 +60,4 @@
     </button>
     <div v-else />
   </div>
-  <MoreArticles />
 </template>

@@ -1,11 +1,13 @@
 <script>
   import Hero from '../components/ImageTextAction.vue'
   import ArticlePost from '../components/Article.vue'
+  import MoreArticles from '../components/MoreArticles.vue'
 
   export default {
     components: {
       Hero,
       ArticlePost,
+      MoreArticles,
     },
     data() {
       return {
@@ -47,5 +49,6 @@
       </template>
     </Hero>
     <ArticlePost :post="post" />
+    <MoreArticles />
   </div>
 </template>
