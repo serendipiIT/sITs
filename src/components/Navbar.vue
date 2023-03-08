@@ -14,6 +14,7 @@
       return {
         showCartModal: cartModal.isOpen,
         openCartModal: cartModal.openModal,
+        closeCartModal: cartModal.closeModal,
       }
     },
     components: {
@@ -74,6 +75,7 @@
 <template>
   <nav
     class="py-4 px-6 sm:px-12 flex justify-between items-center select-none border-b bg-white"
+    @mouseleave="closeCartModal"
   >
     <div class="text-2xl font-semibold flex justify-between items-center">
       <div>
