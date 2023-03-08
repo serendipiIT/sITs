@@ -17,10 +17,10 @@
       return {
         emailProvided: false,
         urlApi: 'http://SITsApi.us-east-1.elasticbeanstalk.com/',
-        history: null,
-        find: null,
-        carrer: null,
-        sustainability: null,
+        history: '',
+        find: '',
+        carrer: '',
+        sustainability: '',
       }
     },
     methods: {
@@ -61,7 +61,7 @@
 <template>
   <GetAbout />
   <main class="flex flex-col items-center my-12 max-w-6xl mx-auto">
-    <NewsLetter :title="'About Us'">
+    <NewsLetter :title="'About Us'" class="w-[90%] md:w-auto">
       <p>
         Our newly created web shop was founded in 2023 with a mission to provide
         high-quality products and services to customers around the world. Our
@@ -77,12 +77,13 @@
       :source="'../../assets/about-img/find-us.jpg'"
       :description="'Find our locations'"
       :reverse="'flex border border-gray-300 bg-gray-100 p-4 mt-4 hover:bg-white'"
+      class="w-[90%] md:w-auto"
     >
       <template #content>
         <p class="ml-4">See our locations and opening hours.</p>
       </template>
       <template #allContent>
-        <div class="w-full my-8 sm:flex mx-4">
+        <div class="w-[90%] my-2 lg:flex mx-4">
           <div class="flex-grow m-4">
             <h2 class="m-2 text-center font-bold">Location1</h2>
             <iframe
@@ -172,6 +173,7 @@
       :title="history.section"
       :source="'../../assets/about-img/history.jpg'"
       :description="'Our History'"
+      class="w-[90%] md:w-auto"
     >
       <template #content>
         <p class="mt-4"><span v-html="history.content" /></p>
@@ -186,6 +188,7 @@
       :source="'../../assets/about-img/career-options.png'"
       :description="'Work with us'"
       :reverse="'flex border border-gray-300 bg-gray-100 p-4 mt-4 hover:bg-white'"
+      class="w-[90%] md:w-auto"
     >
       <template #content>
         <p class="mt-4"><span v-html="carrer.content" /></p>
@@ -200,6 +203,7 @@
       :title="'Sustainability'"
       :source="'../../assets/about-img/sustainability-resources.jpg'"
       :description="'A Sustainable workplace'"
+      class="w-[90%] md:w-auto"
     >
       <template #content>
         <p class="mt-4">
@@ -217,12 +221,13 @@
       :title="'Contact'"
       :source="'../../assets/about-img/contact-us.jpg'"
       :description="'Contact Us here'"
+      class="w-[90%] md:w-auto"
     >
       <template #content>
         <p>How to reach us</p>
       </template>
       <template #contactDetails>
-        <div class="my-8 flex items-center space-x-24">
+        <div class="my-8 flex items-center justify-center">
           <p
             class="flex-1 border border-neutral-800 text-center ml-4 py-2 hover:text-white hover:bg-neutral-800 transition-all cursor-pointer"
           >
@@ -235,7 +240,7 @@
             <a href="tel: 0771365365" target="_blank">Call Us</a>
           </p>
           <p
-            class="flex-1 border border-neutral-800 text-center ml-4 py-2 hover:text-white hover:bg-neutral-800 transition-all cursor-pointer"
+            class="flex-1 border border-neutral-800 text-center ml-4 p-2 hover:text-white hover:bg-neutral-800 transition-all cursor-pointer"
           >
             <a href="https://github.com/serendipiIT" target="_blank">
               Social Media</a

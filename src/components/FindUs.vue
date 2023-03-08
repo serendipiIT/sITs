@@ -46,7 +46,7 @@
 
 <template>
   <section :class="reverse">
-    <div class="w-1/2 order-first">
+    <div class="w-[100%]">
       <h2 class="text-2xl font-bold ml-4">{{ title }}</h2>
       <slot name="content" />
       <slot name="allContent" v-if="showInfo" />
@@ -67,7 +67,7 @@
     </div>
     <div class="w-1/2" v-if="!showInfo">
       <img
-        class="object-cover h-full"
+        class="w-[90%] md:w-auto"
         :src="source"
         :alt="description"
         v-if="!showInfo"
