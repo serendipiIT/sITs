@@ -1,18 +1,28 @@
 <script>
+  import useAddedModal from '../addedModal'
+
   export default {
+    setup() {
+      const addedModal = useAddedModal()
+      return {
+        showModal: addedModal.showModal,
+        closeAddedModal: addedModal.closeModal,
+      }
+    },
     data() {
       return {}
     },
-    computed: {
+    watch: {
       showModal() {
-        return this.$store.state.cart.modal
+        console.log(this.showModal)
       },
     },
-    // watch: {
-    //   showModal() {
-    //     setTimeout(this.$store.dispatch('cart/showModal', false), 5000)
-    //   },
-    // },
+    computed: {
+      // ADDTOCARTMODAL MED VUEX
+      // showModal() {
+      //   return this.$store.state.cart.modal
+      // },
+    },
   }
 </script>
 <template>
@@ -22,7 +32,11 @@
     enter-active-class="transition duration-300"
     leave-active-class="transition duration-300"
   >
-    <div v-if="showModal" class="fixed z-50 top-2 right-2">
+    <div
+      v-if="showModal"
+      @click="closeAddedModal"
+      class="fixed z-50 top-2 right-2"
+    >
       <div class="bg-neutral-800 rounded justify-center items-center p-12">
         <p class="text-white">Product has been added to basket!</p>
       </div>

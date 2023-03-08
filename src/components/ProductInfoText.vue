@@ -5,10 +5,19 @@
     BiCart,
     MdKeyboardarrowdown,
   } from 'oh-vue-icons/icons'
+  import useAddedCartModal from '../addedModal'
 
   addIcons(BiBookmarkHeart, BiCart, MdKeyboardarrowdown)
 
   export default {
+    setup() {
+      const addedModal = useAddedCartModal()
+      return {
+        openAddedModal: addedModal.openModal,
+        closeAddedModal: addedModal.closeModal,
+        showModal: addedModal.showModal,
+      }
+    },
     components: {
       'v-icon': OhVueIcon,
     },
@@ -55,15 +64,18 @@
           .dispatch('cart/addItem', this.product)
           .then((res) => console.log(res))
 
-        this.$store
-          .dispatch('cart/showModal', true)
-          .then((res) => console.log(res))
-          .then(
-            setTimeout(
-              () => this.$store.dispatch('cart/showModal', false),
-              5000,
-            ),
-          )
+        // ADDTOCARTMODAL MED VUEX
+        // this.$store
+        //   .dispatch('cart/showModal', true)
+        //   .then((res) => console.log(res))
+        //   .then(
+        //     setTimeout(
+        //       () => this.$store.dispatch('cart/showModal', false),
+        //       5000,
+        //     ),
+        //   )
+
+        this.openAddedModal()
       },
     },
     created() {
