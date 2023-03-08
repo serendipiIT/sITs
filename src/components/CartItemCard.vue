@@ -7,13 +7,10 @@
     />
     <div class="flex flex-col p-4 flex-1 bg-white">
       <div class="flex flex-row">
-        <h2 class="flex-1 font-semibold">
-          {{
-            item.title.length < 30
-              ? item.title
-              : item.title.slice(0, 30) + '...'
-          }}
-        </h2>
+        <h2
+          v-shortText="{ text: item.title, chars: 30 }"
+          class="flex-1 font-semibold"
+        />
         <vIcon
           @click="removeItem(item.id)"
           class="cursor-pointer"
