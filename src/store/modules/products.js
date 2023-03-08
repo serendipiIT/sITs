@@ -8,7 +8,14 @@ export default {
         const products = await (
           await fetch('http://sitsapi.us-east-1.elasticbeanstalk.com/products')
         ).json()
-        commit('saveProducts', products.data)
+        const fixedData = products.data.map((item) => {
+          return {
+            ...item,
+            color: item.color?.split(',') || [],
+            size: item.size?.split(',') || [],
+          }
+        })
+        commit('saveProducts', fixedData)
       } catch (error) {
         commit('saveProducts', list.data)
       }
@@ -18,9 +25,6 @@ export default {
     getProductsByCategory: (state) => (cat) => {
       return state.productList.filter((product) => product.category === cat)
     },
-    // getProductsBySearch: (state) => (searchTerm) => {
-    //   return search(state.productList, searchTerm)
-    // },
     getCategories() {
       // Tillfälligt bara
       return [
