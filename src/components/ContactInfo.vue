@@ -3,6 +3,7 @@
     data() {
       return {
         showContact: false,
+        hover: false,
       }
     },
 
@@ -38,12 +39,14 @@
   <section
     class="border border-gray-300 bg-gray-100 p-4 mt-4 hover:bg-white"
     @click="moreContact"
+    @mouseover="hover = true"
+    @mouseleave="hover = false"
   >
     <h2 class="text-2xl font-bold ml-4">{{ title }}</h2>
     <p class="m-4 font-bold">
       <slot name="content" />
     </p>
     <img :src="source" :alt="description" />
-    <slot name="contactDetails" v-if="showContact" />
+    <slot name="contactDetails" v-if="hover" />
   </section>
 </template>

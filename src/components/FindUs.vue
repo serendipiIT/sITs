@@ -3,12 +3,16 @@
     data() {
       return {
         showInfo: false,
+        showDiv: true,
       }
     },
 
     methods: {
       moreInfo() {
         this.showInfo = !this.showInfo
+      },
+      toggleDiv() {
+        this.showDiv = !this.showDiv
       },
     },
 
@@ -61,7 +65,7 @@
         Find store
       </button>
     </div>
-    <div class="w-1/2">
+    <div class="w-1/2" v-if="!showInfo">
       <img
         class="object-cover h-full"
         :src="source"

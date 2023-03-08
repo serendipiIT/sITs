@@ -36,12 +36,7 @@
         this.find = result[1]
         this.carrer = result[2]
         this.sustainability = result[3]
-        console.log(
-          this.history.h1,
-          this.find,
-          this.carrer,
-          this.sustainability,
-        )
+        console.log(this.history, this.find, this.carrer, this.sustainability)
       },
     },
     created() {
@@ -56,6 +51,10 @@
     -ms-transform: scale(1.05);
     transform: scale(1.05);
     transition: 1s ease;
+  }
+
+  span > p {
+    margin-top: 20px;
   }
 </style>
 
@@ -83,14 +82,14 @@
         <p class="ml-4">See our locations and opening hours.</p>
       </template>
       <template #allContent>
-        <div class="flex">
+        <div class="w-full my-8 sm:flex mx-4">
           <div class="flex-grow m-4">
             <h2 class="m-2 text-center font-bold">Location1</h2>
             <iframe
               id="mapStore"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d533.3042943332875!2d12.001477534393084!3d57.678788208131394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464ff369d0835015%3A0xba46082e9c214f49!2sIT-H%C3%B6gskolan!5e0!3m2!1sen!2sse!4v1663318464568!5m2!1sen!2sse"
-              width="250"
-              height="250"
+              width="300"
+              height="300"
               style="border: 0"
               allowfullscreen=""
               loading="lazy"
@@ -116,8 +115,8 @@
             <iframe
               id="mapStore"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d533.3042943332875!2d12.001477534393084!3d57.678788208131394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464ff369d0835015%3A0xba46082e9c214f49!2sIT-H%C3%B6gskolan!5e0!3m2!1sen!2sse!4v1663318464568!5m2!1sen!2sse"
-              width="250"
-              height="250"
+              width="300"
+              height="300"
               style="border: 0"
               allowfullscreen=""
               loading="lazy"
@@ -143,8 +142,8 @@
             <iframe
               id="mapStore"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d533.3042943332875!2d12.001477534393084!3d57.678788208131394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464ff369d0835015%3A0xba46082e9c214f49!2sIT-H%C3%B6gskolan!5e0!3m2!1sen!2sse!4v1663318464568!5m2!1sen!2sse"
-              width="250"
-              height="250"
+              width="300"
+              height="300"
               style="border: 0"
               allowfullscreen=""
               loading="lazy"
@@ -175,36 +174,10 @@
       :description="'Our History'"
     >
       <template #content>
-        <span v-html="history.content" />
-        <!--
-        <p>
-          Our newly created web shop was founded in 2023 with a mission to
-          provide high-quality products and services to customers around the
-          world. Our founders SerendipIT Solutions recognized a need for a more
-          sustainable and socially responsible approach to e-commerce, and they
-          set out to create a company that would embody those values.
-        </p>
+        <p class="mt-4"><span v-html="history.content" /></p>
       </template>
       <template #allContent>
-        <p class="mt-4">
-          In the early days, our team worked tirelessly to develop our products
-          and build a customer base. We focused on sourcing sustainable and
-          ethically produced materials, and we built partnerships with suppliers
-          who shared our commitment to social and environmental responsibility.
-        </p>
-        <p class="mt-4">
-          As our web shop began to grow, we expanded our product offerings and
-          invested in innovative technology to improve the customer experience.
-          We also expanded our team, hiring top talent from diverse backgrounds
-          to help us achieve our goals.
-        </p>
-        <p class="mt-4">
-          Today, our web shop is a leading provider of all items imaginable, and
-          we are proud to have earned a reputation for quality, sustainability,
-          and social responsibility. We remain committed to our founding mission
-          and values, and we look forward to continuing to grow and serve our
-          customers for many years to come.
-        </p>-->
+        <p class="mt-4"><span v-html="history.content_full" /></p>
       </template>
     </About>
 
@@ -215,50 +188,12 @@
       :reverse="'flex border border-gray-300 bg-gray-100 p-4 mt-4 hover:bg-white'"
     >
       <template #content>
-        <span v-html="carrer.content" />
-        <span v-html="carrer.content_full" />
+        <p class="mt-4"><span v-html="carrer.content" /></p>
       </template>
 
-      <!--
-        <template>
-        <p class="mt-4">
-          Our web shop is committed to providing a positive and supportive work
-          environment for all employees. We believe that our employees are our
-          most valuable asset, and we strive to create a workplace culture that
-          fosters growth, learning, and collaboration.
-        </p>
-        <p class="mt-4">
-          As an innovative and rapidly growing company, we offer a range of
-          exciting career opportunities for talented individuals who are
-          passionate about our mission and values. We are committed to hiring
-          and developing top talent from diverse backgrounds, and we offer
-          competitive salaries, comprehensive benefits packages, and
-          opportunities for career advancement.
-        </p>
-      </template>
       <template #allContent>
-        <p class="mt-4">
-          Our employees have the opportunity to work on cutting-edge projects
-          and initiatives that are shaping the future of e-commerce. We
-          encourage creativity and independent thinking, and we provide ongoing
-          training and development programs to help our employees grow and
-          succeed.
-        </p>
-        <p class="mt-4">
-          At our web shop, we value work-life balance and believe that happy,
-          healthy employees are essential to our success. We offer flexible
-          scheduling options and generous vacation and leave policies to help
-          employees maintain a healthy work-life balance.
-        </p>
-        <p class="mt-4">
-          Overall, our web shop is an exciting and rewarding place to work, with
-          opportunities for growth, learning, and collaboration. We are
-          committed to creating a positive and supportive work environment where
-          employees can thrive and make meaningful contributions to our mission
-          of providing high-quality products and services to our customers.
-        </p>
+        <p class="mt-4"><span v-html="carrer.content_full" /></p>
       </template>
-      -->
     </About>
 
     <About
@@ -268,47 +203,13 @@
     >
       <template #content>
         <p class="mt-4">
-          As a sustainable web shop, our company strives to reduce our
-          environmental impact while also providing high-quality products and
-          services to our customers. We believe that sustainability is not just
-          an important goal, but also an essential part of our business
-          strategy.
-        </p>
-        <p class="mt-4">
-          To achieve our sustainability goals, we focus on several key areas.
-          First, we source our products from suppliers who meet strict
-          environmental and social responsibility criteria. This means that our
-          products are made using sustainable materials, and that the workers
-          who produce them are treated fairly and paid a living wage.
+          <span v-html="sustainability.content" />
         </p>
       </template>
 
       <template #allContent>
         <p class="mt-4">
-          Second, we use eco-friendly packaging materials wherever possible.
-          This includes biodegradable or compostable packaging, as well as
-          recycled materials. By minimizing waste and using sustainable
-          packaging, we aim to reduce our impact on the environment.
-        </p>
-        <p class="mt-4">
-          Third, we prioritize energy efficiency in our operations. We use
-          renewable energy sources whenever possible, and we work to reduce our
-          overall energy consumption through measures like energy-efficient
-          lighting and equipment.
-        </p>
-        <p class="mt-4">
-          Finally, we strive to educate our customers about sustainability and
-          encourage them to make environmentally conscious choices. This
-          includes providing information about our products and their
-          environmental impact, as well as offering tips and resources for
-          living a more sustainable lifestyle.
-        </p>
-        <p class="mt-4">
-          Overall, our sustainability work is a key part of our commitment to
-          creating a better future for ourselves, our customers, and the planet.
-          We believe that by prioritizing sustainability in our operations, we
-          can make a meaningful contribution to a more sustainable and equitable
-          world.
+          <span v-html="sustainability.content_full" />
         </p>
       </template>
     </About>
