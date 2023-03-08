@@ -1,5 +1,6 @@
 import { list } from '../../fallback'
 import { search } from '../../searchProduct'
+import cart from './cart'
 
 export default {
   actions: {
@@ -11,8 +12,8 @@ export default {
         const fixedData = products.data.map((item) => {
           return {
             ...item,
-            color: item.color?.split(',') || [],
-            size: item.size?.split(',') || [],
+            colors: item.color?.split(',') || [],
+            sizes: item.size?.split(',') || [],
           }
         })
         commit('saveProducts', fixedData)
@@ -23,7 +24,7 @@ export default {
   },
   getters: {
     getProductsByCategory: (state) => (cat) => {
-      return state.productList.filter((product) => product.category === cat)
+      return state.productList.filter((product) => product.category2 === cat)
     },
     getCategories() {
       // Tillfälligt bara
@@ -54,6 +55,20 @@ export default {
     },
     getAllProductTitles(state) {
       return state.productList.map((product) => product.title)
+    },
+    similar: (state, getters) => (cartItems) => {
+      const allCategories = [
+        ...new Set(cartItems.map((item) => item.category2)),
+      ]
+      const allProductsInCategories = allCategories.reduce(
+        (products, category) => {
+          return [...products, ...getters.getProductsByCategory(category)]
+        },
+        [],
+      )
+      return allProductsInCategories.filter(
+        (product) => !cartItems.find((item) => item.id === product.id),
+      )
     },
     tenNewestProducts(state) {
       function sortByDate(productA, productB) {

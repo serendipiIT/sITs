@@ -31,6 +31,10 @@ export default {
     },
   },
   getters: {
+    size: (state) => (id) => {
+      const item = state.items.find((item) => item.id === id)
+      return item.selectedSize
+    },
     totalItems(state) {
       return state.items.reduce((total, item) => total + item.amount, 0)
     },
@@ -43,8 +47,13 @@ export default {
         .toFixed(2)
     },
     totalAmount: (state) => (id) => {
-      console.log(state.items.find((item) => item.id === id))
       return state.items.find((item) => item.id === id).amount
+    },
+    totalPriceTimesAmount: (state, getters) => (id) => {
+      return (
+        getters.totalAmount(id) *
+        state.items.find((item) => item.id === id).price
+      )
     },
   },
   mutations: {
