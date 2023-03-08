@@ -22,9 +22,9 @@
 
 <template>
   <footer
-    class="flex justify-around bg-[#262626] pt-4 pb-4 font-semibold text-neutral-300"
+    class="flex flex-col justify-evenly items-center bg-[#262626] pt-4 pb-4 font-semibold text-neutral-300 gap-4"
   >
-    <ul class="text-center">
+    <ul class="text-center flex flex-row gap-x-6 basis-1/5">
       <li class="hover:text-sky-700 cursor-pointer mb-2">
         <a href="https://instagram.com/" target="_blank">
           <v-icon name="bi-instagram" scale="1.4"
@@ -46,13 +46,13 @@
         </a>
       </li>
     </ul>
-    <ul class="text-center">
+    <ul class="text-center flex flex-row gap-x-6 basis-1/5">
       <li class="hover:text-sky-700 cursor-pointer mb-2">About Us</li>
       <li class="hover:text-sky-700 cursor-pointer mb-2">Career</li>
       <li class="hover:text-sky-700 cursor-pointer mb-2">Our History</li>
       <li class="hover:text-sky-700 cursor-pointer mb-2">Sustainability</li>
     </ul>
-    <p class="font-light flex items-end">
+    <p class="font-light flex items-end basis-1/5">
       &copy; 2023 serendipIT, Inc. All rights reserved
     </p>
   </footer>
