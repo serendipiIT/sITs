@@ -1,6 +1,5 @@
 import { list } from '../../fallback'
 import { search } from '../../searchProduct'
-import cart from './cart'
 
 export default {
   actions: {
