@@ -21,13 +21,10 @@
             />
             <div class="flex flex-col p-2 pl-4 flex-1 bg-white">
               <div class="flex flex-row">
-                <h2 class="flex-1 font-semibold">
-                  {{
-                    item.title.length < 17
-                      ? item.title
-                      : item.title.slice(0, 17) + '...'
-                  }}
-                </h2>
+                <h2
+                  v-shortText="{ text: item.title, chars: 17 }"
+                  class="flex-1 font-semibold"
+                />
                 <vIcon
                   @click="removeItem(item.id, $event)"
                   class="cursor-pointer"
@@ -97,6 +94,11 @@
         event.stopPropagation()
         event.preventDefault()
         this.$store.commit('cart/removeItem', { id })
+      },
+    },
+    watch: {
+      $route() {
+        this.closeCartModal()
       },
     },
   }

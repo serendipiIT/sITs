@@ -8,7 +8,14 @@ export default {
         const products = await (
           await fetch('http://sitsapi.us-east-1.elasticbeanstalk.com/products')
         ).json()
-        commit('saveProducts', products.data)
+        const fixedData = products.data.map((item) => {
+          return {
+            ...item,
+            colors: item.color?.split(',') || [],
+            sizes: item.size?.split(',') || [],
+          }
+        })
+        commit('saveProducts', fixedData)
       } catch (error) {
         commit('saveProducts', list.data)
       }
@@ -16,11 +23,8 @@ export default {
   },
   getters: {
     getProductsByCategory: (state) => (cat) => {
-      return state.productList.filter((product) => product.category === cat)
+      return state.productList.filter((product) => product.category2 === cat)
     },
-    // getProductsBySearch: (state) => (searchTerm) => {
-    //   return search(state.productList, searchTerm)
-    // },
     getCategories() {
       // Tillfälligt bara
       return [
@@ -50,6 +54,20 @@ export default {
     },
     getAllProductTitles(state) {
       return state.productList.map((product) => product.title)
+    },
+    similar: (state, getters) => (cartItems) => {
+      const allCategories = [
+        ...new Set(cartItems.map((item) => item.category2)),
+      ]
+      const allProductsInCategories = allCategories.reduce(
+        (products, category) => {
+          return [...products, ...getters.getProductsByCategory(category)]
+        },
+        [],
+      )
+      return allProductsInCategories.filter(
+        (product) => !cartItems.find((item) => item.id === product.id),
+      )
     },
     tenNewestProducts(state) {
       function sortByDate(productA, productB) {

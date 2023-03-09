@@ -45,8 +45,8 @@
 <style></style>
 
 <template>
-  <section :class="reverse">
-    <div class="w-1/2 order-first">
+  <section :class="reverse" class="w-[90%] md:w-auto">
+    <div class="md:w-1/2 order-first">
       <h2 class="text-2xl font-bold ml-4">{{ title }}</h2>
       <article class="my-4 mx-4">
         <slot name="content" />
@@ -77,9 +77,9 @@
         Read More
       </button>
     </div>
-    <div class="w-1/2" v-show="showImage">
+    <div class="w-1/2 hidden md:block" v-show="showImage">
       <img
-        class="hidden md:block object-cover h-full"
+        class="object-cover h-full"
         :src="source"
         :alt="description"
         @click="

@@ -14,7 +14,7 @@
       return {
         showCartModal: cartModal.isOpen,
         openCartModal: cartModal.openModal,
-        // closeCartModal: cartModal.closeModal,
+        closeCartModal: cartModal.closeModal,
       }
     },
     components: {
@@ -27,16 +27,29 @@
         ItemCount: 'cart/totalItems',
       }),
     },
+    created() {
+      this.isMobile = window.innerWidth < 768
+      window.addEventListener('resize', this.checkScreenSize)
+    },
     data() {
       return {
+        isMobile: null,
         isOpen: false,
       }
+    },
+    methods: {
+      checkScreenSize() {
+        this.mobile = window.innerWidth < 768
+      },
     },
     props: {
       toggle: {
         required: true,
         type: [Function, Boolean],
       },
+    },
+    unmounted() {
+      window.removeEventListener('resize', this.checkScreenSize)
     },
     watch: {
       isOpen() {
@@ -62,6 +75,7 @@
 <template>
   <nav
     class="py-4 px-6 sm:px-12 flex justify-between items-center select-none border-b bg-white"
+    @mouseleave="closeCartModal"
   >
     <div class="text-2xl font-semibold flex justify-between items-center">
       <div>
@@ -104,7 +118,7 @@
         />
       </div>
       <div
-        @mouseenter="openCartModal"
+        @mouseenter="isMobile ? null : openCartModal()"
         @click="$router.push('/cart')"
         class="w-min h-min relative"
       >

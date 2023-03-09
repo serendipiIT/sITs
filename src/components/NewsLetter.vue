@@ -51,7 +51,7 @@
         >Sign up to get the latest news:</label
       >
       <input
-        class="w-72 h-12 m-4"
+        class="md:w-72 h-12 m-4"
         type="email"
         name="newsletter"
         id="email"
@@ -59,7 +59,7 @@
         placeholder="your@email.here"
       />
       <input
-        class="w-72 my-4 mx-4 bg-transparent hover:bg-zinc-100 text-zinc-800 font-semibold hover:text-black py-2 px-4 border border-zinc-500 hover:border-transparent rounded"
+        class="md:w-72 my-4 mx-4 bg-transparent hover:bg-zinc-100 text-zinc-800 font-semibold hover:text-black py-2 px-4 border border-zinc-500 hover:border-transparent rounded"
         type="button"
         value="Sign up"
         @click="signUp"
