@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    font-size: 16px;
+  }
+
   html {
     font-family: 'Jost';
   }

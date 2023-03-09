@@ -15,6 +15,7 @@
     },
     created() {
       this.$store.dispatch('products/getProducts')
+      this.$store.dispatch('products/getColumns')
     },
     watch: {
       $route(to) {
