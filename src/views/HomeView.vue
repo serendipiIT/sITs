@@ -25,7 +25,7 @@
 <template>
   <main>
     <NewProducts />
-    <DiscoverSection />
+    <DiscoverSection class="mt-12" />
     <Articles />
   </main>
 </template>

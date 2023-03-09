@@ -68,10 +68,20 @@
           <h3>{{ product.title }}</h3>
           <div class="w-[30px]">
             <v-icon
-              :name="isBookmarked ? 'bi-bookmark-fill' : 'bi-bookmark'"
+              v-if="isBookmarked"
+              :name="'bi-bookmark-fill'"
               scale="1.2"
               @click="bookmark"
               class="cursor-pointer"
+              :class="{ shake: isBookmarked }"
+            />
+            <v-icon
+              v-else
+              :name="'bi-bookmark'"
+              scale="1.2"
+              @click="bookmark"
+              class="cursor-pointer"
+              :class="{ shake: isBookmarked }"
             />
           </div>
         </div>
@@ -85,24 +95,54 @@
     </div>
     <div class="flex pb-4 items-center justify-between">
       <h3 class="text-center">${{ product.price }}</h3>
-      <!-- <div class="flex items-center">
-        <p
-          class="border border-neutral-800 text-center py-2 px-4 hover:text-white hover:bg-neutral-800 transition-all cursor-pointer"
-          @click="buy"
-        >
-          Buy
-        </p>
-        <router-link
-          :to="{ name: 'productInfo', params: { id: this.product.id } }"
-        >
-          <button
-            class="border text-center py-[calc(0.5rem+1px)] px-4 ml-2 text-white bg-neutral-800 hover:bg-neutral-100 hover:text-black transition-all cursor-pointer"
-            @click="$router.push(`/product/${this.product.id}`)"
-          >
-            More Info
-          </button>
-        </router-link>
-      </div> -->
     </div>
   </div>
 </template>
+
+<style>
+  .shake {
+    animation: fadeIn 0.175s;
+    /* transform: translate3d(0, 0, 0); */
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0.3;
+    }
+    20% {
+      opacity: 0.3;
+    }
+    40% {
+      opacity: 0.3;
+    }
+    60% {
+      opacity: 0.5;
+    }
+    80% {
+      opacity: 0.9;
+    }
+    100% {
+      opacity: 1;
+    }
+    /* 10%,
+    90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+      transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+      transform: translate3d(4px, 0, 0);
+    } */
+  }
+</style>

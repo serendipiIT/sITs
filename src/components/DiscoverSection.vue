@@ -16,6 +16,7 @@
     <template #action>
       <button
         class="border-2 text-xl duration-300 hover:bg-white hover:text-black px-6 py-2 text-white inline"
+        @click="$router.push('/about')"
       >
         Discover
       </button>

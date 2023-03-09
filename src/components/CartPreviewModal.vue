@@ -29,7 +29,7 @@
                   }}
                 </h2>
                 <vIcon
-                  @click="removeItem(item.id)"
+                  @click="removeItem(item.id, $event)"
                   class="cursor-pointer"
                   name="io-close-outline"
                   scale="1"
@@ -93,7 +93,9 @@
       }),
     },
     methods: {
-      removeItem(id) {
+      removeItem(id, event) {
+        event.stopPropagation()
+        event.preventDefault()
         this.$store.commit('cart/removeItem', { id })
       },
     },
