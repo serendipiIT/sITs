@@ -11,16 +11,19 @@
     leave-active-class="transition duration-300"
   >
     <div
-      class="select-none md:flex-col absolute top-16 left-0 h-screen bg-neutral-50 px-10"
+      class="select-none md:flex-col absolute top-16 left-0 h-screen bg-neutral-50 px-10 z-10"
       v-if="isOpen"
     >
       <div class="flex flex-col justify-between mt-8 h-[88vh]">
         <div>
-          <h2
-            class="text-xl block mb-2 font-semibold text-gray-800 py-3 hover:bg-gray-200 rounded cursor-pointer"
-          >
-            Categories
-          </h2>
+          <div class="flex justify-between">
+            <h2
+              class="text-xl block mb-2 font-semibold text-gray-800 py-3 hover:bg-gray-200 rounded cursor-pointer"
+            >
+              Categories
+            </h2>
+            <button class="ml-8" @click="isOpen = !isOpen">STÄNG</button>
+          </div>
           <div
             v-for="(value, key) in categories"
             :key="key"
@@ -76,9 +79,6 @@
             @click="resetFilter(), (isOpen = !isOpen)"
           >
             Reset Filter
-          </button>
-          <button class="btn btn-invert" @click="isOpen = !isOpen">
-            Save Filter
           </button>
         </div>
       </div>
@@ -144,18 +144,9 @@
       $route() {
         this.isOpen = false
       },
-      // filtersCategories() {
-      //   this.setFilterCategories()
-      // },
-      // filtersSize() {
-      //   this.setFilterSize()
-      // },
     },
 
     methods: {
-      // testing() {
-      //   console.log(this.$store.state.products.categories)
-      // },
       setFilterCategories(x) {
         this.$store.commit('products/setFilterCategories', x)
       },
@@ -168,29 +159,6 @@
       resetFilter() {
         this.$store.commit('products/resetFilters')
       },
-
-      /*  async getColumns() {
-        const response = await fetch(
-          'http://SITsApi.us-east-1.elasticbeanstalk.com/products/columns',
-        )
-        const result = await response.json()
-        this.columns = await result.data
-        for (let index = 0; index < this.columns.length; index++) {
-          const element = this.columns[index]
-          if (element.Field === 'category2') {
-            let test = element.Type
-            this.categories = test.slice(4, -1).replaceAll("'", '').split(',')
-          }
-          if (element.Field === 'color') {
-            let test = element.Type
-            this.color = test.slice(4, -1).replaceAll("'", '').split(',')
-          }
-          if (element.Field === 'size') {
-            let test = element.Type
-            this.size = test.slice(4, -1).replaceAll("'", '').split(',')
-          }
-        }
-      },*/
     },
   }
 </script>

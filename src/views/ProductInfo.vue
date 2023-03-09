@@ -31,7 +31,6 @@
 </script>
 
 <template>
-  <!-- parent på view -->
   <div
     class="flex md:flex-row flex-col md:justify-around gap-x-24 justify-center items-center mt-12 lg:max-w-[80%] mx-auto"
   >
