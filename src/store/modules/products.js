@@ -20,6 +20,43 @@ export default {
         commit('saveProducts', list.data)
       }
     },
+    async getColumns({ commit }) {
+      const response = await fetch(
+        'http://SITsApi.us-east-1.elasticbeanstalk.com/products/columns',
+      )
+      const result = await response.json()
+      const columns = await result.data
+      for (let index = 0; index < columns.length; index++) {
+        const element = columns[index]
+        if (element.Field === 'category2') {
+          let test = element.Type
+          let categories = test
+            .slice(4, -1)
+            .replaceAll("'", '')
+            .split(',')
+            .reduce((acc, curr) => ((acc[curr] = false), acc), {})
+          commit('setCategories', categories)
+        }
+        if (element.Field === 'color') {
+          let test = element.Type
+          let color = test
+            .slice(4, -1)
+            .replaceAll("'", '')
+            .split(',')
+            .reduce((acc, curr) => ((acc[curr] = false), acc), {})
+          commit('setColor', color)
+        }
+        if (element.Field === 'size') {
+          let test = element.Type
+          let size = test
+            .slice(4, -1)
+            .replaceAll("'", '')
+            .split(',')
+            .reduce((acc, curr) => ((acc[curr] = false), acc), {})
+          commit('setSize', size)
+        }
+      }
+    },
   },
   getters: {
     getProductsByCategory: (state) => (cat) => {
@@ -86,6 +123,31 @@ export default {
     saveProducts(state, productList) {
       state.productList = productList
     },
+    setCategories(state, result) {
+      state.categories = result
+      console.log(state.categories)
+    },
+    setColor(state, result) {
+      state.color = result
+      console.log(state.color)
+    },
+    setSize(state, result) {
+      state.size = result
+      console.log(state.size)
+    },
+    setFilterCategories(state, key) {
+      state.categories[key] = !state.categories[key]
+      console.log(state.categories[key])
+    },
+    setFilterColor(state, key) {
+      state.color[key] = !state.color[key]
+      console.log(state.color[key])
+    },
+    setFilterSize(state, key) {
+      state.size[key] = !state.size[key]
+      console.log(state.size[key])
+    },
+
     search(state, searchTerm) {
       const { suggestions, itemList } = search(state.productList, searchTerm)
       console.log(suggestions, itemList)
@@ -98,5 +160,8 @@ export default {
     productList: [],
     searchSuggestions: [],
     searchResults: [],
+    categories: [],
+    color: [],
+    size: [],
   },
 }
