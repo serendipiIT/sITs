@@ -70,6 +70,7 @@
             <v-icon
               v-if="isBookmarked"
               :name="'bi-bookmark-fill'"
+              fill="#262626"
               scale="1.2"
               @click="bookmark"
               class="cursor-pointer"
@@ -79,6 +80,7 @@
               v-else
               :name="'bi-bookmark'"
               scale="1.2"
+              fill="#262626"
               @click="bookmark"
               class="cursor-pointer"
               :class="{ animation: true }"

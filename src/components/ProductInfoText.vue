@@ -102,12 +102,24 @@
   <div>
     <div class="flex justify-between my-2">
       <h3 class="text-3xl">{{ product?.title }}</h3>
+
       <v-icon
-        :name="isBookmarked ? 'bi-bookmark-fill' : 'bi-bookmark'"
+        v-if="isBookmarked"
+        :name="'bi-bookmark-fill'"
         fill="#262626"
         scale="1.7"
         @click="bookmark"
         class="cursor-pointer"
+        :class="{ animation: true }"
+      />
+      <v-icon
+        v-else
+        :name="'bi-bookmark'"
+        fill="#262626"
+        scale="1.7"
+        @click="bookmark"
+        class="cursor-pointer"
+        :class="{ animation: true }"
       />
     </div>
 
@@ -165,5 +177,19 @@
     transform: translateY(-10px);
     opacity: 0;
     height: 0;
+  }
+
+  .animation {
+    animation: fadeIn 0.7s;
+    /* transform: translate3d(0, 0, 0); */
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
   }
 </style>
