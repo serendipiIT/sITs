@@ -20,12 +20,13 @@ export default {
         commit('saveProducts', list.data)
       }
     },
-    async getColumns({ commit }) {
+    /*    async getColumns({ commit }) {
       const response = await fetch(
         'http://SITsApi.us-east-1.elasticbeanstalk.com/products/columns',
       )
       const result = await response.json()
       const columns = await result.data
+      commit('setColumns', columns)
       for (let index = 0; index < columns.length; index++) {
         const element = columns[index]
         if (element.Field === 'category2') {
@@ -56,7 +57,7 @@ export default {
           commit('setSize', size)
         }
       }
-    },
+    },*/
   },
   getters: {
     getProductsByCategory: (state) => (cat) => {
@@ -131,6 +132,12 @@ export default {
       state.color = result
       console.log(state.color)
     },
+
+    setColumns(state, result) {
+      state.columns = result
+      console.log(state.columns)
+    },
+
     setSize(state, result) {
       state.size = result
       console.log(state.size)
@@ -163,5 +170,6 @@ export default {
     categories: [],
     color: [],
     size: [],
+    columns: null,
   },
 }
