@@ -73,7 +73,7 @@
               scale="1.2"
               @click="bookmark"
               class="cursor-pointer"
-              :class="{ shake: isBookmarked }"
+              :class="{ animation: true }"
             />
             <v-icon
               v-else
@@ -81,7 +81,7 @@
               scale="1.2"
               @click="bookmark"
               class="cursor-pointer"
-              :class="{ shake: isBookmarked }"
+              :class="{ animation: true }"
             />
           </div>
         </div>
@@ -100,49 +100,17 @@
 </template>
 
 <style>
-  .shake {
-    animation: fadeIn 0.175s;
+  .animation {
+    animation: fadeIn 0.7s;
     /* transform: translate3d(0, 0, 0); */
   }
 
   @keyframes fadeIn {
-    0% {
-      opacity: 0.3;
+    from {
+      opacity: 0.4;
     }
-    20% {
-      opacity: 0.3;
-    }
-    40% {
-      opacity: 0.3;
-    }
-    60% {
-      opacity: 0.5;
-    }
-    80% {
-      opacity: 0.9;
-    }
-    100% {
+    to {
       opacity: 1;
     }
-    /* 10%,
-    90% {
-      transform: translate3d(-1px, 0, 0);
-    }
-
-    20%,
-    80% {
-      transform: translate3d(2px, 0, 0);
-    }
-
-    30%,
-    50%,
-    70% {
-      transform: translate3d(-4px, 0, 0);
-    }
-
-    40%,
-    60% {
-      transform: translate3d(4px, 0, 0);
-    } */
   }
 </style>
