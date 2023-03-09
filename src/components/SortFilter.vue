@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-between p-2 mt-4">
     <button class="btn btn-invert" @click="isOpen = !isOpen">Filter</button>
-    <button class="btn btn-invert">Sort By</button>
+    <!-- <button class="btn btn-invert">Sort By</button> -->
   </div>
 
   <transition
@@ -25,7 +25,11 @@
             v-for="(value, key) in categories"
             :key="key"
             @click="setFilterCategories(key)"
-            :class="value ? 'font-bold' : 'font-regular'"
+            :class="
+              $store.state.products.filterCategories.includes(key)
+                ? 'font-bold'
+                : 'font-regular'
+            "
           >
             {{ key }}
           </div>
@@ -38,7 +42,11 @@
             v-for="(valueSize, keySize) in size"
             :key="keySize"
             @click="setFilterSize(keySize)"
-            :class="valueSize ? 'font-bold' : 'font-regular'"
+            :class="
+              $store.state.products.filterSize.includes(keySize)
+                ? 'font-bold'
+                : 'font-regular'
+            "
           >
             {{ keySize }}
           </div>
@@ -50,8 +58,14 @@
           <div class="grid grid-cols-6">
             <div v-for="(value, key) in color" :key="key">
               <div
+                @click="setFilterColor(key)"
                 class="rounded-full border border-gray-200 w-4 h-4 m-1"
                 :style="{ backgroundColor: key }"
+                :class="
+                  $store.state.products.filterColor.includes(key)
+                    ? 'border-2'
+                    : 'border-0'
+                "
               />
             </div>
           </div>
@@ -59,7 +73,7 @@
         <div>
           <button
             class="btn btn-invert"
-            @click="resetFilter, (isOpen = !isOpen)"
+            @click="resetFilter(), (isOpen = !isOpen)"
           >
             Reset Filter
           </button>
@@ -102,7 +116,6 @@
         type: [Function, Boolean],
       },
     },
-    emits: ['reset'],
     computed: {
       products() {
         return this.$store.state.products.productList
@@ -131,27 +144,29 @@
       $route() {
         this.isOpen = false
       },
-      filtersCategories() {
-        this.setFilterCategories()
-      },
-      filtersSize() {
-        this.setFilterSize()
-      },
+      // filtersCategories() {
+      //   this.setFilterCategories()
+      // },
+      // filtersSize() {
+      //   this.setFilterSize()
+      // },
     },
 
     methods: {
-      testing() {
-        console.log(this.$store.state.products.categories)
-      },
+      // testing() {
+      //   console.log(this.$store.state.products.categories)
+      // },
       setFilterCategories(x) {
         this.$store.commit('products/setFilterCategories', x)
       },
       setFilterSize(x) {
         this.$store.commit('products/setFilterSize', x)
       },
-
+      setFilterColor(x) {
+        this.$store.commit('products/setFilterColor', x)
+      },
       resetFilter() {
-        this.$emit('reset')
+        this.$store.commit('products/resetFilters')
       },
 
       /*  async getColumns() {
