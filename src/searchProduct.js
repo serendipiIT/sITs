@@ -32,13 +32,13 @@ export function search(itemList, str) {
   let relevant = filterRelevant(relevantsortedByDistance)
   return {
     itemList: relevant,
-    suggestions: suggestedSearchTerms,
+    suggestions: suggestedSearchTerms || '',
   }
 }
 
 function sortCategoriesByDistance(productA, productB) {
-  const distanceA = levenshtein(searchTerm, productA.category.toLowerCase())
-  const distanceB = levenshtein(searchTerm, productB.category.toLowerCase())
+  const distanceA = levenshtein(searchTerm, productA.category2.toLowerCase())
+  const distanceB = levenshtein(searchTerm, productB.category2.toLowerCase())
   productA.distance = distanceA
   productB.distance = distanceB
   if (distanceA > distanceB) return 1
@@ -74,7 +74,7 @@ function isMatch(obj) {
 
 function filterCategorySuggestions(arr) {
   const categoryStartsWithMatch = arr.find((product) =>
-    product.category.startsWith(searchTerm),
+    product.category2.toLowerCase().startsWith(searchTerm),
   )
 
   const filteredArray = arr
@@ -83,7 +83,7 @@ function filterCategorySuggestions(arr) {
 
   categoryStartsWithMatch && filteredArray.push(categoryStartsWithMatch)
 
-  return [...new Set(filteredArray.map((item) => item.category))]
+  return [...new Set(filteredArray.map((item) => item.category2))]
 }
 
 function filterRelevant(arr) {
