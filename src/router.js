@@ -8,6 +8,7 @@ import FavouritesPage from './views/FavouritesPage.vue'
 import ProductInfo from './views/ProductInfo.vue'
 import HeroSection from './components/HeroSection.vue'
 import Article from './views/ArticlesPage.vue'
+import Checkout from './views/CheckoutView.vue'
 
 export default createRouter({
   scrollBehavior() {
@@ -60,6 +61,12 @@ export default createRouter({
       component: Article,
       path: '/article/:id',
       meta: { title: 'Article' },
+    },
+    {
+      name: 'checkout',
+      component: Checkout,
+      path: '/checkout',
+      meta: { title: 'checkout' },
     },
   ],
 })
