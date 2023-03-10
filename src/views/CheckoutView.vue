@@ -67,7 +67,8 @@
   export default {
     data() {
       return {
-        urlApi: 'http://localhost:3000/',
+        products: JSON.stringify(this.$store.state.cart.items),
+        urlApi: 'http://SITsApi.us-east-1.elasticbeanstalk.com/',
         form: {
           firstName: '',
           lastName: '',
@@ -98,25 +99,27 @@
     },
     methods: {
       async handleSubmit() {
-        {
-          const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              products: `'${this.itemList}'`,
-              name: `'${this.form.firstName}'`,
-              surname: `'${this.form.lastName}'`,
-              email: `'${this.form.email}'`,
-              phone: `${this.form.tel}`,
-              street: `'${this.form.billingAddress.streetName}'`,
-              postal_code: `${this.form.billingAddress.postcode}`,
-              city: `'${this.form.billingAddress.city}'`,
-            }),
-          }
-          const response = await fetch(`${this.urlApi}orders`, requestOptions)
-          const data = await response.json()
-          console.log(data)
+        console.log(this.products)
+        const newdSAF = this.products.slice(1, -1)
+        console.log(newdSAF)
+
+        const requestOptions = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            products: `${this.products}`,
+            name: `'${this.form.firstName}'`,
+            surname: `'${this.form.lastName}'`,
+            email: `'${this.form.email}'`,
+            phone: `${this.form.tel}`,
+            street: `'${this.form.billingAddress.streetName}'`,
+            postal_code: `${this.form.billingAddress.postcode}`,
+            city: `'${this.form.billingAddress.city}'`,
+          }),
         }
+        const response = await fetch(`${this.urlApi}orders`, requestOptions)
+        const data = await response.json()
+        console.log(data)
       },
     },
   }
