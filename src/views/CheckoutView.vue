@@ -18,6 +18,7 @@
           </ul>
         </section>
       </div>
+      <button @click="updateProductStock">Update stock</button>
       <div>
         <form
           @submit.prevent="handleSubmit"
@@ -75,6 +76,8 @@
         showThanks: false,
         products: JSON.stringify(this.$store.state.cart.items),
         urlApi: 'http://SITsApi.us-east-1.elasticbeanstalk.com/',
+        /* urlApi: 'http://localhost:3000/',*/
+        stock: [],
         form: {
           firstName: '',
           lastName: '',
@@ -98,6 +101,9 @@
       itemList() {
         return this.$store.state.cart.items
       },
+      productList() {
+        return this.$store.state.productList
+      },
       ...mapGetters({
         amount: 'cart/totalAmount',
         total: 'cart/total',
@@ -116,10 +122,24 @@
         const data = await response.json()
         this.$store.commit('pages/updatePages', data.data)
       },
+
+      async updateProductStock() {
+        /*const result = await fetch(`${this.urlApi}products`)
+        const data = await result.json()
+        console.log(data)*/
+      },
+
       async handleSubmit() {
         console.log(this.products)
-        const newdSAF = this.products.slice(1, -1)
-        console.log(newdSAF)
+
+        for (let index = 0; index < this.productList.length; index++) {
+          const element = this.productList[index]
+          if (this.itemList.find((item) => item.id === element.id)) {
+            let proditem = this.itemList.find((item) => item.id === element.id)
+            const newStock = element.stock - proditem.amount
+            this.stock.push({ id: element.id, stock: newStock })
+          }
+        }
 
         const requestOptions = {
           method: 'POST',
@@ -133,6 +153,7 @@
             street: `${this.form.billingAddress.streetName}`,
             postal_code: `${this.form.billingAddress.postcode}`,
             city: `${this.form.billingAddress.city}`,
+            stock: this.stock,
           }),
         }
         const response = await fetch(`${this.urlApi}orders`, requestOptions)
