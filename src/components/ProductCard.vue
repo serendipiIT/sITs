@@ -90,9 +90,10 @@
         <div
           class="py-1 pr-2 text-gray-500 text-sm cursor-pointer"
           @click="$router.push(`/product/${this.product.id}`)"
-        >
-          {{ product.description.slice(0, 100) + '...' }}
-        </div>
+          v-html="product.description.slice(0, 100) + '...'"
+        />
+        <!-- {{ product.description.slice(0, 100) + '...' }}
+        </div>-->
       </div>
     </div>
     <div class="flex pb-4 items-center justify-between">

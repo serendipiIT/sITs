@@ -126,9 +126,9 @@
     <div class="text-2xl mb-2">${{ product?.price }}</div>
     <p class="text-neutral-500 text-lg mb-2">{{ product?.category }}</p>
 
-    <div class="text-neutral-500 text-lg mb-4">
-      {{ product?.description }}
-    </div>
+    <div class="text-neutral-500 text-lg mb-4" v-html="product?.description" />
+    <!--{{ product?.description }}
+    </div>-->
 
     <button class="btn transition-all text-lg w-[100%] mb-4" @click="buy">
       Add to Cart
