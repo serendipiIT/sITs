@@ -37,6 +37,7 @@
         this.carrer = result[2]
         this.sustainability = result[3]
         console.log(this.history, this.find, this.carrer, this.sustainability)
+        this.$store.commit('pages/updatePages', data.data)
       },
     },
     created() {

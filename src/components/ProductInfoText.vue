@@ -99,7 +99,7 @@
   }
 </script>
 <template>
-  <div>
+  <div class="lg:min-w-[40%] md:min-w-[50%] min-w-[90%]">
     <div class="flex justify-between my-2">
       <h3 class="text-3xl">{{ product?.title }}</h3>
 

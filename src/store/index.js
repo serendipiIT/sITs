@@ -5,6 +5,7 @@ import bookmarkModule from './modules/bookmarks'
 import cartModule from './modules/cart'
 import productModule from './modules/products'
 import journalModule from './modules/journal'
+import pagesModule from './modules/pages'
 import emailModule from './modules/email'
 
 const vuexLocal = new VuexPersistence({
@@ -17,6 +18,7 @@ export default createStore({
     cart: cartModule,
     products: productModule,
     journal: journalModule,
+    pages: pagesModule,
     email: emailModule,
   },
   plugins: [vuexLocal.plugin],

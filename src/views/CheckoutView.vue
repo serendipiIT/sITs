@@ -1,12 +1,13 @@
 <template>
   <div
     class="flex flex-col flex-wrap px-4 sm:px-0 bg-neutral-100 justify-start min-h-screen"
+    v-if="itemList.length > 0"
   >
     <h1 class="text-4xl text-center my-8 w-full">Checkout</h1>
     <div class="flex flex-col sm:flex-row flex-wrap w-full justify-around">
       <div>
         <section class="w-full">
-          <ul class="flex flex-col" v-if="itemList.length > 0">
+          <ul class="flex flex-col">
             <li
               class="mb-8 h-min w-full"
               :key="item.id"
@@ -57,9 +58,13 @@
       </div>
     </div>
   </div>
+  <div v-else-if="showThanks">
+    <CompletedOrder :email="this.form.email" />
+  </div>
 </template>
 
 <script>
+  import CompletedOrder from '../components/CompletedOrder.vue'
   import AddressFieldGroup from '../components/AddressFieldGroup.vue'
   import CheckoutItemCard from '../components/CheckoutItemCard.vue'
   import { mapGetters } from 'vuex'
@@ -67,6 +72,7 @@
   export default {
     data() {
       return {
+        showThanks: false,
         products: JSON.stringify(this.$store.state.cart.items),
         urlApi: 'http://SITsApi.us-east-1.elasticbeanstalk.com/',
         form: {
@@ -85,6 +91,7 @@
     components: {
       AddressFieldGroup,
       CheckoutItemCard,
+      CompletedOrder,
     },
 
     computed: {
@@ -97,7 +104,18 @@
         totalProductCost: 'cart/totalPriceTimesAmount',
       }),
     },
+    created() {
+      this.getPages()
+    },
     methods: {
+      removeAll() {
+        this.$store.commit('cart/removeAll')
+      },
+      async getPages() {
+        const response = await fetch(`${this.urlApi}pages`)
+        const data = await response.json()
+        this.$store.commit('pages/updatePages', data.data)
+      },
       async handleSubmit() {
         console.log(this.products)
         const newdSAF = this.products.slice(1, -1)
@@ -108,18 +126,20 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             products: `${this.products}`,
-            name: `'${this.form.firstName}'`,
-            surname: `'${this.form.lastName}'`,
-            email: `'${this.form.email}'`,
+            name: `${this.form.firstName}`,
+            surname: `${this.form.lastName}`,
+            email: `${this.form.email}`,
             phone: `${this.form.tel}`,
-            street: `'${this.form.billingAddress.streetName}'`,
+            street: `${this.form.billingAddress.streetName}`,
             postal_code: `${this.form.billingAddress.postcode}`,
-            city: `'${this.form.billingAddress.city}'`,
+            city: `${this.form.billingAddress.city}`,
           }),
         }
         const response = await fetch(`${this.urlApi}orders`, requestOptions)
-        const data = await response.json()
-        console.log(data)
+        if (response.ok) {
+          this.showThanks = true
+          this.removeAll()
+        }
       },
     },
   }

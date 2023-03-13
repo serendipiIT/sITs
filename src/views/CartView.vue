@@ -36,12 +36,15 @@
           <p>${{ total }}</p>
         </div>
         <div class="w-full lg:w-[70%] self-center">
-          <button
-            class="btn w-full duration-300 bg-zinc-900 text-zinc-100 py-4 px-6 hover:bg-zinc-800 hover:text-zinc-50 rounded border-zinc-900"
-            type="button"
-          >
-            Checkout
-          </button>
+          <RouterLink to="/checkout">
+            <button
+              class="btn w-full duration-300 bg-zinc-900 text-zinc-100 py-4 px-6 hover:bg-zinc-800 hover:text-zinc-50 rounded border-zinc-900"
+              type="button"
+              :disabled="itemList.length === 0"
+            >
+              Checkout
+            </button>
+          </RouterLink>
         </div>
       </section>
       <section class="flex flex-row flex-wrap w-full sm:w-[90%]">

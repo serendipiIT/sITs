@@ -5,9 +5,9 @@
       <label for="address">Address</label>
       <input
         type="text"
-        id="address"
-        :value="address"
-        @input="$emit('update:address', $event.target.value)"
+        id="streetName"
+        :value="streetName"
+        @input="$emit('update:streetName', $event.target.value)"
         required
       />
     </div>
@@ -42,7 +42,7 @@
         type: String,
         default: '',
       },
-      address: {
+      streetName: {
         type: String,
         default: '',
       },
