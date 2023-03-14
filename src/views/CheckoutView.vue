@@ -64,7 +64,8 @@
       </div>
     </div>
   </div>
-  <div v-else-if="showThanks">
+  <div v-else>
+    <!--<div v-else-if="showThanks">-->
     <CompletedOrder :email="this.form.email" />
   </div>
 </template>

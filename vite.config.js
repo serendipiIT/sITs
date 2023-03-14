@@ -2,6 +2,9 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
+  server: {
+    port: 5174,
+  },
   plugins: [
     vue({
       //Detta tar bort varningen: "If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement."

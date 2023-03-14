@@ -1,3 +1,4 @@
+@import './quill.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,6 +6,18 @@
 @layer base {
   :root {
     font-size: 16px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
   }
 
   html {

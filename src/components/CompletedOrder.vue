@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div class="m-auto text-center mt-[2rem]">
     <lottie-player
+      class="m-auto mb-[2rem]"
       autoplay
       mode="normal"
       src="https://assets6.lottiefiles.com/packages/lf20_1zdomr99.json"
@@ -12,6 +13,7 @@
 </template>
 
 <script>
+  // eslint-disable-next-line no-unused-vars
   import * as LottiePlayer from '@lottiefiles/lottie-player'
   export default {
     props: {
