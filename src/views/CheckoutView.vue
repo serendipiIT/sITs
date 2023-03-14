@@ -18,7 +18,6 @@
           </ul>
         </section>
       </div>
-      <button @click="updateProductStock">Update stock</button>
       <div>
         <form
           @submit.prevent="handleSubmit"
@@ -40,7 +39,13 @@
           </div>
           <div class="address__field">
             <label for="tel">Tel</label>
-            <input type="tel" id="tel" v-model="form.tel" required />
+            <input
+              type="number"
+              style="text-align: left"
+              id="tel"
+              v-model="form.tel"
+              required
+            />
           </div>
           <div class="address__field">
             <label for="email">Email</label>
@@ -102,7 +107,7 @@
         return this.$store.state.cart.items
       },
       productList() {
-        return this.$store.state.productList
+        return this.$store.state.products.productList
       },
       ...mapGetters({
         amount: 'cart/totalAmount',
@@ -114,19 +119,10 @@
       this.getPages()
     },
     methods: {
-      removeAll() {
-        this.$store.commit('cart/removeAll')
-      },
       async getPages() {
         const response = await fetch(`${this.urlApi}pages`)
         const data = await response.json()
         this.$store.commit('pages/updatePages', data.data)
-      },
-
-      async updateProductStock() {
-        /*const result = await fetch(`${this.urlApi}products`)
-        const data = await result.json()
-        console.log(data)*/
       },
 
       async handleSubmit() {
@@ -137,6 +133,7 @@
           if (this.itemList.find((item) => item.id === element.id)) {
             let proditem = this.itemList.find((item) => item.id === element.id)
             const newStock = element.stock - proditem.amount
+            console.log(element.stock, '-', proditem.amount, '=', newStock)
             this.stock.push({ id: element.id, stock: newStock })
           }
         }
@@ -159,7 +156,8 @@
         const response = await fetch(`${this.urlApi}orders`, requestOptions)
         if (response.ok) {
           this.showThanks = true
-          this.removeAll()
+          this.$store.commit('cart/removeAll')
+          this.$store.dispatch('products/getProducts')
         }
       },
     },
@@ -167,6 +165,9 @@
 </script>
 
 <style scoped>
+  h1 {
+    font-size: x-large;
+  }
   .checkout-form {
     margin: 5px auto;
     padding: 10px;

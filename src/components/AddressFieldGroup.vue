@@ -24,7 +24,8 @@
     <div class="address__field">
       <label for="postcode">Postcode</label>
       <input
-        type="text"
+        style="text-align: left"
+        type="number"
         id="postcode"
         :value="postcode"
         @input="$emit('update:postcode', $event.target.value)"
