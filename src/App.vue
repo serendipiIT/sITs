@@ -1,6 +1,4 @@
 <script>
-  import { mapGetters } from 'vuex'
-
   import Navbar from './components/Navbar.vue'
   import PageFooter from './components/PageFooter.vue'
   import GetJournal from './components/GetJournal.vue'
@@ -23,11 +21,7 @@
       },
     },
     components: { Navbar, PageFooter, GetJournal, Modal },
-    computed: {
-      ...mapGetters({
-        categories: 'products/getCategories',
-      }),
-    },
+
     methods: {
       toggleMenu() {
         this.closeMenu = !this.closeMenu
