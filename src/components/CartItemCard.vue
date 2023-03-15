@@ -9,7 +9,7 @@
       <div class="flex flex-row flex-1">
         <h2
           v-shortText="{ text: item.title, chars: 30 }"
-          class="flex-1 font-semibold"
+          class="flex-1 font-semibold text-lg"
         />
         <vIcon
           @click="removeItem(item.id)"

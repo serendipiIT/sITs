@@ -33,7 +33,7 @@
           <h2 class="flex-grow">
             Total <span class="italic text-sm">Excl. Sales tax</span>
           </h2>
-          <p>${{ total }}</p>
+          <p class="self-end">${{ total }}</p>
         </div>
         <div class="w-full lg:w-[70%] self-center">
           <RouterLink to="/checkout">

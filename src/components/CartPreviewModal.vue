@@ -23,7 +23,7 @@
               <div class="flex flex-row">
                 <h2
                   v-shortText="{ text: item.title, chars: 17 }"
-                  class="flex-1 font-semibold"
+                  class="flex-1 font-semibold text-sm"
                 />
                 <vIcon
                   @click="removeItem(item.id, $event)"
@@ -42,22 +42,24 @@
     <section class="h-fit flex flex-col w-full justify-start text-sm">
       <h2 class="text-2xl text-center mb-4">Total</h2>
       <div class="flex w-[70%] self-center mb-4">
-        <p class="flex-grow">Delivery cost</p>
-        <p class="font-medium">Free</p>
+        <p class="flex-grow text-base">Delivery cost</p>
+        <p class="font-medium" text-base>Free</p>
       </div>
       <div class="flex w-[70%] self-center mb-8">
-        <h2 class="flex-grow">
+        <h2 class="flex-grow text-base">
           Total
           <span class="italic block text-xs">Excl. Sales tax</span>
         </h2>
         <p class="font-medium">${{ total }}</p>
       </div>
-      <button
-        class="btn w-full duration-300 bg-zinc-900 text-zinc-100 py-4 px-6 hover:bg-zinc-800 hover:text-zinc-50 rounded border-zinc-900"
-        type="button"
-      >
-        Checkout
-      </button>
+      <RouterLink to="/checkout">
+        <button
+          class="btn w-full duration-300 bg-zinc-900 text-zinc-100 py-4 px-6 hover:bg-zinc-800 hover:text-zinc-50 rounded border-zinc-900"
+          type="button"
+        >
+          Checkout
+        </button>
+      </RouterLink>
     </section>
   </div>
 </template>

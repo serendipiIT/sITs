@@ -1,15 +1,15 @@
 <template>
-  <article class="flex flex-row relative flex-1 bg-white">
+  <article class="flex flex-row relative">
     <img
       :alt="item.title"
       class="absolute sm:relative bottom-4 sm:bottom-0 right-4 sm:right-0 sm:w-auto h-8 sm:h-[8rem] object-contain"
       :src="item.image"
     />
-    <div class="flex flex-col">
+    <div class="flex flex-col p-4 flex-1 bg-white">
       <div class="flex flex-row flex-1">
         <h2
           v-shortText="{ text: item.title, chars: 30 }"
-          class="flex-1 font-semibold"
+          class="flex-1 font-semibold text-lg"
         />
         <vIcon
           @click="removeItem(item.id)"
