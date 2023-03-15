@@ -33,7 +33,7 @@
     />
     <div v-if="searchTerm">
       <ul class="mb-2" v-if="suggestions.length > 0">
-        <h2 class="font-bold mb-2">Did you mean:</h2>
+        <h2 class="font-bold mb-2 text-lg">Did you mean:</h2>
         <li
           v-for="(category, index) in suggestions"
           :key="`category: ${category}-${index}`"
@@ -61,7 +61,7 @@
           >
             <router-link :to="`/product/${item.id}`">
               <img class="h-8 w-8 inline mr-2" :src="item.image" alt="" />
-              <p v-shortText="{ text: item.title, chars: 20 }" />
+              <p class="inline" v-shortText="{ text: item.title, chars: 20 }" />
             </router-link>
           </li>
         </TransitionGroup>
