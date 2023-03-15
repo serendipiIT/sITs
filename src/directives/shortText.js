@@ -1,5 +1,4 @@
 export default function (element, binding) {
-  console.log(element, binding)
   const text = binding.value.text
   const maxChars = binding.value.chars || 30
   element.innerText =
