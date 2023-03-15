@@ -38,6 +38,7 @@
 <script>
   export default {
     name: 'AddressFieldGroup',
+    emits: 'update:postcode',
     props: {
       label: {
         type: String,
