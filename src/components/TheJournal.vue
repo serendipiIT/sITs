@@ -2,7 +2,8 @@
   export default {
     computed: {
       journals() {
-        return this.$store.state.journal.journal
+        const arr = this.$store.state.journal.journal.slice(0, 2)
+        return arr.reverse()
       },
     },
   }
