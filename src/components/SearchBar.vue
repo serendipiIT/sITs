@@ -48,16 +48,23 @@
       </ul>
       <ul class="mt-2" v-if="searchResults.length > 0">
         <h2 class="font-bold">Products:</h2>
-        <li
-          class="search-results max-w-[300px] p-2 border-b-2 hover:bg-neutral-200"
-          v-for="item in searchResults.slice(0, 5)"
-          :key="item.id"
+        <TransitionGroup
+          enter-from-class="translate-y-[50%] opacity-0"
+          leave-to-class="translate-y-[50%] opacity-0"
+          enter-active-class="transition duration-130"
+          leave-active-class="transition duration-130"
         >
-          <router-link :to="`/product/${item.id}`">
-            <img class="h-8 w-8 inline mr-2" :src="item.image" alt="" />
-            <p v-shortText="{ text: item.title, chars: 20 }" />
-          </router-link>
-        </li>
+          <li
+            class="search-results max-w-[300px] p-2 border-b-2 hover:bg-neutral-200"
+            v-for="item in searchResults.slice(0, 5)"
+            :key="item.id"
+          >
+            <router-link :to="`/product/${item.id}`">
+              <img class="h-8 w-8 inline mr-2" :src="item.image" alt="" />
+              <p v-shortText="{ text: item.title, chars: 20 }" />
+            </router-link>
+          </li>
+        </TransitionGroup>
       </ul>
     </div>
   </div>

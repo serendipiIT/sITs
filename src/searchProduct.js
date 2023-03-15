@@ -24,6 +24,8 @@ export function search(itemList, str) {
       const distanceToWord = levenshtein(searchTerm, titleArr[0])
       if (distanceToWord < product.distance) {
         product.distance = distanceToWord
+      } else if (product.title.startsWith(searchTerm)) {
+        product.distance = 0
       }
       return product
     })
