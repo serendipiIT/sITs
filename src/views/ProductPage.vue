@@ -42,6 +42,10 @@
         this.closeMenu = !this.closeMenu
       },
     },
+    mounted() {
+      this.$store.dispatch('products/getProducts')
+      this.$store.dispatch('products/getColumns')
+    },
   }
 </script>
 

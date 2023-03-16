@@ -11,7 +11,7 @@
         searchTerm: '',
       }
     },
-    created() {
+    mounted() {
       this.$store.dispatch('products/getProducts')
       this.$store.dispatch('products/getColumns')
     },

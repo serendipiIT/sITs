@@ -1,5 +1,5 @@
 <template>
-  <article class="flex flex-row relative">
+  <article class="flex flex-row relative min-w-[400px]">
     <img
       :alt="item.title"
       class="absolute sm:relative bottom-4 sm:bottom-0 right-4 sm:right-0 sm:w-auto h-8 sm:h-[8rem] object-contain"
