@@ -12,17 +12,6 @@
     data() {
       return {}
     },
-    watch: {
-      showModal() {
-        console.log(this.showModal)
-      },
-    },
-    computed: {
-      // ADDTOCARTMODAL MED VUEX
-      // showModal() {
-      //   return this.$store.state.cart.modal
-      // },
-    },
   }
 </script>
 <template>

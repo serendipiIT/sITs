@@ -10,7 +10,6 @@
     data() {
       return {
         isBookmarked: false,
-        //array med objekt som är sparade
         storedBookmarks: this.$store.state.bookmarks.bookmarked,
       }
     },

@@ -10,9 +10,6 @@
         return this.$store.state.bookmarks.bookmarked
       },
     },
-    created() {
-      console.log(this.bookmarks)
-    },
   }
 </script>
 

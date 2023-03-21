@@ -42,7 +42,7 @@
             Size
           </h2>
           <div
-            v-for="(valueSize, keySize) in size"
+            v-for="(value, keySize) in size"
             :key="keySize"
             @click="setFilterSize(keySize)"
             :class="

@@ -64,17 +64,6 @@
           .dispatch('cart/addItem', this.product)
           .then((res) => console.log(res))
 
-        // ADDTOCARTMODAL MED VUEX
-        // this.$store
-        //   .dispatch('cart/showModal', true)
-        //   .then((res) => console.log(res))
-        //   .then(
-        //     setTimeout(
-        //       () => this.$store.dispatch('cart/showModal', false),
-        //       5000,
-        //     ),
-        //   )
-
         this.openAddedModal()
       },
     },
